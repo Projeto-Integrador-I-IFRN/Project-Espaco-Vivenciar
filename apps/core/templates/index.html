@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% load static %}
+{% block content %}
+<main>
+    <section >
+        <div class = "text">
+            <h1>Sempre cuidando da sua saúde e bem-estar</h1>
+            <p>Agora você pode agendar suas consultas totalmente online de forma prática e rápida!</p>
+            <input type="button" value="Cadastre-se" class="register-button">
+        </div>
+        <div class = "image-doctors">
+            <img src="{% static "core/assets/img/3d-business-young-doctors-standing-together-1.svg" %}" alt="imagem do main">
+        </div>
+    </section>
+
+    <section>
+      {% include "partials/carousel.html" %}
+    </section>
+
+      
+</main>
+{% endblock content%}
