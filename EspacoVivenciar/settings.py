@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.core',
+    'apps.perfil',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +120,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
+    BASE_DIR / 'static',
     BASE_DIR / 'apps/core/static',
+    BASE_DIR / 'apps/perfil/static',
 ) 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
