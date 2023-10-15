@@ -17,33 +17,76 @@
 <body>
     <div class="forms">
         <div class="container">
-            <div class="content">
+            <div class="content primeira-parte"> 
                 <div class="title">
                     <h1>Cadastre-se</h1>
                 </div>
                 <div class="form">
                     <label for="e-mail">E-mail</label>
-                    <input type="email" name="email" id="" placeholder="Ex:mariajose@gmail.com">
+                    <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
                 </div>
                 <div class="form">
                     <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" id="" placeholder="000.000.000-00">
+                    <input type="text" name="cpf" placeholder="000.000.000-00">
                 </div>
                 <div class="form">
                     <label for="cpf">Confirmar CPF</label>
-                    <input type="text" name="cpf" id="" placeholder="000.000.000-00">
+                    <input type="text" name="cpf" placeholder="000.000.000-00">
                 </div>
-                
                 <div class="btn-continue">
-                    <button type="submit">Continue</button>
+                    <button id="continuar-button">Continue</button>
                     <p>Já tem uma conta? <span class="btn-color"><a href="">Entrar</a></span></p>
                 </div>
             </div>
-        </div>
-
-            <div class="img">
-                <img src="{% static "assets/img/3d-business-young-doctors-standing-together-1.svg" %}" alt="">
+            
+            <div class="content segunda-parte" style="display: none;">
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                </div>
+                <div class="form">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" name="nome" placeholder="Ex: Maria Jose da Silva">
+                </div>
+                <div class="form">
+                    <label for="data-nascimento">Data de Nascimento</label>
+                    <input type="date" name="data-nascimento" placeholder="">
+                </div>
+                <div class="content-label">
+                    <div class="form">
+                        <label for="genero">Gênero</label>
+                        <input type="text" name="genero" placeholder="Ex: Feminino">
+                    </div>
+                    <div class="form">
+                        <label>Contato</label>
+                        <input type="text" name="contato" placeholder="Ex: (00) 00000-0000">
+                    </div>
+                </div>
+                <div class="btn-continue">
+                    <button id="continuar-button">Concluir</button>
+                    <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
+                </div>
             </div>
+        </div>
+        <div class="img">
+            <img src="{% static 'assets/img/3d-business-young-doctors-standing-together-1.svg' %}" alt="">
+        </div>
     </div>
+
+    <script>
+        const voltarButton = document.getElementById("voltar-button");
+        const continuarButton = document.getElementById("continuar-button");
+        const primeiraParte = document.querySelector(".primeira-parte");
+        const segundaParte = document.querySelector(".segunda-parte");
+
+        voltarButton.addEventListener("click", function() {
+            segundaParte.style.display = "none";
+            primeiraParte.style.display = "block";
+        });
+
+        continuarButton.addEventListener("click", function() {
+            primeiraParte.style.display = "none";
+            segundaParte.style.display = "block";
+        });
+    </script>
 </body>
 </html>

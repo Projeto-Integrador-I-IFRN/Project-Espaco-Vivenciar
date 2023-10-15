@@ -67,6 +67,21 @@ body {
   height: 50px;
   padding: 30px;
 }
+.segunda-parte {
+  width: 400px;
+
+}
+
+.content-label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content-label input {
+  width: 190px;
+  padding: 30px;
+}
 
 .btn-continue {
   text-align: center;
@@ -86,9 +101,19 @@ body {
   border: 2px;
   cursor: pointer;
   margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .btn-continue p{
   font-size: 18px;
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+span {
+  color: var(--green-base);
+}
+
+.voltar-button {
+  font-weight: bold;
+  cursor: pointer;
 }
