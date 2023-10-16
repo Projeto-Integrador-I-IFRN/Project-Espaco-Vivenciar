@@ -8,5 +8,8 @@ def Cadastro(request):
 def Login(request):
     return render(request, 'perfil/login.html')
 
+def Home(request):
+    return render(request, 'perfil/home.html')
+
 def Perfil(request):
     return render(request, 'perfil/perfil.html')
