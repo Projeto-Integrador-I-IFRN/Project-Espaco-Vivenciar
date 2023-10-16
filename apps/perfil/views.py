@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 def Cadastro(request):
     return render(request, 'perfil/cadastro.html')
     
+def Login(request):
+    return render(request, 'perfil/login.html')
 
 def Perfil(request):
     return render(request, 'perfil/perfil.html')

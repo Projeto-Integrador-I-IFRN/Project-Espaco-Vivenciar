@@ -35,10 +35,9 @@
                 </div>
                 <div class="btn-continue">
                     <button id="continuar-button">Continue</button>
-                    <p>Já tem uma conta? <span class="btn-color"><a href="">Entrar</a></span></p>
+                    <p>Já tem uma conta? <span class="btn-color"><a href="{% url "perfil:Login" %}">Entrar</a></span></p>
                 </div>
             </div>
-            
             <div class="content segunda-parte" style="display: none;">
                 <div class="title">
                     <h1>Cadastre-se</h1>
@@ -62,10 +61,11 @@
                     </div>
                 </div>
                 <div class="btn-continue">
-                    <button id="continuar-button">Concluir</button>
+                    <button id="continuar-button"><a href="{% url "core:Index" %}">Concluir</a></button>
                     <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
                 </div>
             </div>
+            
         </div>
         <div class="img">
             <img src="{% static 'assets/img/3d-business-young-doctors-standing-together-1.svg' %}" alt="">
