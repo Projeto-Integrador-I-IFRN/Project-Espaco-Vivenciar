@@ -27,35 +27,18 @@ header {
     width: auto;
 }
 
-header .nav {
+.nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 3.125rem; /* 50px */
+    margin-left: 6.25rem; /* 50px */
     margin-right: 6.25rem; /* 100px*/
     width: auto;
 
 }
 
-header .nav .login-button {
-    background-color: var(--green-base);
-    color: white;
-    width: 120px;
-    height: 35px;
-    flex-shrink: 0;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 500;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    cursor: pointer;
-}
-
-header button a {
-    color: #ffffff;
-}
-
-header img {
+.home-logo {
     height: 150px;
     margin-left: 3rem; /* 40px */
 }
@@ -63,66 +46,35 @@ header img {
 main {
     margin-top: 3.125rem; /* 50px */
 }
-
-main h1 {
+.home-info h1 {
+    margin-top: 20px;
     color: var(--green-base);
     font-size: 50px;
-    width: 39.375rem; /* 630px */
-    word-wrap: break-word;
-    font-style: normal;
-    font-weight: 600;
 }
 
-main p {
+.home-info p {
     font-size: 22px;
     width: 39.375rem; /* 630px */
     font-style: normal;
     font-weight: 400;
 }
 
-main section {
+.container {
     display: flex;
     align-items: center;
     margin: auto;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
-    margin-left: 6.25rem; /* 100px */
-    margin-right: 6.25rem;
     width: auto;
 }
 
-main .text {
-    display: flex;
-    flex-direction: column;
-    gap: 3.125rem; /* 50px  */
-}
-
-main .register-button {
-    width: 14.5rem; /* 145px  */
-    height: 3.43rem;
-    background-color: var(--green-base);
-    border-radius: 30px;
-    color: white;
-    font-size: 16px;
-    font-weight: 500;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    cursor: pointer;
-}
-
-main button a {
-    color: #ffffff;
-}
-
-main .image-doctors {
-    margin-right: 6.25rem;
-}
-
 .wrapper {
-    max-width: 1100px;
+    max-width: 1200px;
     width: 100%;
     position: relative;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .wrapper i {
@@ -157,7 +109,7 @@ main .image-doctors {
 .wrapper .carousel{
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc(100% / 3);
+    grid-auto-columns: calc(100% / 4);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 40px;
@@ -192,7 +144,8 @@ main .image-doctors {
 
 .carousel .card {
     scroll-snap-align: start;
-    height: 342px;
+    height: 350px;
+    width: 300px;
     list-style: none;
     background: #fff;
     cursor: pointer;
@@ -226,31 +179,15 @@ main .image-doctors {
     text-align: center;
 }
 
-footer {
+.card button {
     background-color: var(--green-base);
-}
-
-footer .container-footer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    color: var(--background-white);
+    border-radius: 15px;
+    width: 130px;
+    height: 40px;
+    margin-top: 20px;
     text-align: center;
-    width: auto;
-    height: 250px;
-    margin-top: 6.25rem; 
-}
-
-footer .localizacao-footer {
-    color: #ffffff;
-    text-align: center;
-}
-
-footer nav ul {
-    display: flex;
-}
-
-footer nav ul li {
-    margin: 20px;
+    cursor: pointer;
 }
 
 /* MEDIA QUERYS */
@@ -258,9 +195,10 @@ footer nav ul li {
     .wrapper .carousel {
       grid-auto-columns: calc((100% / 2) - 9px);
     }
-  }
+}
+
   @media screen and (max-width: 600px) {
     .wrapper .carousel {
       grid-auto-columns: 100%;
     }
-  }
+}

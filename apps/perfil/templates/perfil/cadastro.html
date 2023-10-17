@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'perfil/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <title>Espaço Vivenciar</title>
+</head>
+<body style="background-image: url('{% static 'bg.jpg' %}');" >
+    <div class="forms">
+        <div class="container">
+            <div class="content primeira-parte"> 
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                </div>
+                <div class="form">
+                    <label for="e-mail">E-mail</label>
+                    <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
+                </div>
+                <div class="form">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="form">
+                    <label for="cpf">Confirmar CPF</label>
+                    <input type="text" name="cpf" placeholder="000.000.000-00">
+                </div>
+                <div class="btn-continue">
+                    <button id="continuar-button">Continue</button>
+                    <p>Já tem uma conta? <span class="btn-color"><a href="{% url "perfil:Login" %}">Entrar</a></span></p>
+                </div>
+            </div>
+            <div class="content segunda-parte" style="display: none;">
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                </div>
+                <div class="form">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" name="nome" placeholder="Ex: Maria Jose da Silva">
+                </div>
+                <div class="form">
+                    <label for="data-nascimento">Data de Nascimento</label>
+                    <input type="date" name="data-nascimento" placeholder="">
+                </div>
+                <div class="content-label">
+                    <div class="form">
+                        <label for="genero">Gênero</label>
+                        <input type="text" name="genero" placeholder="Ex: Feminino">
+                    </div>
+                    <div class="form">
+                        <label>Contato</label>
+                        <input type="text" name="contato" placeholder="Ex: (00) 00000-0000">
+                    </div>
+                </div>
+                <div class="btn-continue">
+                    <button id="continuar-button"><a href="{% url "core:Index" %}">Concluir</a></button>
+                    <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="img">
+            <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
+        </div>
+    </div>
+
+    <script>
+        const voltarButton = document.getElementById("voltar-button");
+        const continuarButton = document.getElementById("continuar-button");
+        const primeiraParte = document.querySelector(".primeira-parte");
+        const segundaParte = document.querySelector(".segunda-parte");
+
+        voltarButton.addEventListener("click", function() {
+            segundaParte.style.display = "none";
+            primeiraParte.style.display = "block";
+        });
+
+        continuarButton.addEventListener("click", function() {
+            primeiraParte.style.display = "none";
+            segundaParte.style.display = "block";
+        });
+    </script>
+</body>
+</html>

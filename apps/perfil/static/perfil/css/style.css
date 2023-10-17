@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+}
+
+
+:root {
+  --background-white: #F7F7F7;
+  --green-base: #006650d3;
+}
+
+::selection {
+  background-color: var(--green-base);
+  color: var(--background-white);
+}
+body {
+  background-color: var(--green-base);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.forms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  background-color: var(--background-white);
+  width: 1200px;
+  height: 700px;
+  border-radius: 50px;
+  
+}
+
+.title{
+  color: var(--green-base);
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 50px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-right: 150px;
+
+}
+
+.content .form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px 15px 0px;
+}
+
+.form input {
+  border-radius: 5px;
+  border: 5px #cfcfcf65 ;
+  width: 380px;
+  height: 50px;
+  padding: 30px;
+}
+.segunda-parte {
+  width: 400px;
+
+}
+
+.content-label {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.content-label input {
+  width: 190px;
+  padding: 30px;
+}
+
+.btn-continue {
+  text-align: center;
+}
+
+.btn-color a{
+  color: var(--green-base);
+}
+
+.btn-continue button {
+  background-color: var(--green-base);
+  width: 380px;
+  height: 50px;
+  color: var(--background-white);
+  font-size: 18px;
+  border-radius: 10px;
+  border: 2px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-continue p{
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.btn-continue > button > a {
+  color: var(--background-white);
+}
+
+span {
+  color: var(--green-base);
+}
+
+.voltar-button {
+  font-weight: bold;
+  cursor: pointer;
+}

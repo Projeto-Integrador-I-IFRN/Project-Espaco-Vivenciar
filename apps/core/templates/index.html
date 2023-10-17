@@ -7,10 +7,10 @@
         <div class = "text">
             <h1>Sempre cuidando da sua saúde e bem-estar</h1>
             <p>Agora você pode agendar suas consultas totalmente online de forma prática e rápida!</p>
-            <input type="button" value="Cadastre-se" class="register-button">
+            <a href="{% url "perfil:Cadastro" %}"><button type="button" class="register-button">Cadastre-se</button></a>
         </div>
         <div class = "image-doctors">
-            <img src="{% static "core/assets/img/3d-business-young-doctors-standing-together-1.svg" %}" alt="imagem do main">
+            <img src="{% static "assets/img/3d-business-young-doctors-standing-together-1.svg" %}" alt="imagem do main">
         </div>
     </section>
 

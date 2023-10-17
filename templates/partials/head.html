@@ -4,7 +4,7 @@
 
 <!-- Style -->
 <link rel="stylesheet" href="{% static 'core/assets/css/style.css'%}">
-<link rel="stylesheet" href="{% static 'core/assets/css/scroll.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
 <!-- fonts -->
@@ -15,5 +15,5 @@
 <!-- Scripts -->
 <script src="{% static "core/assets/js/index.js" %}" defer></script>
 
-<title>Espaço Vivenciar </title>
+<title>Espaço Vivenciar {% block title %}{% endblock title %}</title>
 
