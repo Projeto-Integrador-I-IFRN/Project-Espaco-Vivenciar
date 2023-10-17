@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'perfil/css/perfil.css'%}">
+
+    <title>Perfil</title>
+</head>
+<body>
+    
+    {% include "partials/header_home.html" %}
+
+    <h1>Meu Perfil</h1>
+    <main>
+        <section class="container">
+            <div class="content-1" >
+                <h3>Informações pessoais</h3>
+                <button>Editar</button>
+            </div>
+            <!-- Informação do usuário -->
+            <div class="info-user">
+                <div>
+                    <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
+                </div>
+                <div>
+                    <label for="nome">Nome</label>
+                    <p>José Francisco da Silva</p>
+                </div>
+                <div>
+                    <label for="data">Data de Nascimento</label>
+                    <p>15/12/2002</p>
+                </div>
+                <div>
+                <label for="gênero">Gênero</label>
+                <p>Masculino</p>
+                </div>
+            </div>
+
+            <div class="info-user">
+                <div>
+                    <label for="e-mail">E-mail</label>
+                    <p>josedasilva@gmail.com</p>
+                </div>
+                <div>
+                    <label for="e-mail">CPF</label>
+                    <p>000.000.000-00</p>
+                </div>
+                <div>
+                    <label for="e-mail">Contato</label>
+                    <p>(84) 99999-9999</p>
+                </div>
+            </div>
+
+            <!-- Endereço -->
+            <div class="container-2">
+                <div class="content-2">
+                    <h2>Endereço</h2>
+                </div>
+
+                <div class="info-user-2">
+                    <div>
+                        <label for="cidade">Cidade</label>
+                        <p>Ex: Pau dos Ferros</p>
+                    </div>
+                    <div>
+                        <label for="rua">Rua</label>
+                        <p>Ex: Rua da Independencia</p>
+                    </div>
+                </div>
+
+                <div class="info-user-2">
+                    <div>
+                        <label for="bairro">Bairro</label>
+                        <p>Ex: Centro</p>
+                    </div>
+                    <div>
+                        <label for="number">Número</label>
+                        <p>Ex: 150</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        
+    </main>
+</body>
+</html>

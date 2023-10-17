@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    text-decoration: none;
+}
+
+:root {
+    --background-white: #F7F7F7;
+    --green-base: #006650d3;
+}
+
+::selection {
+    background-color: var(--green-base);
+    color: var(--background-white);
+}
+
+body {
+    background-color: var(--background-white);
+    margin: auto;
+}
+
+header {
+    width: auto;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6.25rem; /* 50px */
+    margin-right: 6.25rem; /* 100px*/
+    width: auto;
+
+}
+
+.home-logo {
+    height: 150px;
+    margin-left: 3rem; /* 40px */
+}
+h1 {
+    color: var(--green-base);
+    margin-left: 300px;
+    margin-bottom: 50px;
+    font-size: 40px;
+}
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.container {
+    background-color: #ffffff;
+    width: 880px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+
+.content-1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.content-1 h3 {
+    font-size: 24px;
+    color: var(--green-base);
+    margin-right: 200px;
+}
+
+.content-1 button {
+    color: var(--green-base);
+    border: 3px solid var(--green-base);
+    border-radius: 20px;
+    width: 120px;
+    height: 30px;
+    background-color: transparent;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.content-1 button:hover {
+    background-color: var(--green-base);
+    border: none;
+    color: #ffffff;
+}
+
+.info-user {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.info-user label {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.info-user p {
+    padding: 10px;
+}
+
+.container-2 {
+    
+}
+.content-2 h2 {
+    color: var(--green-base);
+    margin-left: 50px;
+}
+.info-user-2 {
+    margin-top: 35px;
+    margin-left: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.info-user-2 label {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.info-user-2 p {
+    padding: 10px;
+}
