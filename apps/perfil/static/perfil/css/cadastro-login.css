@@ -117,12 +117,12 @@ body {
   color: var(--green-base);
 }
 
-.btn-continue button {
+.btn-continue button{
   background-color: var(--green-base);
   width: 380px;
   height: 50px;
   color: var(--background-white);
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px;
   border: 2px;
   cursor: pointer;

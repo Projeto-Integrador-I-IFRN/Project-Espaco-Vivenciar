@@ -1,44 +1,48 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="pt_BR">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{% static 'perfil/css/login.css'%}">
+    <link rel="stylesheet" href="{% static 'perfil/css/cadastro-login.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <title>Espaço Vivenciar - Login</title>
-</head>
-<body>
 
-<div class="login">
-    <div class="container-login">
-        <div class="content-login"> 
-            <div class="title-login">
-                <h1>Entrar</h1>
-            </div>
-            <div class="form-login">
-                <label for="e-mail">E-mail</label>
-                <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
-            </div>
-            <div class="form-login">
-                <label for="cpf">CPF</label>
-                <input type="password" name="cpf" placeholder="000.000.000-00">
-            </div>
-            <div class="btn-entrar">
-                <button><a href="{% url "core:Index" %}">Entrar</a></button>
-                <p>Não tem uma conta? <a href="{% url "perfil:Cadastro" %}"><u><span style="color: #006650d3;">Cadastre-se</span></u></a></p>
+    <title>Espaço Vivenciar</title>
+</head>
+    <div class="login-card">
+        <div class="container">
+            <div class="content-primeira-parte"> 
+                <div class="title">
+                    <h1>Entrar</h1>
+                </div>
+                <div class="form">
+                    <label for="e-mail">E-mail</label>
+                    <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
+                </div>
+                <div class="form">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" placeholder="000.000.000-00">
+                </div>
+        
+                <div class="btn-continue">
+                    <button id="continuar-button"><a href="{% url "perfil:Home" %}">Entrar</a></button>
+                    <p>Não tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Cadastro" %}"> Cadastre-se</a></span></u></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="img-login">
-        <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
-    </div>
-</div>
+            <div class="img">
+                <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
+            </div>
+        </div>
+        <
+
+            
+
 </body>
 </html>
