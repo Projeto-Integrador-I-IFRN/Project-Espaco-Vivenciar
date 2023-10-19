@@ -32,29 +32,35 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 6.25rem; /* 50px */
-    margin-right: 6.25rem; /* 100px*/
+    margin-left: 6.25rem;
+    /* 50px */
+    margin-right: 6.25rem;
+    /* 100px*/
     width: auto;
 
 }
 
 .home-logo {
     height: 150px;
-    margin-left: 3rem; /* 40px */
+    margin-left: 3rem;
+    /* 40px */
 }
 
 main {
-    margin-top: 3.125rem; /* 50px */
+    margin-top: 3.125rem;
+    /* 50px */
 }
+
 .home-info h1 {
     margin-top: 20px;
     color: var(--green-base);
-    font-size: 50px;
+    font-size: 45px;
 }
 
 .home-info p {
     font-size: 22px;
-    width: 39.375rem; /* 630px */
+    width: 39.375rem;
+    /* 630px */
     font-style: normal;
     font-weight: 400;
 }
@@ -68,6 +74,17 @@ main {
     width: auto;
 }
 
+.btn-card button
+{
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    margin-top: 20px;
+    text-align: center;
+    cursor: pointer;
+}
 .wrapper {
     max-width: 1200px;
     width: 100%;
@@ -88,32 +105,32 @@ main {
     text-align: center;
     line-height: 50px;
     border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: translateY(-50%);
     transition: transform 0.1s linear;
 }
 
-.wrapper i:active{
+.wrapper i:active {
     transform: translateY(-50%) scale(0.85);
 }
 
-.wrapper i:first-child{
+.wrapper i:first-child {
     left: -22px;
 }
 
-.wrapper i:last-child{
+.wrapper i:last-child {
     right: -22px;
-    
+
 }
 
-.wrapper .carousel{
+.wrapper .carousel {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: calc(100% / 4);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 40px;
-    border-radius: 8px;
+    border-radius: 20px;
     scroll-behavior: smooth;
     scrollbar-width: none;
 }
@@ -151,7 +168,7 @@ main {
     cursor: pointer;
     padding-bottom: 15px;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .carousel .card .img {
@@ -162,7 +179,7 @@ main {
 }
 
 .card .img img {
-    width: 160px;
+    width: 100px;
     height: 140px;
     border-radius: 50%;
     object-fit: cover;
@@ -179,26 +196,16 @@ main {
     text-align: center;
 }
 
-.card button {
-    background-color: var(--green-base);
-    color: var(--background-white);
-    border-radius: 15px;
-    width: 130px;
-    height: 40px;
-    margin-top: 20px;
-    text-align: center;
-    cursor: pointer;
-}
 
 /* MEDIA QUERYS */
 @media screen and (max-width: 900px) {
     .wrapper .carousel {
-      grid-auto-columns: calc((100% / 2) - 9px);
+        grid-auto-columns: calc((100% / 2) - 9px);
     }
 }
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .wrapper .carousel {
-      grid-auto-columns: 100%;
+        grid-auto-columns: 100%;
     }
 }
