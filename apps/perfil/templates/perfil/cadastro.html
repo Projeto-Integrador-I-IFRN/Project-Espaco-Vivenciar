@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{% static 'perfil/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'perfil/css/cadastro-login.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
 
     <!-- fonts -->
@@ -15,10 +15,9 @@
 
     <title>Espaço Vivenciar</title>
 </head>
-<body style="background-image: url('{% static 'bg.jpg' %}');" >
-    <div class="forms">
+    <div class="login-card">
         <div class="container">
-            <div class="content primeira-parte"> 
+            <div class="content-primeira-parte"> 
                 <div class="title">
                     <h1>Cadastre-se</h1>
                 </div>
@@ -36,10 +35,12 @@
                 </div>
                 <div class="btn-continue">
                     <button id="continuar-button">Continue</button>
-                    <p>Já tem uma conta? <span class="btn-color"><a href="{% url "perfil:Login" %}">Entrar</a></span></p>
+                    <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
                 </div>
             </div>
-            <div class="content segunda-parte" style="display: none;">
+
+            
+            <div class="content-segunda-parte" style="display: none;">
                 <div class="title">
                     <h1>Cadastre-se</h1>
                 </div>
@@ -54,7 +55,11 @@
                 <div class="content-label">
                     <div class="form">
                         <label for="genero">Gênero</label>
-                        <input type="text" name="genero" placeholder="Ex: Feminino">
+                        <select name="Gênero" id="genero">
+                            <option value="Feminino">Feminino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     </div>
                     <div class="form">
                         <label>Contato</label>
@@ -62,7 +67,7 @@
                     </div>
                 </div>
                 <div class="btn-continue">
-                    <button id="continuar-button"><a href="{% url "core:Index" %}">Concluir</a></button>
+                    <button id="continuar-button"><a href="{% url "perfil:Home" %}">Concluir</a></button>
                     <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
                 </div>
             </div>
@@ -76,8 +81,8 @@
     <script>
         const voltarButton = document.getElementById("voltar-button");
         const continuarButton = document.getElementById("continuar-button");
-        const primeiraParte = document.querySelector(".primeira-parte");
-        const segundaParte = document.querySelector(".segunda-parte");
+        const primeiraParte = document.querySelector(".content-primeira-parte");
+        const segundaParte = document.querySelector(".content-segunda-parte");
 
         voltarButton.addEventListener("click", function() {
             segundaParte.style.display = "none";
