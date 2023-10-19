@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <title>Espaço Vivenciar - Login</title>
 </head>
-<body style="background-image: url('{% static 'bg.jpg' %}');" >
+<body>
 
 <div class="login">
     <div class="container-login">
@@ -32,7 +32,7 @@
             </div>
             <div class="btn-entrar">
                 <button><a href="{% url "core:Index" %}">Entrar</a></button>
-                <p>Não tem uma conta? <a href="{% url "perfil:Cadastro" %}"><span style="color: #006650d3;"> Cadastre-se</span></a></p>
+                <p>Não tem uma conta? <a href="{% url "perfil:Cadastro" %}"><u><span style="color: #006650d3;">Cadastre-se</span></u></a></p>
             </div>
         </div>
     </div>
