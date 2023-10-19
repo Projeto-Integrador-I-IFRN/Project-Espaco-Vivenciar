@@ -39,3 +39,9 @@ header {
     width: auto;
 
 }
+
+.home-logo {
+    height: 150px;
+    margin-left: 3rem;
+    /* 40px */
+}
