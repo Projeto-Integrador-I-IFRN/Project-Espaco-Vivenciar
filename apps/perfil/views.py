@@ -13,3 +13,6 @@ def Home(request):
 
 def Perfil(request):
     return render(request, 'perfil/perfil.html')
+
+def Agendamentos(request):
+    return render(request, 'perfil/agendamentos.html')
