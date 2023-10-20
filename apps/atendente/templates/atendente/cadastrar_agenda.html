@@ -1,0 +1,14 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+
+{% block cadastrar_agenda %}
+    <div class="container">
+        <div class="card-list">
+            <div class="title">
+                <h1>Agenda - Clínico geral</h1>
+                <p>Outubro</p>
+            </div>
+            {% include "partials/cards.html" with card='agendamento' data=False info_user=False info_user2=True horario2=False button_solicitar=False button_indeferido=True button_whastApp=True %}    
+        </div>
+    </div>
+{% endblock cadastrar_agenda %}
