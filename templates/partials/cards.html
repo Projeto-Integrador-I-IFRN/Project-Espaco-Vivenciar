@@ -1,0 +1,78 @@
+{% load static %}
+<div class="card-item">
+    {% if card == "agendamento" %}
+        {% if data %}
+            <div class="data">
+                <h3>Seg</h3>
+                <br>
+                <h1>28</h1>
+            </div>
+        {% endif %}
+        
+        {% if info_user %}
+            <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
+            <div class="user">
+                <span><strong>Dr. Kaio Moura</strong></span>
+                <p>Clínico geral</p>
+            </div>
+        {% endif %}
+
+        {% if info_user2 %}
+            <img src="{% static "assets/img/icons/paciente.svg" %}" alt="">
+            <div class="user">
+                <span><strong>José da Silva</strong></span>
+            </div>
+        {% endif %}
+
+        {% if horario %}
+            <div class="horario">   
+                <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                <p>9:00h - 10:00h</p>
+            </div>
+        {% endif %}
+
+        {% if horario2 %}
+        <div class="horario-solicitar">
+            <p>Horários de atendimento</p>
+            <div>
+                <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                <p>9:00h - 10:00h</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if lista_servico %}
+            <div class="list-service">
+                <img src="{% static "assets/img/icons/motivo.svg" %}" alt="">
+                <P>Motivo da consulta</P>
+            </div>
+        {% endif %}
+
+        {% if button_indeferido %}
+            <a href=""><img src="{% static "assets/img/icons/indeferido.svg" %}" alt=""></a>
+        {% endif %}
+
+        {% if button_whastApp %}
+            <a href=""><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
+        {% endif %}
+
+        {% if edit %}
+            <a href=""><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></a>
+        {% endif %}
+
+        {% if button_solicitar %}
+            <button class="button-solicitar">Solicitar</button>
+        {% endif %}
+
+        {% if button_recusar %}
+            <button class="button-recusar">Recusar</button>
+        {% endif %}
+
+        {% if button_aceitar %}
+            <button class="button-aceitar">Aceitar</button>
+        {% endif %}
+        </div>
+
+
+
+    {% endif %}

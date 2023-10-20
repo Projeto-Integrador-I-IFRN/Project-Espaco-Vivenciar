@@ -1,0 +1,95 @@
+:root {
+    --background-white: #F7F7F7;
+    --green-base: #006650d3;
+}
+
+.title {
+    margin-top: 100px;
+    color: var(--green-base);
+    margin-left: 30px;
+}
+.title h1 {
+    font-size: 40px;
+}
+
+.title p {
+    margin-top: 50px;
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-item {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    background-color: #ffffff;
+    height: 130px;
+    width: 1070px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
+}
+
+.card-item .data {
+    font-size: 18px;
+}
+
+.card-item .horario {
+    display: flex;
+    align-items: center;
+}
+
+.card-item .horario-solicitar div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    word-spacing: 5px;
+    color: var(--green-base);
+}
+
+.card-item .list-service{
+    display: flex;
+    align-items: center;
+}
+.card-item .button-solicitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.card-item .button-recusar {
+    background-color: #F3F3F3;
+    color: #EA0303;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.20px);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.card-item .button-aceitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.card-list {
+    margin-bottom: 100px;
+}
