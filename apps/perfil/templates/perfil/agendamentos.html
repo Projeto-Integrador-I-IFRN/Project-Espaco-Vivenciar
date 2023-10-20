@@ -1,8 +1,24 @@
 {% extends "base/base_home.html" %}
-
+{% load static %}
 {% block main %}
-    <div>
-        <h1 class="text-center">Welcome to the home page!</h1>
+
+    <div class="container">
+         <div class="card-list">
+            <div class="title">
+                <h1>Meus Agendamentos</h1>
+                <p>Outubro</p>
+            </div>
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            <div class="title">
+                <p>Novembro</p>
+            </div>
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+        
+        </div>
     </div>
 {% endblock main%}
 
