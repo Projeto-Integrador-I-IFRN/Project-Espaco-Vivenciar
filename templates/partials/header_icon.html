@@ -1,7 +1,7 @@
 {% load static %}
 <header>
     <div class="nav">
-        <img class="home-logo" src= "{% static "assets/img/icons/Logo.svg" %}" alt="">
+        <a href = "{% url "perfil:Home" %}"> <img class="home-logo" src= "{% static "assets/img/icons/Logo.svg" %}" alt=""></a>
         <img  class="home-icon" src="{% static "assets/img/icons/admin.svg" %}" >
     </div>
 </header>

@@ -41,11 +41,8 @@ header {
 }
 
 .home-logo {
-    height: 150px;
-    margin-left: 3rem;
-    /* 40px */
+    width: 10.87rem;
 }
-
 main {
     margin-top: 3.125rem;
     /* 50px */
@@ -169,12 +166,14 @@ main {
     text-align: center;
 }
 
+
 /* MEDIA QUERYS */
 @media screen and (max-width: 900px) {
     .wrapper .carousel {
         grid-auto-columns: calc((100% / 2) - 9px);
     }
 }
+
 @media screen and (max-width: 600px) {
     .wrapper .carousel {
         grid-auto-columns: 100%;

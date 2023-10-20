@@ -27,6 +27,29 @@ header {
     width: auto;
 }
 
+header img
+{
+    width: 10.87rem;
+}
+
+footer .logo-footer img
+{
+    width: 10.87rem;
+}
+
+header .nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    /* 100px*/
+    width: auto;
+
+}
+
+
 .nav {
     display: flex;
     flex-direction: row;
