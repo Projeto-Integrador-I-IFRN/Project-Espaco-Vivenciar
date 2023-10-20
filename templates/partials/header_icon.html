@@ -1,7 +1,16 @@
 {% load static %}
 <header>
     <div class="nav">
-        <a href = "{% url "perfil:Home" %}"> <img class="home-logo" src= "{% static "assets/img/icons/Logo.svg" %}" alt=""></a>
-        <img  class="home-icon" src="{% static "assets/img/icons/admin.svg" %}" >
+        <a href="{% url 'perfil:Home' %}">
+            <img class="home-logo" src="{% static 'assets/img/icons/Logo.svg' %}" alt="">
+        </a>
+        <div class="menu">
+            <img class="home-icon" src="{% static 'assets/img/icons/admin.svg' %}">
+            <div class="dropdown-menu">
+                <a href="#">Meu Perfil</a>
+                <a href="#">Meus Agendamentos</a>
+                <a class = "sair-link" href="{% url 'core:Index' %}">Sair</a>
+            </div>
+        </div>
     </div>
 </header>

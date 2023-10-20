@@ -23,20 +23,6 @@ body {
     margin: 0 auto;
 }
 
-header {
-    width: auto;
-}
-
-header img
-{
-    width: 10.87rem;
-}
-
-footer .logo-footer img
-{
-    width: 10.87rem;
-}
-
 header .nav {
     display: flex;
     flex-direction: row;
@@ -48,7 +34,6 @@ header .nav {
     width: auto;
 
 }
-
 
 .nav {
     display: flex;
