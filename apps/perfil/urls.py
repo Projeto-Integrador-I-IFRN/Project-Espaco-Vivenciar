@@ -9,4 +9,5 @@ urlpatterns = [
     path("home/", views.Home, name="Home"),
     path("perfil/", views.Perfil, name="Perfil"),
     path("agendamentos/", views.Agendamentos, name="Agendamentos"),
+    path("agendar/", views.Agendar, name="Agendar"),
 ]

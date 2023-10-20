@@ -1,0 +1,19 @@
+{% extends "base/base_home.html" %}
+{% load static %}
+
+{% block main_agendar %}
+<div class="container">
+    <div class="card-list">
+        <div class="title">
+            <h1>Fisioterapeuta</h1>
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <p>Outubro</p>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+        {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
+        {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
+        {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
+        {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
+    </div>
+
+{% endblock main_agendar %}
