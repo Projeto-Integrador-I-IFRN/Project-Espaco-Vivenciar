@@ -47,9 +47,27 @@
     align-items: center;
 }
 
+.card-item .horario-solicitar div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    word-spacing: 5px;
+    color: var(--green-base);
+}
+
 .card-item .list-service{
     display: flex;
     align-items: center;
+}
+.card-item .button-solicitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
 }
 .card-list {
     margin-bottom: 100px;

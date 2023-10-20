@@ -15,4 +15,16 @@ def Perfil(request):
     return render(request, 'perfil/perfil.html')
 
 def Agendamentos(request):
-    return render(request, 'perfil/agendamentos.html')
+    context = {
+        'card': 'agendamento',
+        'data': True,
+        'info_user': True,
+        'horario': True,
+        'horario2': True,
+        'lista_servico': True,
+        'button_solicitar': True,
+        'button_whatsApp': True,
+        'edit': True
+
+    }
+    return render(request, 'perfil/agendamentos.html', context=context)
