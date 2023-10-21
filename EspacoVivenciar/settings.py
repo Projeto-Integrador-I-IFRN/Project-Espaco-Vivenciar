@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.core',
     'apps.perfil',
+    'bootstrap_modal_forms',
     'apps.atendente',
 ]
 
