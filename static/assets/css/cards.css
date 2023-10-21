@@ -32,13 +32,23 @@
     font-weight: 600;
     font-size: 25px;
 }
-
+.title .text {
+    margin: 0;
+    color: var(--green-base);
+    font-weight: 600;
+    font-size: 25px;
+}
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
 .card-item {
     display: flex;
     justify-content: space-around;
