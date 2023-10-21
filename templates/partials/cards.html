@@ -2,17 +2,18 @@
 <div class="card-item">
     {% if card == "agendamento" %}
         {% if data %}
+        <div class="data-hr">
             <div class="data">
                 <h2>Seg</h2>
                 <h3>28</h3>
-                <hr>
             </div>
+            <hr>
+        </div>
         {% endif %}
-        
         {% if info_user %}
             <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
             <div class="user">
-                <span><strong>Dr. Kaio Moura</strong></span>
+                <p class = "name">Dr. Kaio Moura<p>
                 <p>Clínico geral</p>
             </div>
         {% endif %}
@@ -20,7 +21,7 @@
         {% if info_user2 %}
             <img src="{% static "assets/img/icons/paciente.svg" %}" alt="">
             <div class="user">
-                <span><strong>José da Silva</strong></span>
+                <p class = "name">José da Silva<p>
             </div>
         {% endif %}
 

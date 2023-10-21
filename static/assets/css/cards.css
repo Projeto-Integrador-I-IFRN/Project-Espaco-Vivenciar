@@ -5,6 +5,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+* p
+{
+    color: var(--dark-grey);
+}
+
+.card-item .name
+{
+    color: var(--green-base);
+    font-weight: 600;
+    font-size: 18px;
+}
+
 .title {
     margin-top: 50px;
     color: var(--green-base);
@@ -38,7 +50,7 @@
     width: 66.87rem;
     margin-top: 20px;
     border-radius: 20px;
-    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 .card-item .data h2{
@@ -54,6 +66,19 @@
     align-items: center;
 }
 
+.data-hr
+{
+    display: flex;
+    gap: 40px;
+    margin-left: 10px;
+}
+
+hr
+{   
+    width: 1.5px;
+    height: 5.90rem;
+    background-color: #CFCFCF;
+}
 .card-item .data h3
 {
     font-size: 40px;
