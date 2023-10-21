@@ -31,6 +31,9 @@ def Agendamentos(request):
         'button_indeferido': False,
         'button_recusar': False,
         'button_aceitar': False,
+        'button_detalhar': False,
+        'count_agendados': False,
+        'count_solicitacoes': False,
         'edit': True
     }
     return render(request, 'perfil/agendamentos.html', context=context)

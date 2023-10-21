@@ -53,12 +53,29 @@
             </div>
         {% endif %}
 
+        {% if count_agendados %}
+            <div class="count_agendados">
+                <p class="count">10</p>
+                <p>Agendamentos</p>
+            </div>
+        {% endif %}
+
+        {% if count_solicitacoes %}
+            <div class="count_solicitacoes">
+                <p class="count">3</p>
+                <p>Solicitações</p>
+            </div>
+        {% endif %}
+
         {% if button_indeferido %}
             <a href=""><img src="{% static "assets/img/icons/info.svg" %}" alt=""></a>
         {% endif %}
 
         {% if button_whastApp %}
             <a href=""><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
+        {% endif %}
+        {% if button_detalhar %}
+            <button class="button-detalhar">Detalhar</button>
         {% endif %}
 
         {% if edit %}
@@ -76,6 +93,6 @@
         {% if button_aceitar %}
             <button class="button-aceitar">Aceitar</button>
         {% endif %}
+    
         </div>
-
     {% endif %}

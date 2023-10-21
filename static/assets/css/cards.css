@@ -135,6 +135,44 @@ hr
     font-weight: 600;
     cursor: pointer;
 }
+
+.card-item .button-detalhar {
+    background-color: transparent;
+    color: var(--green-base);
+    border: 2px solid var(--green-base);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-item .count_agendados {
+    display: flex;
+    gap: 10px;
+}
+.count_agendados .count {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+    
+}
+.card-item .count_solicitacoes {
+    display: flex;
+    gap: 10px;
+}
+
+.count_solicitacoes .count {
+    background-color: #FFD336;
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+}
+
 .card-list {
     margin-bottom: 100px;
 }
