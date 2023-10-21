@@ -90,13 +90,14 @@ hr
     gap: 10px;
 }
 
-.card-item .horario-solicitar div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    word-spacing: 5px;
-    color: var(--green-base);
+.btn-card {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
 }
 
 .card-item .list-service{
@@ -107,13 +108,13 @@ hr
 .card-item .button-solicitar {
     background-color: var(--green-base);
     color: var(--background-white);
-    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
-    width: 130px;
-    height: 35px;
     border-radius: 30px;
-    font-weight: 600;
+    width: 134px;
+    height: 35px;
+    text-align: center;
     cursor: pointer;
 }
+
 .card-item .button-recusar {
     background-color: #F3F3F3;
     color: #EA0303;
@@ -138,6 +139,11 @@ hr
     margin-bottom: 100px;
 }
 
+.card-item .info-user 
+{
+    display: flex;
+    gap: 10px;
+}
 .card-item .info-user2 img
 {
     width: 60%;

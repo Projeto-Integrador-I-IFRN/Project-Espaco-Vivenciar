@@ -1,4 +1,8 @@
 {% load static %}
+{%include "perfil/modal.html"%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+<link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
 <div class="card-item">
     {% if card == "agendamento" %}
         {% if data %}
@@ -35,7 +39,7 @@
         {% if horario2 %}
         <div class="horario-solicitar">
             <p>Horários de atendimento</p>
-            <div>
+            <div class="horario">
                 <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
                 <p>9:00h - 10:00h</p>
             </div>
@@ -62,7 +66,7 @@
         {% endif %}
 
         {% if button_solicitar %}
-            <button class="button-solicitar">Solicitar</button>
+            <button class="btn-card" data-toggle="modal" data-target="#myModal">Solicitar</button>
         {% endif %}
 
         {% if button_recusar %}
