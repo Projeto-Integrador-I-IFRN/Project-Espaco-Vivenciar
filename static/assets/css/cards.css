@@ -197,3 +197,45 @@ hr
     width: 60%;
    
 }
+
+.tab-menu {
+    margin-top: 100px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.tab-item {
+    padding: 10px;
+    background-color: transparent;
+    color: var(--dark-grey);
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+    border: 3px;
+    transition: background-color 0.3s;
+}
+
+
+.tab-item.active {
+    background-color: #E8E6E6;
+    display: flex;
+    gap: 10px;
+}
+.tab-item.active .count {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+    
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}

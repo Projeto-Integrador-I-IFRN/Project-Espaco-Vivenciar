@@ -6,4 +6,5 @@ app_name = 'atendente'
 urlpatterns = [
     path("atendente/home/", views.Home, name="Home"),
     path("atendente/gerenciar/", views.Gerenciar, name="Gerenciar"),
+    path("atendente/solicitacoes/", views.Solicitacoes, name="Gerenciar"),
 ]
