@@ -1,18 +1,23 @@
 {% load static %}
+{%include "perfil/modal.html"%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+<link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
 <div class="card-item">
     {% if card == "agendamento" %}
         {% if data %}
+        <div class="data-hr">
             <div class="data">
-                <h3>Seg</h3>
-                <br>
-                <h1>28</h1>
+                <h2>Seg</h2>
+                <h3>28</h3>
             </div>
+            <hr>
+        </div>
         {% endif %}
-        
         {% if info_user %}
             <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
             <div class="user">
-                <span><strong>Dr. Kaio Moura</strong></span>
+                <p class = "name">Dr. Kaio Moura<p>
                 <p>Clínico geral</p>
             </div>
         {% endif %}
@@ -20,7 +25,7 @@
         {% if info_user2 %}
             <img src="{% static "assets/img/icons/paciente.svg" %}" alt="">
             <div class="user">
-                <span><strong>José da Silva</strong></span>
+                <p class = "name">José da Silva<p>
             </div>
         {% endif %}
 
@@ -34,7 +39,7 @@
         {% if horario2 %}
         <div class="horario-solicitar">
             <p>Horários de atendimento</p>
-            <div>
+            <div class="horario">
                 <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
                 <p>9:00h - 10:00h</p>
             </div>
@@ -49,7 +54,7 @@
         {% endif %}
 
         {% if button_indeferido %}
-            <a href=""><img src="{% static "assets/img/icons/indeferido.svg" %}" alt=""></a>
+            <a href=""><img src="{% static "assets/img/icons/info.svg" %}" alt=""></a>
         {% endif %}
 
         {% if button_whastApp %}
@@ -61,7 +66,7 @@
         {% endif %}
 
         {% if button_solicitar %}
-            <button class="button-solicitar">Solicitar</button>
+            <button class="btn-card" data-toggle="modal" data-target="#myModal">Solicitar</button>
         {% endif %}
 
         {% if button_recusar %}
@@ -72,7 +77,5 @@
             <button class="button-aceitar">Aceitar</button>
         {% endif %}
         </div>
-
-
 
     {% endif %}

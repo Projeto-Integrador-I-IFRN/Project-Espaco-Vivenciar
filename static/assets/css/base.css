@@ -23,20 +23,6 @@ body {
     margin: 0 auto;
 }
 
-header {
-    width: auto;
-}
-
-header img
-{
-    width: 10.87rem;
-}
-
-footer .logo-footer img
-{
-    width: 10.87rem;
-}
-
 header .nav {
     display: flex;
     flex-direction: row;
@@ -49,7 +35,6 @@ header .nav {
 
 }
 
-
 .nav {
     display: flex;
     flex-direction: row;
@@ -61,10 +46,4 @@ header .nav {
     /* 100px*/
     width: auto;
 
-}
-
-.home-logo {
-    height: 150px;
-    margin-left: 3rem;
-    /* 40px */
 }

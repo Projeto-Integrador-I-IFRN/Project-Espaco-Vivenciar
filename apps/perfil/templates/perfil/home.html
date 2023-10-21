@@ -1,4 +1,5 @@
 {% load static %}
+{%include "perfil/modal.html"%}
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -8,11 +9,15 @@
     <link rel="stylesheet" href="{% static 'perfil/css/home.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
 
     <script src="{% static "perfil/js/index.js" %}" defer></script>
     <title>Espaço Vivenciar - Home</title>
@@ -40,25 +45,29 @@
                 <div class="img"><img src="{% static "assets/img/icons/medico.svg" %}" alt="img" draggable="false"></div>
                 <h2>Clínico Geral</h2>
                 <p>Dr. Kaio Moura</p>
-                <button class="btn-card">Solicitar</button>
+                <a class = "btn-card" href="{% url 'perfil:Agendar' %}">Solicitar</a>
+
               </li>
               <li class="card">
                 <div class="img"><img src="{% static "assets/img/icons/medico.svg" %}" alt="img" draggable="false"></div>
                 <h2>Clínico Geral</h2>
                 <p>Dr. Kaio Moura</p>
-                <button class="btn-card">Solicitar</button>
+                <a class = "btn-card" href="{% url "perfil:Agendar" %}">Solicitar</a>
+
               </li>
               <li class="card">
                 <div class="img"><img src="{% static "assets/img/icons/medico.svg" %}" alt="img" draggable="false"></div>
                 <h2>Clínico Geral</h2>
                 <p>Dr. Kaio Moura</p>
-                <button class="btn-card">Solicitar</button>
+                <a class = "btn-card" href="{% url "perfil:Agendar" %}">Solicitar</a>
+
               </li>
               <li class="card">
                 <div class="img"><img src="{% static "assets/img/icons/medico.svg" %}" alt="img" draggable="false"></div>
                 <h2>Clínico Geral</h2>
                 <p>Dr. Kaio Moura</p>
-                <button class="btn-card">Solicitar</button>
+                <a class = "btn-card" href="{% url "perfil:Agendar" %}">Solicitar</a>
+
               </li>
             </ul>
             <i id="right" class="fa-solid fa-angle-right"></i>
