@@ -98,15 +98,13 @@ main h1 {
     font-weight: 600;
 }
 
-main p {
+.conteudo-cadastro p {
     font-size: 22px;
-    width: 39.375rem;
-    /* 630px */
     font-style: normal;
     font-weight: 400;
 }
 
-main  section{
+main  .conteudo-cadastro{
     display: flex;
     align-items: center;
     margin: auto;
@@ -151,7 +149,7 @@ main .image-doctors {
     flex-direction: row;
     align-content: center;
     justify-content: space-around;
-    width: 100%;
+    width: 80%;
     position: relative;
     margin: auto;
     margin-top: 100px;
@@ -228,7 +226,6 @@ main .image-doctors {
 .carousel .card p {
     text-align: center;
 }
-
 
 
 footer {
