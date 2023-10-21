@@ -10,4 +10,5 @@ urlpatterns = [
     path("perfil/", views.Perfil, name="Perfil"),
     path("agendamentos/", views.Agendamentos, name="Agendamentos"),
     (path('modal/', views.mostrar_modal, name='Modal')),
+    path("agendar/", views.Agendar, name="Agendar"),
 ]

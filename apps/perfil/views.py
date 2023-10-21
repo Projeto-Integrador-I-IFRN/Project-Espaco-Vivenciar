@@ -40,3 +40,21 @@ from django.shortcuts import render
 def mostrar_modal(request):
     form = SolicitarConsulta()
     return render(request, 'perfil/modal.html', {'form': form})
+def Agendar(request):
+    context = {
+        'block': 'main_agendar', 
+        'card': 'agendamento',
+        'data': True,
+        'info_user': True,
+        'info_user2': False,
+        'horario': True,
+        'horario2': True,
+        'lista_servico': True,
+        'button_solicitar': True,
+        'button_whatsApp': True,
+        'button_indeferido': False,
+        'button_recusar': False,
+        'button_aceitar': False,
+        'edit': True  
+    }
+    return render(request, 'perfil/agendar.html', context)
