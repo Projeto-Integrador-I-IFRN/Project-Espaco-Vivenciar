@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from bootstrap_modal_forms.generic import BSModalCreateView
+from .forms import SolicitarConsulta
 
 # Create your views here.
 
@@ -31,3 +34,9 @@ def Agendamentos(request):
         'edit': True
     }
     return render(request, 'perfil/agendamentos.html', context=context)
+
+from django.shortcuts import render
+
+def mostrar_modal(request):
+    form = SolicitarConsulta()
+    return render(request, 'perfil/modal.html', {'form': form})
