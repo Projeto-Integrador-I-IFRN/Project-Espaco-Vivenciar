@@ -36,7 +36,7 @@
                         <div class="campos">
                             <label for="data">Data de Nascimento</label>
                             <p class="view-field">15/12/2002</p>
-                            <input type="text" class="edit-field" value="15/12/2002" style="display: none;">
+                            <input type="date" class="edit-field" value="2002-12-15" style="display: none;">
                         </div>
                     </div>
                     <div class="sections">
@@ -44,8 +44,13 @@
                             <div class="campos">
                                 <label for="gênero">Gênero</label>
                                 <p class="view-field">Masculino</p>
-                                <input type="text" class="edit-field" value="Masculino" style="display: none;">
+                                <select class="edit-field" style="display: none;">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
                             </div>
+                            
                             <div class="campos">
                                 <label for="e-mail">E-mail</label>
                                 <p class="view-field">josedasilva@gmail.com</p>

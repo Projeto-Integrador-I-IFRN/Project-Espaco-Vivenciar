@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             editButton.textContent = "Salvar";
+            editButton.style.backgroundColor = "var(--green-base)";
+            editButton.style.color = "var(--background-white)"
+            editButton.style.border = "none";
+            editButton.style.fontWeight = "500";
         } else if (editButton.textContent === "Salvar") {
             // Alternar para campos de visualização
             viewFields.forEach((field) => {
@@ -28,6 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             editButton.textContent = "Editar";
+            editButton.style = ""; // retorna ao padrao
+
         }
     });
 });

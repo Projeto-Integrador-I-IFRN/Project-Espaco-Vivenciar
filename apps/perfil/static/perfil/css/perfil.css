@@ -29,6 +29,7 @@ body {
     width: 100%;
     max-width: 55rem;
     margin-bottom: 100px;
+    margin-top: 50px;
 }
 
 .card-info {
@@ -66,11 +67,12 @@ label {
 }
 
 .edit-field {
-    font-size: 16px;
+    min-width: 12rem;
+    font-size: 14px;
     color: var(--dark-grey);
-    border: 1px solid #ccc; /* Adicione uma borda para destacar campos de edição */
-    padding: 5px;
-    border-radius: 5px;
+    border: 1px solid #ccc; 
+    padding: 10px;
+    border-radius: 10px;
     display: none; /* Inicialmente, oculte os campos de edição */
 }
 
