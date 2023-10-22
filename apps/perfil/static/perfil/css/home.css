@@ -101,8 +101,7 @@ main {
     scroll-snap-type: x mandatory;
     gap: 50px;
     border-radius: 20px;
-    scroll-behavior: smooth; /* Altere aqui para smooth para obter uma rolagem suave ou defina em outro valor */
-    scroll-behavior: 10s;
+    scroll-behavior: smooth;
 }
 
 .carousel::-webkit-scrollbar {
@@ -150,6 +149,10 @@ main {
     text-align: center;
 }
 
+li a
+{
+    color: black;;
+}
 
 /* MEDIA QUERYS */
 @media screen and (max-width: 900px) {

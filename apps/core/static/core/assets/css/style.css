@@ -234,7 +234,6 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 6.25rem;
-    
 }
 
 footer .container-footer {
@@ -246,7 +245,7 @@ footer .container-footer {
     text-align: center;
     width: auto;
     flex-wrap: wrap;
-    height: 26rem;
+    min-height: 30rem;
 }
 
 footer .localizacao-footer {

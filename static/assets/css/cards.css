@@ -5,7 +5,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-* p
+.card-item p
 {
     color: var(--dark-grey);
 }
