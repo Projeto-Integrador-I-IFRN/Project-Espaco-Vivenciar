@@ -28,7 +28,6 @@ body {
 .container {
     width: 100%;
     max-width: 55rem;
-    /* Defina uma largura máxima para o contêiner de perfil */
     margin-bottom: 100px;
 }
 
@@ -37,12 +36,11 @@ body {
     border-radius: 20px;
     width: 100%;
     max-width: 55rem;
-    height: 40rem;
+    height: auto; /* Ajuste a altura para se ajustar ao conteúdo */
     padding: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;
     filter: drop-shadow(0px 3.3px 3.3px rgba(32, 32, 32, 0.3));
-
 }
 
 h1 {
@@ -61,9 +59,19 @@ label {
     font-weight: 500;
 }
 
-p {
+/* Estilos para campos de visualização e edição */
+.view-field {
     font-size: 16px;
     color: var(--dark-grey);
+}
+
+.edit-field {
+    font-size: 16px;
+    color: var(--dark-grey);
+    border: 1px solid #ccc; /* Adicione uma borda para destacar campos de edição */
+    padding: 5px;
+    border-radius: 5px;
+    display: none; /* Inicialmente, oculte os campos de edição */
 }
 
 .card-header {
@@ -107,7 +115,6 @@ p {
     display: flex;
     gap: 150px;
     margin-top: 1.4rem;
-
 }
 
 .campos {
