@@ -227,7 +227,10 @@ main .image-doctors {
     text-align: center;
 }
 
-
+.carousel .card:hover
+{
+    opacity: 90%;
+}
 footer {
     background-image: url('../img/footer.svg');
     background-position: center bottom;

@@ -139,6 +139,11 @@ main {
     border-radius: 20px;
 }
 
+.carousel .card:hover
+{
+    opacity: 90%;
+}
+
 .carousel .card h2 {
     font-weight: bold;
     font-size: 1.56rem;
