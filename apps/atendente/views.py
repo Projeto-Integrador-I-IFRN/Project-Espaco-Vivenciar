@@ -18,7 +18,8 @@ def Gerenciar(request):
         'button_indeferido': False,
         'button_recusar': False,
         'button_aceitar': False,
-        'edit': True
+        'edit': True,
+        'edit2': False
     }
     return render(request, 'atendente/cadastrar_agenda.html', context=context)
 

@@ -10,13 +10,14 @@
 
         <ul class="tab-menu">
             <li class="tab-item active" data-tab="agendamentos">
-                <p class="count">10</p>
+                <p class="count count-agendamentos">10</p>
                 <p>Agendamentos</p>
             </li>
             <li class="tab-item" data-tab="solicitacoes">
-                <p class="count">3</p>
+                <p class="count count-solicitacoes">3</p>
                 <p>Solicitações</p>
             </li>
+            
         </ul>
 
         
@@ -42,27 +43,37 @@
     document.addEventListener('DOMContentLoaded', function () {
         const tabItems = document.querySelectorAll('.tab-item');
         const tabContents = document.querySelectorAll('.tab-content');
-        
-        // Simulando quantidades de agendamentos e solicitações (substitua esses valores pelo seu próprio cálculo)
-        
+
+        // Função para remover classes das abas
+        function removeActiveClasses() {
+            tabItems.forEach(tabItem => tabItem.classList.remove('active'));
+        }
+
         tabItems.forEach(item => {
             item.addEventListener('click', () => {
                 // Remove a classe 'active' de todas as abas
-                tabItems.forEach(tabItem => tabItem.classList.remove('active'));
+                removeActiveClasses();
                 // Oculta todos os conteúdos de abas
                 tabContents.forEach(tabContent => tabContent.style.display = 'none');
-        
+
                 // Adiciona a classe 'active' à aba clicada
                 item.classList.add('active');
                 // Mostra o conteúdo da aba correspondente
                 const targetTabId = item.getAttribute('data-tab');
                 document.getElementById(targetTabId).style.display = 'block';
+
+                // Definir as cores iniciais
+                if (item.getAttribute('data-tab') === 'agendamentos') {
+                    document.querySelector('.count-agendamentos').style.backgroundColor = 'var(--green-base)';
+                    document.querySelector('.count-agendamentos').style.color = 'var(--background-white)';
+                    document.querySelector('.count-solicitacoes').style.backgroundColor = 'var(--yellow-background)';
+                    document.querySelector('.count-solicitacoes').style.color = 'var(--black-color)';
+                }
             });
         });
-    
+
         // Exiba os agendamentos por padrão
         document.querySelector('.tab-content-agendamentos').style.display = 'block';
     });
-    
 </script>
 {% endblock solicitacoes_atendente %}
