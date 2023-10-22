@@ -21,3 +21,6 @@ def Gerenciar(request):
         'edit': True
     }
     return render(request, 'atendente/cadastrar_agenda.html', context=context)
+
+def GerenciarProfissionais(request):
+    return render(request, 'atendente/gerenciar_profissionais.html')
