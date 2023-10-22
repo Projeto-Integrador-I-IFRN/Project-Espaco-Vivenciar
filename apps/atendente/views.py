@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from bootstrap_modal_forms.generic import BSModalCreateView
+from .forms import NovaAgenda
 
 # Create your views here.
 def Home(request):
@@ -24,3 +27,7 @@ def Gerenciar(request):
 
 def GerenciarProfissionais(request):
     return render(request, 'atendente/gerenciar_profissionais.html')
+
+def mostrar_modal_atendente(request):
+    form = NovaAgenda()
+    return render(request, 'atendente/modal.html', {'form': form})

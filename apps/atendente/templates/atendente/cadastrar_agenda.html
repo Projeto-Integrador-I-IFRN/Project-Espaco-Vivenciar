@@ -1,6 +1,8 @@
 {% extends "base/base_home_atendente.html" %}
+{%include "atendente/modal.html"%}
 {% load static %}
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% block cadastrar_agenda %}
     <div class="container">
         <div class="card-list">
@@ -8,8 +10,8 @@
                 <h1>Agenda - Clínico geral</h1>
                 <div class="content">
                     <p>Outubro</p>
-                    <div class=".button-cadastrar-agenda">
-                        <button>+ Nova agenda</button>
+                    <div class="button-cadastrar-agenda">
+                        <button class="btn-card" data-toggle="modal" data-target="#myModal2">+ Nova agenda</button>
                     </div>
                 </div>
             </div>
