@@ -26,7 +26,14 @@ def Gerenciar(request):
     return render(request, 'atendente/cadastrar_agenda.html', context=context)
 
 def GerenciarProfissionais(request):
-    return render(request, 'atendente/gerenciar_profissionais.html')
+    return render(request, 'atendente/profissional.html')
+
+def CadastrarProfissionais(request):
+    context = {
+        'card': 'profissional',
+        'info_user': True 
+    }
+    return render(request, 'atendente/cadastrar_profissionais.html', context=context)
 
 def mostrar_modal_atendente(request):
     form = NovaAgenda()
