@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
     <link rel="stylesheet" href="{% static 'perfil/css/header.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <script src="{% static "perfil/js/index.js" %}" defer></script>
+    <script src="{% static "atendente/js/main.js" %}" defer></script>
     <title>Espaço Vivenciar - Atendende</title>
 </head>
 <body>
@@ -30,5 +33,9 @@
     {% block cadastrar_agenda %}
     
     {% endblock cadastrar_agenda %}
+
+    {% block cadastrar_profissionais %}
+    
+    {% endblock cadastrar_profissionais %}
 </body>
 </html>
