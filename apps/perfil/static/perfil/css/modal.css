@@ -9,7 +9,7 @@
 .modal {
     display: none;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1050;
@@ -77,6 +77,7 @@
 {
     background-color: var(--green-base);
     color: var(--background-white);
+    
 }
 
 .btn-cancel
@@ -138,7 +139,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #0000005e;
+    background-color: #4b4b4b5e;
     opacity: 0.5;
     filter: alpha(opacity=50);
 }

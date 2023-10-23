@@ -22,28 +22,3 @@ body {
     max-width: 2000px;
     margin: 0 auto;
 }
-
-header .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 6.25rem;
-    margin-right: 6.25rem;
-    /* 100px*/
-    width: auto;
-
-}
-
-.nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 6.25rem;
-    /* 50px */
-    margin-right: 6.25rem;
-    /* 100px*/
-    width: auto;
-
-}
