@@ -10,12 +10,11 @@
     <link rel="stylesheet" href="{% static 'perfil/css/home.css' %}">
     <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/scroll.css' %}">
-    <link rel="stylesheet" href={% static "assets/css/base.css" %}>
-    <link rel="stylesheet" href={% static "assets/css/cards.css" %}>
-    <link rel="stylesheet" href="{% static 'perfil/css/home.css'%}">
-    <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
-    <link rel="stylesheet" href="{% static 'perfil/css/header.css'%}">
+
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
@@ -24,14 +23,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
-    <script src="{% static 'perfil/js/index.js' %}" defer></script>
-    <title>Espaço Vivenciar - Atendente</title>
+    <!-- Scripts -->
     <script src="{% static "perfil/js/index.js" %}" defer></script>
     <script src="{% static "atendente/js/main.js" %}" defer></script>
+    
     <title>Espaço Vivenciar - Atendende</title>
 </head>
 <body>
-    {% include 'partials/header_icon.html' %}
     {% include "partials/header_icon_atendente.html" %}
 
     {% block home_atendente %}

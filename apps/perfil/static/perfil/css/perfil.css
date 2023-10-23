@@ -249,6 +249,10 @@ label {
     text-align: center;
     cursor: pointer;
 } 
+.gerenciamento .button-excluir a {
+    text-decoration: none;
+    color: white;
+}
 .gerenciamento .button-editar {
     background-color: white;
     color: var(--green-base);
