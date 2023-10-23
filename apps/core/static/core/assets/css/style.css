@@ -19,24 +19,52 @@
 body {
     background-color: var(--background-white);
     width: 100%;
-    max-width: 2000px;
+    max-width: 100vw;
     margin: 0 auto;
 }
 
-header {
-    width: auto;
+header img {
+    cursor: pointer;
 }
 
-header .nav {
+header .nav
+{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-left: 3.125rem; /* 50px */
-    margin-right: 6.25rem; /* 100px*/
+    margin-left: 6.25rem;
+    margin-right: 6.25rem;
+    /* 100px*/
     width: auto;
-
 }
+
+header
+{
+    width: 100vw;
+}
+
+.home-logo {
+    width: 10.87rem;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6.25rem;
+    /* 50px */
+    margin-right: 6.25rem;
+    /* 100px*/
+    width: auto;
+    
+}
+footer .logo-footer img
+{
+    width: 10.87rem;
+}
+
 
 header .nav .login-button {
     background-color: var(--green-base);
@@ -55,38 +83,35 @@ header button a {
     color: #ffffff;
 }
 
-header img {
-    height: 150px;
-    margin-left: 3rem; /* 40px */
-}
-
 main {
-    margin-top: 3.125rem; /* 50px */
+    margin-top: 3.125rem;
+    /* 50px */
 }
 
 main h1 {
     color: var(--green-base);
     font-size: 50px;
-    width: 39.375rem; /* 630px */
+    width: 39.375rem;
+    /* 630px */
     word-wrap: break-word;
     font-style: normal;
     font-weight: 600;
 }
 
-main p {
+.conteudo-cadastro p {
     font-size: 22px;
-    width: 39.375rem; /* 630px */
     font-style: normal;
     font-weight: 400;
 }
 
-main section {
+main  .conteudo-cadastro{
     display: flex;
     align-items: center;
     margin: auto;
     justify-content: space-between;
     flex-direction: row;
-    margin-left: 6.25rem; /* 100px */
+    margin-left: 6.25rem;
+    /* 100px */
     margin-right: 6.25rem;
     width: auto;
 }
@@ -94,11 +119,13 @@ main section {
 main .text {
     display: flex;
     flex-direction: column;
-    gap: 3.125rem; /* 50px  */
+    gap: 3.125rem;
+    /* 50px  */
 }
 
 main .register-button {
-    width: 14.5rem; /* 145px  */
+    width: 14.5rem;
+    /* 145px  */
     height: 3.43rem;
     background-color: var(--green-base);
     border-radius: 30px;
@@ -118,52 +145,41 @@ main .image-doctors {
 }
 
 .wrapper {
-    max-width: 1100px;
-    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    width: 80%;
     position: relative;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .wrapper i {
     margin: auto;
-    top: 50%;
-    height: 50px;
-    width: 50px;
     cursor: pointer;
-    font-size: 1.25rem;
-    position: absolute;
+    font-size: 2.25rem;
     text-align: center;
     line-height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.23);
     transform: translateY(-50%);
     transition: transform 0.1s linear;
 }
 
-.wrapper i:active{
+.wrapper i:active {
     transform: translateY(-50%) scale(0.85);
 }
 
-.wrapper i:first-child{
-    left: -22px;
-}
-
-.wrapper i:last-child{
-    right: -22px;
-    
-}
-
-.wrapper .carousel{
+.wrapper .carousel {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc(100% / 3);
+    grid-auto-columns: max-content;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 40px;
-    border-radius: 8px;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
+    gap: 50px;
+    border-radius: 20px;
+    scroll-behavior: smooth; /* Altere aqui para smooth para obter uma rolagem suave ou defina em outro valor */
+    scroll-behavior: 10s;
 }
 
 .carousel::-webkit-scrollbar {
@@ -192,28 +208,13 @@ main .image-doctors {
 
 .carousel .card {
     scroll-snap-align: start;
-    height: 342px;
+    height: 19.40rem;
+    width: 15.47rem;
     list-style: none;
     background: #fff;
     cursor: pointer;
-    padding-bottom: 15px;
     flex-direction: column;
-    border-radius: 10px;
-}
-
-.carousel .card .img {
-    background: transparent;
-    height: 148px;
-    width: 148px;
-    border-radius: 50%;
-}
-
-.card .img img {
-    width: 160px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #fff;
+    border-radius: 20px;
 }
 
 .carousel .card h2 {
@@ -226,23 +227,35 @@ main .image-doctors {
     text-align: center;
 }
 
+.carousel .card:hover
+{
+    opacity: 90%;
+}
 footer {
-    background-color: var(--green-base);
+    background-image: url('../img/footer.svg');
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 6.25rem;
 }
 
 footer .container-footer {
+    
+    background-size: contain;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     text-align: center;
     width: auto;
-    height: 250px;
-    margin-top: 6.25rem; 
+    flex-wrap: wrap;
+    min-height: 30rem;
 }
 
 footer .localizacao-footer {
     color: #ffffff;
     text-align: center;
+    margin-right: 6.25rem;
+    margin-left: 6.25rem;
 }
 
 footer nav ul {
@@ -253,14 +266,34 @@ footer nav ul li {
     margin: 20px;
 }
 
-/* MEDIA QUERYS */
 @media screen and (max-width: 900px) {
-    .wrapper .carousel {
-      grid-auto-columns: calc((100% / 2) - 9px);
+    /* MEDIA QUERYS */
+    @media screen and (max-width: 900px) {
+        .wrapper .carousel {
+            grid-auto-columns: calc((100% / 2) - 9px);
+        }
     }
-  }
-  @media screen and (max-width: 600px) {
-    .wrapper .carousel {
-      grid-auto-columns: 100%;
+    
+    @media screen and (max-width: 600px) {
+        .wrapper .carousel {
+            grid-auto-columns: 100%;
+        }
     }
-  }
+    .wrapper .carousel {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+    
+    footer {
+        background-image: url('../img/footer.svg');
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper .carousel {
+        grid-auto-columns: 100%;
+    }
+}
+

@@ -1,0 +1,59 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+
+{% block solicitacoes_atendente %}
+<div class="container">
+    <div class="card-list">
+        <div class="title">
+            <h1>Agenda - Fisioterapeuta</h1>
+        </div>
+
+        <ul class="nav-tab-menu">
+            <li class="tab-item active" data-tab="agendamentos">
+                <div class="tab-menu">
+                    <p class="qtd-agendados">10</p>
+                    <p>Agendamentos</p>
+                </div>
+            </li>
+            <li class="tab-item" data-tab="solicitacoes">
+                <div class="tab-menu">
+                    <p class="qtd-solicitacoes">3</p>
+                    <p>Solicitações</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="tab-content tab-content-agendamentos active" id="agendamentos">
+            {% include "partials/cards.html" with card='agendamento' data=False info_user=False info_user2=True horario2=False button_solicitar=False button_indeferido=True button_whastApp=True %}
+        </div>
+        <div class="tab-content" id="solicitacoes" style="display: none">
+            {% include "partials/cards.html" with card='agendamento' data=False info_user=False info_user2=True horario2=False button_indeferido=True edit=False button_solicitar=False button_recusar=True button_aceitar=True %}
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tabButtons = document.querySelectorAll(".tab-item");
+    const tabs = document.querySelectorAll(".tab-content");
+
+    // Adicione um ouvinte de evento para cada botão de aba
+    tabButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            // Remova a classe "active" de todos os botões de aba
+            tabButtons.forEach(b => b.classList.remove("active"));
+            
+            // Adicione a classe "active" ao botão de aba clicado
+            button.classList.add("active");
+            
+            // Oculte todos os conteúdos de aba
+            tabs.forEach(tab => {
+                tab.style.display = "none";
+            });
+            
+            // Exiba o conteúdo de aba correspondente ao botão clicado
+            tabs[index].style.display = "block";
+        });
+    });
+});
+</script>
+{% endblock solicitacoes_atendente %}

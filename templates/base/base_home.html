@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "assets/css/base.css" %}>
+    <link rel="stylesheet" href={% static "assets/css/cards.css" %}>
+    <link rel="stylesheet" href={% static "assets/css/scroll.css" %}>
+    <link rel="stylesheet" href={% static "perfil/css/header.css/" %}>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <script src="{% static "perfil/js/index.js" %}" defer></script>
+    <title>Espaço Vivenciar - Agendamentos</title>
+</head>
+<body>
+    {% include "partials/header_icon.html" %}
+
+    {% block main %}
+    
+    {% endblock main %}
+
+    {% block main_agendar %}
+            
+    {% endblock main_agendar %}
+    
+</body>
+</html>

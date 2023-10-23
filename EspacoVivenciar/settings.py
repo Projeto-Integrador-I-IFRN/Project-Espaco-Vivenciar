@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.core',
     'apps.perfil',
+    'bootstrap_modal_forms',
+    'apps.atendente',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,7 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
     BASE_DIR / 'apps/core/static',
     BASE_DIR / 'apps/perfil/static',
+    BASE_DIR / 'apps/atendente/static',
 ) 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

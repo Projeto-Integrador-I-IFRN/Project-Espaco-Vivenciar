@@ -1,0 +1,101 @@
+{% load static %}
+{%include "perfil/modal.html"%}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+<link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
+<div class="card-item">
+    {% if card == "agendamento" %}
+        {% if data %}
+        <div class="data-hr">
+            <div class="data">
+                <h2>Seg</h2>
+                <h3>28</h3>
+            </div>
+            <hr>
+        </div>
+        {% endif %}
+        {% if info_user %}
+            <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
+            <div class="user">
+                <p class = "name">Dr. Kaio Moura<p>
+                <p>Clínico geral</p>
+            </div>
+        {% endif %}
+
+        {% if info_user2 %}
+            <img src="{% static "assets/img/icons/paciente.svg" %}" alt="">
+            <div class="user">
+                <p class = "name">José da Silva<p>
+            </div>
+        {% endif %}
+
+        {% if horario %}
+            <div class="horario">   
+                <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                <p>9:00h - 10:00h</p>
+            </div>
+        {% endif %}
+
+        {% if horario2 %}
+        <div class="horario-solicitar">
+            <p>Horários de atendimento</p>
+            <div class="horario">
+                <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                <p>9:00h - 10:00h</p>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if lista_servico %}
+            <div class="list-service">
+                <img src="{% static "assets/img/icons/motivo.svg" %}" alt="">
+                <P>Motivo da consulta</P>
+            </div>
+        {% endif %}
+
+        {% if count_agendados %}
+            <div class="count_agendados">
+                <p class="count">10</p>
+                <p>Agendamentos</p>
+            </div>
+        {% endif %}
+
+        {% if count_solicitacoes %}
+            <div class="count_solicitacoes">
+                <p class="count">3</p>
+                <p>Solicitações</p>
+            </div>
+        {% endif %}
+
+        {% if button_indeferido %}
+            <a href=""><img src="{% static "assets/img/icons/info.svg" %}" alt=""></a>
+        {% endif %}
+
+        {% if button_whastApp %}
+            <a href=""><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
+        {% endif %}
+        {% if button_detalhar %}
+            <button class="button-detalhar">Detalhar</button>
+        {% endif %}
+
+        {% if edit %}
+            <a href=""><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></a>
+        {% endif %}
+
+        {% if edit2 %}
+            <button data-toggle="modal" data-target="#myModal"><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></button>
+        {% endif %}
+
+        {% if button_solicitar %}
+            <button class="btn-card" data-toggle="modal" data-target="#myModal1">Solicitar</button>
+        {% endif %}
+
+        {% if button_recusar %}
+            <button class="button-recusar">Recusar</button>
+        {% endif %}
+
+        {% if button_aceitar %}
+            <button class="button-aceitar">Aceitar</button>
+        {% endif %}
+    </div>
+    {% endif %}

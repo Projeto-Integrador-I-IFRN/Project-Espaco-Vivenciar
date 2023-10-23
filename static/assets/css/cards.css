@@ -1,0 +1,292 @@
+:root {
+    --background-white: #F7F7F7;
+    --green-base: #006650d3;
+    --dark-grey: #616161;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-item p
+{
+    color: var(--dark-grey);
+}
+
+.card-item .name
+{
+    color: var(--green-base);
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.title {
+    margin-top: 50px;
+    color: var(--green-base);
+}
+
+.title h1 {
+    font-size: 40px;
+}
+
+.title p {
+    margin: 40px 0px 20px 0px;
+    color: var(--dark-grey);
+    font-weight: 600;
+    font-size: 25px;
+}
+.title .text {
+    margin: 0;
+    color: var(--green-base);
+    font-weight: 600;
+    font-size: 25px;
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.content-2 {
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.card-item {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: #ffffff;
+    height: 8.12rem;
+    width: 66.87rem;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-item-2 a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+    color: var(--dark-grey);
+    height: 8.12rem;
+    width: 400px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    font-weight: 600;
+}
+.card-item-2 a:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+    border: 1px solid ;
+    font-size: 18px;
+    transition: ease-in-out;
+}
+.card-item-2 a p {
+    color: var(--green-base);
+}
+
+.card-item .data h2{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card-item .data
+{
+    color: var(--dark-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-hr
+{
+    display: flex;
+    gap: 40px;
+}
+
+hr
+{   
+    width: 1.5px;
+    height: 5.90rem;
+    background-color: #CFCFCF;
+}
+.card-item .data h3
+{
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.card-item .horario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-card {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-card-2 {
+    background-color: var(--green-base);
+    border-radius: 30px;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-card-2 a{
+    color: var(--background-white);
+}
+
+.card-item .list-service{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.card-item .button-solicitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.card-item .button-recusar {
+    background-color: #F3F3F3;
+    color: #EA0303;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.20px);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.card-item .button-aceitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-item .button-detalhar {
+    background-color: transparent;
+    color: var(--green-base);
+    border: 2px solid var(--green-base);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-item .count_agendados {
+    display: flex;
+    gap: 10px;
+}
+.count_agendados .count {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+    
+}
+.card-item .count_solicitacoes {
+    display: flex;
+    gap: 10px;
+}
+.count_solicitacoes .count {
+    background-color: #FFD336;
+    color: var(--dark-grey);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+    
+}
+
+.card-list {
+    margin-bottom: 100px;
+}
+
+.card-item .info-user 
+{
+    display: flex;
+    gap: 10px;
+}
+.card-item .info-user2 img
+{
+    width: 60%;
+   
+}
+.nav-tab-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    margin-top: 100px;
+    width: 200px;
+    gap: 10px;
+}
+.tab-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+} 
+
+.tab-menu .qtd-agendados {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+}
+
+.tab-menu .qtd-solicitacoes {
+    background-color: #FFD336;
+    color: var(--dark-grey);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+}
+
+.tab-item {
+    cursor: pointer; 
+    border-radius: 10px;
+}
+
+.tab-item.active {
+    font-weight: bold;
+    background-color: #E8E6E6;
+}

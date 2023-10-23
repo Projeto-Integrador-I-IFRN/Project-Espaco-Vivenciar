@@ -1,0 +1,22 @@
+{% extends "base/base_home_atendente.html" %}
+{%include "atendente/modal.html"%}
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
+{% block cadastrar_agenda %}
+    <div class="container">
+        <div class="card-list">
+            <div class="title">
+                <h1>Agenda - Clínico geral</h1>
+                <div class="content">
+                    <p>Outubro</p>
+                    <div class="button-cadastrar-agenda">
+                        <button class="btn-card" data-toggle="modal" data-target="#myModal1">+ Nova agenda</button>
+                    </div>
+                </div>
+            </div>
+            {% include "partials/cards.html" with card='agendamento' info_user=False horario=False lista_servico=False edit=False edit2=True button_solicitar=False count_agendados=True count_solicitacoes=True button_detalhar=True  %}
+        </div>
+    </div>
+{% endblock cadastrar_agenda %}

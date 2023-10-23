@@ -1,0 +1,52 @@
+{% load static %}
+<div class="modal fade custom-modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="myModalLabel">Solicitar Consulta</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-main-content">
+                    <div class="div-selecionar">
+                        <div class="titulo-selecionar">
+                            <img src="{% static "assets/img/icons/motivo.svg" %}" alt="">
+                            <p>Motivo da consulta:</p>
+                        </div>
+                        <select name="Motivo-consulta" id="motivo-consulta">
+                            <option value="motivo1">Motivo da Consulta 1</option>
+                            <option value="motivo2">Motivo da Consulta 2</option>
+                            <option value="motivo3">Motivo da Consulta 3</option>
+                        </select>
+                    </div>
+
+                    <div class="div-selecionar">
+                        <div class="titulo-selecionar">
+                            <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                            <p>Horários:</p>
+                        </div>
+                    <select name="horarios-disponiveis" id="horarios-disponiveis">
+                        <option value="horarios"> 15:00</option>
+                        <option value="horarios"> 16:00</option>
+                        <option value="horarios"> 17:00</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO: Quando criar template do perfil do medico, criar js para pegar as options -->
+
+            <div class="modal-footer">
+                <form method="post" class="d-inline">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-confirm">Confirmar</button>
+                </form>
+                <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

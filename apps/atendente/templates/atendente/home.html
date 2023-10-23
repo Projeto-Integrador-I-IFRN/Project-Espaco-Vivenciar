@@ -1,0 +1,51 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+{% block home_atendente %}
+<main>
+  <div class="container">
+            <div class="home-info">
+              <h1>Gerencie seus agendamentos</h1>
+              <br>
+              <p>Escolha um profissional e gerencie seus <br> agendamentos</p>
+            </div>
+            
+            <div class="home-img">
+              <img src="{% static "assets/img/home-img.svg" %}" alt="">
+            </div>
+          </div>
+
+          <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <ul class="carousel">
+              <li class="card">
+                <a href="{% url "atendente:Gerenciar" %}">
+                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
+                <h2>Clínico Geral</h2>
+                <p>Dr. Kaio Moura</p>
+                </a>
+              </li>
+              <li class="card">
+                <a href="{% url "atendente:Gerenciar" %}">
+                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
+                <h2>Clínico Geral</h2>
+                <p>Dr. Kaio Moura</p>
+                </a>
+              </li>
+              
+              <li class="card">
+                <a href="{% url "atendente:Gerenciar" %}">
+                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
+                <h2>Clínico Geral</h2>
+                <p>Dr. Kaio Moura</p>
+                </a>
+              </li>
+              
+              <li class="card">
+                <a href="{% url "atendente:Gerenciar" %}">
+                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
+                <h2>Clínico Geral</h2>
+                <p>Dr. Kaio Moura</p>
+                </a>
+              </li>
+
+{% endblock home_atendente %}

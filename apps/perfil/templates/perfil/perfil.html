@@ -4,87 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="{% static 'perfil/css/perfil.css'%}">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'perfil/css/perfil.css' %}">
+    <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'perfil/js/perfil.js' %}"></script>
     <title>Perfil</title>
 </head>
 <body>
-    
-    {% include "partials/header_home.html" %}
-
-    <h1>Meu Perfil</h1>
-    <main>
-        <section class="container">
-            <div class="content-1" >
-                <h3>Informações pessoais</h3>
-                <button>Editar</button>
-            </div>
-            <div class="info-user">
-                <div>
-                    <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
+    {% include "partials/header_icon.html" %}
+    <div class="container">
+        <h1>Meu Perfil</h1>
+        <main>
+            <section class="card-info">
+                <div class="card-header">
+                    <h2>Informações pessoais</h2>
+                    <button id="editButton">Editar</button>
                 </div>
-                <div>
-                    <label for="nome">Nome</label>
-                    <p>José Francisco da Silva</p>
+                <div class="info-user">
+                    <div class="first-section">
+                        <div class="image-paciente">
+                            <img src="{% static "assets/img/icons/paciente-perfil.svg" %}" alt="">
+                        </div>
+                        <div class="campos">
+                            <label for="nome">Nome</label>
+                            <p class="view-field">José Francisco da Silva</p>
+                            <input type="text" class="edit-field" value="José Francisco da Silva" style="display: none;">
+                        </div>
+                        <div class="campos">
+                            <label for="data">Data de Nascimento</label>
+                            <p class="view-field">15/12/2002</p>
+                            <input type="date" class="edit-field" value="1953-12-15" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="sections">
+                        <div class="second-section">
+                            <div class="campos">
+                                <label for="gênero">Gênero</label>
+                                <p class="view-field">Masculino</p>
+                                <select class="edit-field" style="display: none;">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
+                            
+                            <div class="campos">
+                                <label for="e-mail">E-mail</label>
+                                <p class="view-field">josedasilva@gmail.com</p>
+                                <input type="text" class="edit-field" value="josedasilva@gmail.com" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="third-section">
+                            <div class="campos">
+                                <label for="cpf">CPF</label>
+                                <p class="view-field">000.000.000-00</p>
+                                <input type="text" class="edit-field" value="000.000.000-00" style="display: none;">
+                            </div>
+                            <div class="campos">
+                                <label for="contato">Contato</label>
+                                <p class="view-field">(84) 99999-9999</p>
+                                <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label for="data">Data de Nascimento</label>
-                    <p>15/12/2002</p>
-                </div>
-                <div>
-                <label for="gênero">Gênero</label>
-                <p>Masculino</p>
-                </div>
-            </div>
-
-            <div class="info-user">
-                <div>
-                    <label for="e-mail">E-mail</label>
-                    <p>josedasilva@gmail.com</p>
-                </div>
-                <div>
-                    <label for="e-mail">CPF</label>
-                    <p>000.000.000-00</p>
-                </div>
-                <div>
-                    <label for="e-mail">Contato</label>
-                    <p>(84) 99999-9999</p>
-                </div>
-            </div>
-
-            <!-- Endereço -->
-            <div class="container-2">
-                <div class="content-2">
+                <div class="endereco">
                     <h2>Endereço</h2>
                 </div>
-
-                <div class="info-user-2">
-                    <div>
-                        <label for="cidade">Cidade</label>
-                        <p>Ex: Pau dos Ferros</p>
+                <div class="sections">
+                    <div class="endereco-section">
+                        <div class="campos">
+                            <label for="cidade">Cidade</label>
+                            <p class="view-field">Pau dos Ferros</p>
+                            <input type="text" class="edit-field" value="Pau dos Ferros" style="display: none;">
+                        </div>
+                        <div class="campos">
+                            <label for="bairro">Bairro</label>
+                            <p class="view-field">Centro</p>
+                            <input type="text" class="edit-field" value="Centro" style="display: none;">
+                        </div>
                     </div>
-                    <div>
-                        <label for="rua">Rua</label>
-                        <p>Ex: Rua da Independencia</p>
+                    <div class="endereco-section">
+                        <div class="campos">
+                            <label for="rua">Rua</label>
+                            <p class="view-field">Rua da Independencia</p>
+                            <input type="text" class="edit-field" value="Rua da Independencia" style="display: none;">
+                        </div>
+                        <div class="campos">
+                            <label for="number">Número</label>
+                            <p class="view-field">150</p>
+                            <input type="text" class="edit-field" value="150" style="display: none;">
+                        </div>
                     </div>
                 </div>
-
-                <div class="info-user-2">
-                    <div>
-                        <label for="bairro">Bairro</label>
-                        <p>Ex: Centro</p>
-                    </div>
-                    <div>
-                        <label for="number">Número</label>
-                        <p>Ex: 150</p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        
-    </main>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
