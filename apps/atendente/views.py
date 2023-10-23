@@ -5,10 +5,13 @@ from .forms import NovaAgenda
 
 # Create your views here.
 def Home(request):
-    return render(request, 'atendente/home.html')
+    title = "Home"
+    return render(request, 'atendente/home.html', {'title': title} )
 
-def Gerenciar(request):
+def GerenciarAgendas(request):
+    title = "Gerenciar agendas"
     context = {
+        'title': title,
         'card': 'agendamento',
         'data': True,
         'info_user': True,
@@ -24,13 +27,20 @@ def Gerenciar(request):
         'edit': True,
         'edit2': False
     }
-    return render(request, 'atendente/cadastrar_agenda.html', context=context)
+    return render(request, 'atendente/gerenciar_agenda.html', context=context)
 
 def GerenciarProfissionais(request):
-    return render(request, 'atendente/profissional.html')
+    title = "Profissional"
+    return render(request, 'atendente/profissional.html', {'title': title})
+
+def GerenciarPacientes(request):
+    title = "Paciente"
+    return render(request, 'atendente/pacientes.html', {'title': title})
 
 def CadastrarProfissionais(request):
+    title = "Cadastro de profissionais"
     context = {
+        'title': title,
         'card': 'profissional',
         'info_user': True 
     }
@@ -40,8 +50,10 @@ def mostrar_modal_atendente(request):
     form = NovaAgenda()
     return render(request, 'atendente/modal2.html', {'form': form})
 
-def Solicitacoes(request):
+def AgendamentosSolicitacoes(request):
+    title = "Solicitações"
     context = {
+        'title': title,
         'card': 'agendamento',
         'data': True,
         'info_user': True,
@@ -59,4 +71,4 @@ def Solicitacoes(request):
         'count_solicitacoes': False,
         'edit': True
     }
-    return render(request, 'atendente/solicitacoes_consultas.html', context=context)
+    return render(request, 'atendente/agendamentos_solicitacoes_consultas.html', context=context)

@@ -24,6 +24,9 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+main {
+    margin-bottom: 100px;
+}
 
 .container {
     width: 100%;

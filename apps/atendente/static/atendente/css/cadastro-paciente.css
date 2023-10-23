@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    text-decoration: none;
+}
+
+:root {
+    --background-white: #F7F7F7;
+    --green-base: #006650d3;
+}
+
+::selection {
+    background-color: var(--green-base);
+    color: var(--background-white);
+}
+
+body {
+    background-color: var(--background-white);
+    width: 100%;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+.container-listagem {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.content-top h1 {
+    color: var(--green-base);
+    font-size: 40px;
+}
+
+.search input {
+    width: 455px;
+    height: 48px;
+    background-color:  #E9E9E9;
+    border-radius: 10px;
+}
+
+.search input::placeholder {
+    padding-left: 20px;
+}
+
+.cadastrar-paciente-button {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 150px;
+    height: 40px;
+    font-weight: 500;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cadastrar-paciente-button a {
+    color: var(--background-white);
+}
+
+.content-gerenciar-pacientes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    width: 70%;
+}
+.listagem-pacientes {
+    border: 2px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+    width: 420px;
+    height: 500px;
+    margin-top: 20px;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.20px);
+}
+.listagem-pacientes .card-paciente {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 1px rgba(0,0,0,0.20px);
+}
+
+.listagem-pacientes .card-paciente img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.pacientes-detalhados {
+    border: 2px solid #ccc;
+    padding: 10px;
+    width: 400px;
+    height: 500px;
+}

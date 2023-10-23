@@ -1,0 +1,42 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+
+{% block gerenciar_pacientes %}
+    <div class="container-listagem">
+        <div class="content-top">
+            <h1>Gerenciar Pacientes</h1>
+            <div>
+                <button class="cadastrar-paciente-button"><a href="{% url 'perfil:Cadastro' %}">+ Novo Paciente</a></button>
+            </div>
+        </div>
+
+        <div class="content-gerenciar-pacientes">
+
+            <section>
+                <div class="search">
+                    <input type="search" name="search" id=""  placeholder="Buscar Paciente">
+                </div>
+
+                <div class="listagem-pacientes">
+                    <ul>
+                        <li>
+                            <div class="card-paciente">
+                                <button class="botao-paciente" data-nome="José da Silva" data-imagem="{% static 'assets/img/icons/paciente.svg' %}">
+                                <img src="{% static "assets/img/icons/paciente.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>José da Silva</strong></p>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+
+            <section class="pacientes-detalhados">
+                <div>
+
+                </div>
+              </section>
+        </div>
+</div>
+{% endblock gerenciar_pacientes %}

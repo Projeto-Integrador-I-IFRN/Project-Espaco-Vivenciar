@@ -75,7 +75,7 @@
             <a href=""><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
         {% endif %}
         {% if button_detalhar %}
-            <button class="button-detalhar">Detalhar</button>
+            <a href="{% url "atendente:Agendamentos-Solicitacoes" %}"><button class="button-detalhar">Detalhar</button></a>
         {% endif %}
 
         {% if edit %}
