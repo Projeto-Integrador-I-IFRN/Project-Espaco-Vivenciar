@@ -198,3 +198,49 @@ hr
     width: 60%;
    
 }
+.nav-tab-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    list-style: none;
+    margin-top: 100px;
+    width: 200px;
+    gap: 10px;
+}
+.tab-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+} 
+
+.tab-menu .qtd-agendados {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+}
+
+.tab-menu .qtd-solicitacoes {
+    background-color: #FFD336;
+    color: var(--dark-grey);
+    text-align: center;
+    width: 30px;
+    height: 27px;
+    border-radius: 8px;
+}
+
+.tab-item {
+    cursor: pointer; 
+    border-radius: 10px;
+}
+
+.tab-item.active {
+    font-weight: bold;
+    background-color: #E8E6E6;
+}
