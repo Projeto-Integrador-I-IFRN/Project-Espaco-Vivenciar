@@ -194,7 +194,7 @@ hr
 .card-item .button-recusar {
     background-color: #F3F3F3;
     color: #EA0303;
-    box-shadow: 0 3px 1px rgba(0,0,0,0.20px);
+    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
     width: 130px;
     height: 35px;
     border-radius: 30px;
@@ -204,11 +204,10 @@ hr
 .card-item .button-aceitar {
     background-color: var(--green-base);
     color: var(--background-white);
-    box-shadow: 0 3px 1px rgba(0,0,0,0.15);
     width: 130px;
     height: 35px;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
 }
 
