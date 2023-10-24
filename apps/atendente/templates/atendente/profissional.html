@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'perfil/js/perfil.js' %}"></script>
-    <title>{{ nome }}</title>
+    <title>Gerenciar Profissionais</title>
 </head>
 <body>
     {% include "partials/header_icon_atendente.html" %}
@@ -21,6 +21,8 @@
             <section class="card-info">
                 <div class="card-header">
                     <h2>Informações pessoais</h2>
+                    <button id="editButton">Editar</button>
+                    <button class="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
                 </div>
                 <div class="info-user">
                     <div class="first-section">
@@ -63,25 +65,16 @@
                     <button id="add-service"> + Adicionar Serviço</button>
                 </div>
                 <div class="sections">
-                    <aside class="servicos-section">
+                    <section class="servicos-section">
                         <ul id="lista-servicos">
-                            <li>Motivo de consulta 1</li>
-                            <li>Motivo de consulta 2</li>
-                            <li>Motivo de consulta 3</li>
-                            <li>Motivo de consulta 4</li>
-                            <li>Motivo de consulta 5</li>
+                    
                         </ul>
                         <input type="text" id="novo-servico" placeholder="Novo Serviço">
-                    </aside>
+                    </section>
                 </div>
             </section>
-            <div class="content">
-                <div class="gerenciamento">
-                    <button class="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
-                    <button class="button-editar" id="editButton">Editar</button>
-                </div>
-            </div>
         </main>
     </div>
 </body>
 </html>
+
