@@ -1,8 +1,14 @@
+
+*
+{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
 :root {
     --background-white: #F7F7F7;
     --green-base: #006650d3;
     --dark-grey: #616161;
-    font-family: 'Poppins', sans-serif;
 }
 
 .card-item p
@@ -47,8 +53,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 50px;
+    
 }
+
 .content-2 {
     width: 1000px;
     display: flex;
@@ -114,6 +121,7 @@
 {
     display: flex;
     gap: 40px;
+    margin-left: 10px;
 }
 
 hr
@@ -143,6 +151,19 @@ hr
     text-align: center;
     cursor: pointer;
 }
+
+.btn-novaAgenda
+{
+    background-color: var(--green-base);
+    color: var(--background-white);
+    border-radius: 30px;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+
 .btn-card-2 {
     background-color: var(--green-base);
     border-radius: 30px;
@@ -202,33 +223,6 @@ hr
     cursor: pointer;
 }
 
-.card-item .count_agendados {
-    display: flex;
-    gap: 10px;
-}
-.count_agendados .count {
-    background-color: var(--green-base);
-    color: var(--background-white);
-    text-align: center;
-    width: 30px;
-    height: 27px;
-    border-radius: 8px;
-    
-}
-.card-item .count_solicitacoes {
-    display: flex;
-    gap: 10px;
-}
-.count_solicitacoes .count {
-    background-color: #FFD336;
-    color: var(--dark-grey);
-    text-align: center;
-    width: 30px;
-    height: 27px;
-    border-radius: 8px;
-    
-}
-
 .card-list {
     margin-bottom: 100px;
 }
@@ -248,44 +242,70 @@ hr
     align-items: center;
     justify-content: flex-start;
     list-style: none;
-    margin-top: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 200px;
-    gap: 10px;
+    gap: 20px;
 }
+
 .tab-menu {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     text-align: center;
-    height: 50px;
-    width: 200px;
+    height: 54px;
+    width: 198px;
 } 
 
-.tab-menu .qtd-agendados {
+.count-solicitacoes
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-align: center;
+}
+
+.qtd-agendados {
     background-color: var(--green-base);
     color: var(--background-white);
-    text-align: center;
     width: 30px;
-    height: 27px;
+    height: 30px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.tab-menu .qtd-solicitacoes {
+.qtd-solicitacoes {
     background-color: #FFD336;
-    color: var(--dark-grey);
-    text-align: center;
     width: 30px;
-    height: 27px;
+    height: 30px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.qtd-solicitacoes p
+{
+    font-size: 15px;
+    color: var(--dark-grey);
+}
+
+.qtd-agendados p
+{
+    font-size: 15px;
+    color: white;
+}
 .tab-item {
     cursor: pointer; 
     border-radius: 10px;
+    border: 1.8px solid #E8E6E6;
 }
 
 .tab-item.active {
-    font-weight: bold;
+    font-weight: 600;
     background-color: #E8E6E6;
 }
