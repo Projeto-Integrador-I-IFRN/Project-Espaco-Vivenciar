@@ -6,7 +6,7 @@
         <div class="content-top">
             <h1>Gerenciar Pacientes</h1>
             <div>
-                <button class="cadastrar-paciente-button"><a href="{% url 'perfil:Cadastro' %}">+ Novo Paciente</a></button>
+                <button class="cadastrar-paciente-button"><a href="{% url 'perfil:Cadastro' %}" target="_blank">+ Novo Paciente</a></button>
             </div>
         </div>
 
@@ -21,10 +21,38 @@
                     <ul>
                         <li>
                             <div class="card-paciente">
-                                <button class="botao-paciente" data-nome="José da Silva" data-imagem="{% static 'assets/img/icons/paciente.svg' %}">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>Usuário</strong></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-paciente">
                                 <img src="{% static "assets/img/icons/paciente.svg" %}" alt="Imagem do Paciente 2">
-                                <p><strong>José da Silva</strong></p>
-                                </button>
+                                <p><strong>José Francisco da Silva</strong></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-paciente">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>Usuário</strong></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-paciente">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>Usuário</strong></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-paciente">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>Usuário</strong></p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="card-paciente">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                <p><strong>Usuário</strong></p>
                             </div>
                         </li>
                     </ul>
@@ -33,8 +61,69 @@
             
 
             <section class="pacientes-detalhados">
-                <div>
+                <div class="first-info">
+                    <h3>Informações pessoais</h3>
+                    <button class="button-excluir">Excluir</button>
+                    <button class="button-editar" id="editButton">Editar</button>
+                </div>
 
+                <div class="second-info">
+                    <img src="{% static "assets/img/icons/paciente.svg" %}" alt="imagem">
+                    <div>
+                        <label for="nome">Nome</label>
+                        <p class="view-field">José Francisco da Silva</p>
+                    </div>
+                    <div>
+                        <label for="gênero">Gênero</label>
+                        <p class="view-field">Masculino</p>
+                    </div>  
+                </div>
+
+                <div class="parent-info">
+                    <div>
+                        <label for="data">Data de Nascimento</label>
+                        <p class="view-field">15/12/2002</p>
+                    </div>
+                    <div>
+                        <label for="contato">Contato</label>
+                        <p class="view-field">(84) 99999-9999</p>
+                    </div>  
+                </div>
+
+                <div class="parent-info">
+                    <div>
+                        <label for="e-mail">E-mail</label>
+                        <p class="view-field">josedasilva@gmail.com</p>
+                    </div>
+                    <div>
+                        <label for="cpf">CPF</label>
+                        <p class="view-field">000.000.000-00</p>
+                    </div>  
+                </div>
+                
+                <div class="endereco">
+                    <h3>Endereço</h3>
+                </div>
+
+                <div class="endereco-section">
+                    <div>
+                        <label for="cidade">Cidade</label>
+                        <p class="view-field">Pau dos Ferros</p>
+                    </div>
+                    <div>
+                        <label for="bairro">Bairro</label>
+                        <p class="view-field">Centro</p>
+                    </div>
+                </div>
+                <div class="endereco-section">
+                    <div>
+                        <label for="rua">Rua</label>
+                        <p class="view-field">Rua da Independencia</p>
+                    </div>
+                    <div>
+                        <label for="number">Número</label>
+                        <p class="view-field">150</p>
+                    </div>
                 </div>
               </section>
         </div>

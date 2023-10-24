@@ -102,12 +102,78 @@ body {
 .listagem-pacientes .card-paciente img {
     width: 50px;
     height: 50px;
-    margin-right: 10px;
+    margin-right: 15px;
 }
 
 .pacientes-detalhados {
-    border: 2px solid #ccc;
+    border: 2px solid rgba(86, 85, 85, 0.841);
     padding: 10px;
-    width: 400px;
+    width: 500px;
     height: 500px;
+}
+.pacientes-detalhados label{
+    font-weight: 570;
+}
+
+.first-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    margin-top: 20px;
+}
+.first-info h3{
+    color: var(--green-base);
+}
+
+.first-info button{
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.first-info .button-excluir {
+    background-color: #EA0303;
+    color: white;
+    font-weight: 400;
+}
+.second-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.first-info .button-editar {
+    background-color: white;
+    color: var(--green-base);
+    font-weight: 400;
+    border: 2px solid var(--green-base);
+}
+
+.parent-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: start;
+    padding: 20px;
+    margin: 0;
+}
+
+.endereco {
+    color: var(--green-base);
+    margin-left: 40px;
+}
+
+.view-field {
+    color: #999797;
+}
+.endereco-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
 }
