@@ -21,8 +21,10 @@
             <section class="card-info">
                 <div class="card-header">
                     <h2>Informações pessoais</h2>
-                    <button id="editButton">Editar</button>
-                    <button class="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
+                    <div class="buttons">
+                        <button id="editButton">Editar</button>
+                        <button id="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
+                    </div>
                 </div>
                 <div class="info-user">
                     <div class="first-section">

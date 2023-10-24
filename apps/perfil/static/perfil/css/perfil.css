@@ -24,13 +24,11 @@ body {
     align-items: center;
     min-height: 100vh;
 }
-main {
-    margin-bottom: 100px;
-}
 
 .container {
     width: 100%;
     max-width: 55rem;
+    margin-bottom: 100px;
     margin-top: 50px;
 }
 
@@ -87,7 +85,7 @@ label {
 
 .first-section {
     display: flex;
-    gap: 150px;
+    gap: 80px;
     align-items: center;
     flex-wrap: wrap;
 }
@@ -117,7 +115,7 @@ label {
 
 .sections {
     display: flex;
-    gap: 150px;
+    gap: 80px;
     margin-top: 1.4rem;
 }
 
@@ -156,6 +154,34 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#button-excluir
+{
+    background-color: rgb(227, 2, 2);
+    /* border: 2px solid var(--green-base); */
+    font-weight: 600;
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-excluir a
+{
+    color: white;
+}
+
+.buttons
+{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 #add-service
@@ -200,6 +226,7 @@ label {
 {
     opacity: 90%;
 }
+
 #novo-servico {
     display: none; /* Oculto por padrão */
 }
@@ -221,60 +248,4 @@ label {
     padding: 10px;
     border-radius: 10px;
     display: none; /* Inicialmente, oculte os campos de edição */
-}
-
-.gerenciamento {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 250px;
-    margin-top: 50px;
-    position: relative;
-    margin-right: 0;
-    bottom: 0;
-}   
-.content {
-    width: 100%;
-    max-width: 55rem;
-    margin-bottom: 100px;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.gerenciamento .button-excluir {
-    background-color: #EA0303;
-    color: white;
-    font-weight: 500;
-    border-radius: 24px;
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    cursor: pointer;
-} 
-.gerenciamento .button-excluir a {
-    text-decoration: none;
-    color: white;
-}
-.gerenciamento .button-editar {
-    background-color: white;
-    color: var(--green-base);
-    font-weight: 600;
-    border: 2px solid var(--green-base);
-    border-radius: 24px;
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.gerenciamento .button-excluir:hover {
-    border: 3px solid black;
-    transition: 0.3s;
-}
-
-.gerenciamento .button-editar:hover {
-    transition: 0.3s;
-    background-color: var(--green-base);
-    color: white;
 }
