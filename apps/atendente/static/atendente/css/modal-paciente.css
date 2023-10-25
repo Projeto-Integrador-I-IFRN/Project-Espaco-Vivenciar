@@ -1,33 +1,92 @@
-*
+.view-field {
+    font-size: 16px;
+    color: var(--dark-grey);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+h1
 {
-    margin: 0;
-    text-decoration: none;
-    border: none;
-    text-decoration: none;
-}
-.modal-dialog-pacientes {
-    width: 800px;
-    height: 600px;
+    font-size: 26px;
 }
 
-.modal-body .first-info {
-    justify-content: space-around;
+h2
+{
+    font-size: 26px;
 }
 
-.modal-body .second-info {
-    justify-content: space-around;
-    align-items: center;
-}
-
-.modal-body .third-info {
+.first-section {
     display: flex;
-    justify-content: space-around;
+    gap: 80px;
     align-items: center;
+    flex-wrap: wrap;
 }
-.modal-body .endereco {
-    margin-top: 50px;
-}
-.modal-body .igual {
+
+.second-section {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 200px;
+    flex-wrap: wrap;
+}
+
+.third-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 200px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.endereco {
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+
+.sections {
+    display: flex;
+    gap: 80px;
+    margin-top: 1.4rem;
+    align-items: flex-end;
+}
+
+.campos {
+    gap: 15px;
+    width: 200px;
+}
+
+.wpp
+{
+    margin-left: 50px;
+}
+
+.endereco-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.servicos-section
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    min-width: 200px;
+}
+
+.card-info
+{
+    width: 44rem;
+    padding: 20px;
 }
