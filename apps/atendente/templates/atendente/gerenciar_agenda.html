@@ -9,11 +9,11 @@
         <div class="card-list">
             <div class="title">
                 <h1>Agenda - Clínico geral</h1>
-                <div class="content">
-                    <p>Outubro</p>
-                    <div class="button-cadastrar-agenda">
-                        <button class="btn-novaAgenda" data-toggle="modal" data-target="#myModal2">+  Nova agenda</button>
-                    </div>
+            </div>
+            <div class="content">
+                <p>Outubro</p>
+                <div class="button-cadastrar-agenda">
+                    <button class="btn-novaAgenda" data-toggle="modal" data-target="#myModal2">+  Nova agenda</button>
                 </div>
             </div>
             {% include "partials/cards.html" with card='agendamento' info_user=False horario=False lista_servico=False edit=False edit2=True button_solicitar=False count_agendados=True count_solicitacoes=True button_detalhar=True  %}

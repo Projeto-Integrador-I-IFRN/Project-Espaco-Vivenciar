@@ -25,16 +25,32 @@
 
 .title {
     color: var(--green-base);
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .title h1 {
     font-size: 40px;
 }
 
-.title p {
+.content p {
     color: var(--dark-grey);
     font-weight: 600;
     font-size: 25px;
+}
+
+.data-alternada p
+{
+    color: var(--dark-grey);
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.months
+{
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .title .text {
@@ -52,7 +68,6 @@
 }
 
 .content {
-    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -63,8 +78,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 70px;
     flex-wrap: wrap;
 }
 
@@ -156,8 +169,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 0;
-
 }
 
 hr
@@ -296,14 +307,13 @@ hr
 .card-item .info-user2 img
 {
     width: 60%;
-   
 }
+
 .nav-tab-menu {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     list-style: none;
-    margin-top: 50px;
     margin-bottom: 50px;
     width: 200px;
     gap: 20px;

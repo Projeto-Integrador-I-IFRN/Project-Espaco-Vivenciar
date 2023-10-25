@@ -7,18 +7,29 @@
          <div class="card-list">
             <div class="title">
                 <h1>Meus Agendamentos</h1>
-                <p>Outubro</p>
             </div>
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-            <div class="title">
-                <p>Novembro</p>
+
+            <div class="months">
+                <div class="month">
+                    <div class="content">
+                        <p>Outubro</p>
+                    </div>
+                    {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+                    {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+                    {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+                </div>
+                
+                <div class="month">
+                    <div class="content">
+                        <p>Novembro</p>
+                    </div>
+                {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+                {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+                {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
+            
             </div>
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-            {% include "partials/cards.html" with card='agendamento' horario2=False button_solicitar=False button_whastApp=True %}
-        
+        </div>
+            
         </div>
     </div>
 {% endblock main%}

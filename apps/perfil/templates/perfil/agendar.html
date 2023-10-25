@@ -6,16 +6,17 @@
     <div class="card-list">
         <div class="title">
             <h1>Fisioterapeuta</h1>
-            <div class="data-alternada">
-                <img src="{% static "assets/img/icons/left.svg" %}">
-                <p>Outubro</p>
-                <img src="{% static "assets/img/icons/right.svg" %}">
-            </div>
         </div>
+            <div class="data-alternada">
+                    <img src="{% static "assets/img/icons/left.svg" %}">
+                    <p>Outubro</p>
+                    <img src="{% static "assets/img/icons/right.svg" %}">
+            </div>
         {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
         {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
         {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
         {% include "partials/cards.html" with card='agendamento'  horario=False lista_servico=False edit=False %}
     </div>
+</div>
 
 {% endblock main_agendar %}
