@@ -115,6 +115,44 @@
     gap: 20px;
 }
 
+#horario-atendimento
+{
+    width: 8rem;
+    height: 30px;
+    background-color: #E9E9E9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#data-atendimento
+{
+    height: 30px;
+    background-color: #E9E9E9;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#horario-atendimento
+{
+    color: var(--green-base);
+}
+
+.horarios-atendimento
+{
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    
+}
+
+.modal-main-content .conteudo
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+} 
+
 /* Fechar botão */
 .close {
     font-size: 30px;
