@@ -10,5 +10,6 @@ urlpatterns = [
     path("atendente/gerenciar-pacientes/", views.GerenciarPacientes, name="Gerenciar-Pacientes"),
     path("atendente/cadastrar-profissionais/", views.CadastrarProfissionais, name="Cadastrar-Profissionais"),
     path("atendente/agendamentos-solicitacoes/", views.AgendamentosSolicitacoes, name="Agendamentos-Solicitacoes"),
+    path("atendente/novo-profissional", views.NovoProfissional, name='Novo-Profissional')
     #path('atendente/modal2.html', views.mostrar_modal_atendente, name='ModalAtendente'),
 ]

@@ -46,6 +46,10 @@ def CadastrarProfissionais(request):
     }
     return render(request, 'atendente/cadastrar_profissionais.html', context=context)
 
+def NovoProfissional(request):
+    title = "Novo profissional"
+    return render(request, 'atendente/novo_profissional.html', {'title': title})
+
 def mostrar_modal_atendente(request):
     form = NovaAgenda()
     return render(request, 'atendente/modal2.html', {'form': form})

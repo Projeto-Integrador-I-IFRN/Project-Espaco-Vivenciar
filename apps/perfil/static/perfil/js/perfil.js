@@ -69,18 +69,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Função para adicionar um novo serviço a partir do campo de input
     function addNewService() {
-        const newService = novoServicoInput.value.trim(); // Pega o valor do campo de input
-
+        const newService = novoServicoInput.value.trim(); // Get the value from the input field
+    
         if (newService) {
             const li = document.createElement("li");
             li.innerHTML = `${newService} <button class="delete-service" style="display: block;">x</button>`;
             listaServicos.appendChild(li);
-            novoServicoInput.value = ""; // Limpa o campo de input após adicionar
+            novoServicoInput.value = ""; // Clear the input field after adding
             addDeleteServiceEvent(li.querySelector(".delete-service"));
         }
-    }
+    }    
 
-    // Função para adicionar evento de clique aos botões "X" para excluir serviços
     function addDeleteServiceEvent(button) {
         button.addEventListener("click", function () {
             if (confirm("Tem certeza de que deseja excluir este serviço?")) {

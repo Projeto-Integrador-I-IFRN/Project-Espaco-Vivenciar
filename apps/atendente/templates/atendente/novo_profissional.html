@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'atendente/css/novo-profissional.css' %}">
+    <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'atendente/js/novo-profissional.js' %}"></script>
+    <title>Gerenciar Profissionais</title>
+</head>
+<body>
+    {% include "partials/header_icon_atendente.html" %}
+    <div class="container">
+        <h1>Cadastrar Profissional</h1>
+        <main>
+            <section class="card-info">
+                <div class="card-header">
+                    <h2>Informações pessoais</h2>
+                    <div class="buttons">
+                        <button  id="salvarButton"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Salvar</a></button>
+                        <button id="button-cancelar"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Cancelar</a></button>
+                    </div>
+                </div>
+                <div class="info-user">
+                    <div class="first-section">
+                        <div class="image-paciente">
+                            <img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="">
+                        </div>
+                        <div class="campos">
+                            <label for="nome">Nome</label>
+                            <input type="text" class="edit-field" value="Kaio Moura" >
+                        </div>
+                        <div class="campos">
+                            <label for="data">Data de Nascimento</label>
+                            <input type="date" class="edit-field" value="1984-01-10" >
+                        </div>
+                    </div>
+                    <div class="sections">
+                        <div class="second-section">
+                            <div class="campos">
+                                <label for="e-mail">Especialidade</label>
+                                <input type="text" class="edit-field" value="Clínco Geral" >
+                            </div>
+                        </div>
+                        <div class="third-section">
+                            <div class="campos">
+                                <label for="contato">Contato</label>
+                                <input type="text" class="edit-field" value="(84) 99999-9999" >
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+            <section class="card-info">
+                <div class="card-header">
+                    <h2>Serviços Oferecidos</h2>
+                    <button id="add-service"> + Adicionar Serviço</button>
+                </div>
+                <div class="sections">
+                    <section class="servicos-section">
+                        <ul id="lista-servicos">
+
+                        </ul>
+                        <input type="text" id="novo-servico" placeholder="Novo Serviço">
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+
