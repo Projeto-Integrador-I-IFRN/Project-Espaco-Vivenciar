@@ -1,14 +1,16 @@
 {% load static %}
 <div class="card-item-2">
+    <a href="{% url "atendente:Gerenciar-Profissionais" %}">
     {% if card == "profissional" %}
         {% if info_user %}
-            <a href="{% url "atendente:Gerenciar-Profissionais" %}">
+        <div class="card-profissional">
                 <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
                 <div class="user">
-                    <h3 class = "name">Dr. Kaio Moura</h3>
+                    <h1 class = "name">Dr. Kaio Moura</h1>
                     <p>Clínico geral</p>
                 </div>
-            </a>
+            </div>
+        </a>
         {% endif %}
 </div>
 {% endif %}

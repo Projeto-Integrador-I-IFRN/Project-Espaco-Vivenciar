@@ -2,20 +2,23 @@
 {% load static %}
 {% block cadastrar_profissionais %}
 <div class="container">
-    <div class="card-list">
+    <div class="card-list2">
         <div class="title">
             <div class="content-2">
                 <h1>Gerenciar Profissionais</h1>
                 <div class="button-cadastrar-agenda">
-                    <button class="btn-card-2"><a href="{% url "atendente:Gerenciar-Profissionais" %}">+ Novo Profissional</a></button>
+                    <button class="btn-card-2"><a href="{% url "atendente:Gerenciar-Profissionais" %}">+ Novo Profissional</a>
+                    </button>
                 </div>
             </div>
         </div>
-        {% include "partials/card_profissional.html" with card='profissional' %}
-        {% include "partials/card_profissional.html" with card='profissional' %}
-        {% include "partials/card_profissional.html" with card='profissional' %}
-        {% include "partials/card_profissional.html" with card='profissional' %}
-        <div>
-            
+        <div class="cards-profissionais">  
+            {% include "partials/card_profissional.html" with card='profissional' %}
+            {% include "partials/card_profissional.html" with card='profissional' %}
+            {% include "partials/card_profissional.html" with card='profissional' %}
+            {% include "partials/card_profissional.html" with card='profissional' %}
+            {% include "partials/card_profissional.html" with card='profissional' %}
+        </div>
     </div>
+</div>
 {% endblock cadastrar_profissionais %}
