@@ -1,0 +1,33 @@
+*
+{
+    margin: 0;
+    text-decoration: none;
+    border: none;
+    text-decoration: none;
+}
+.modal-dialog-pacientes {
+    width: 800px;
+    height: 600px;
+}
+
+.modal-body .first-info {
+    justify-content: space-around;
+}
+
+.modal-body .second-info {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-body .third-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.modal-body .endereco {
+    margin-top: 50px;
+}
+.modal-body .igual {
+    display: flex;
+    justify-content: center;
+}
