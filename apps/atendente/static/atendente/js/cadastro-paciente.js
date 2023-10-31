@@ -1,28 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const editButton = document.querySelector("#editButton");
-    const editFields = document.querySelectorAll(".edit-field");
-    const viewFields = document.querySelectorAll(".view-field");
-    const cardPacientes = document.querySelectorAll(" section .pacientes-detalhados")
+    const editButton = document.querySelector("#editButton")
+    const editFields = document.querySelectorAll(".edit-field")
+    const viewFields = document.querySelectorAll(".view-field")
+    // const cardPacientes = document.querySelector(".pacientes-detalhados")
+    const imagePaciente = document.querySelector(".image-paciente")
+    const firstSection = document.querySelector(".first-section")
 
 
     editButton.addEventListener("click", function () {
         if (editButton.textContent === "Editar") {
             // Alternar para campos de edição
             editFields.forEach((field) => {
-                field.style.display = "block";
-            });
+                field.style.display = "block"
+            })
 
             // Ocultar campos de visualização
             viewFields.forEach((field) => {
-                field.style.display = "none";
-            });
+                field.style.display = "none"
+            })
 
-            editButton.textContent = "Salvar";
+            editButton.textContent = "Salvar"
             editButton.style.backgroundColor = "var(--green-base)";
             editButton.style.color = "var(--background-white)";
             editButton.style.border = "none";
             editButton.style.fontWeight = "500";
-            cardPacientes.style.overflowY = "scroll"
+            imagePaciente.style.display = "none"
+            firstSection.style.gap = "100px"
         }
 
         else if (editButton.textContent === "Salvar") {
@@ -36,10 +39,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 field.style.display = "none";
             });
 
-            editButton.textContent = "Editar";
-            editButton.style = ""; // retorna ao padrão
+            editButton.textContent = "Editar"
+            editButton.style = "" // retorna ao padrão
+            imagePaciente.style = ""
+            firstSection.style = ""
+
 
         }
 
-    });
+    })
 })
