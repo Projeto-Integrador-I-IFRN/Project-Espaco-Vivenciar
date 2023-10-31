@@ -143,6 +143,7 @@
     max-height: 600px;
     justify-content: space-between;
     gap: 40px;
+    margin-top: 20px;
 }
 
 .card-item .data h2{
