@@ -1,0 +1,59 @@
+{% load static %}
+{%include "atendente/modal2.html"%}
+<div class="modal fade custom-modal" id="myModal_selecionar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Pacientes</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-main-content">
+                    <div class="conteudo">
+                        <div class="search">
+                            <input type="search" name="search" id=""  placeholder="Buscar Paciente">
+                        </div>
+
+                        <div class="options">
+                            <div class="option-select">
+                                <input type="radio" name="paciente" id="opcao1" value="opcao1">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="">
+                                <label for="opcao1">Paciente 1</label>
+                            </div>
+                            <div class="option-select">
+                                <input type="radio" name="paciente" id="opcao2" value="opcao2">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="">
+                                <label for="opcao2">Paciente 2</label>
+                            </div>
+                            <div class="option-select">
+                                <input type="radio" name="paciente" id="opcao3" value="opcao3">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="">
+                                <label for="opcao3">Paciente 3</label>
+                            </div>
+                            <div class="option-select">
+                                <input type="radio" name="paciente" id="opcao4" value="opcao4">
+                                <img src="{% static "assets/img/icons/admin.svg" %}" alt="">
+                                <label for="opcao4">Paciente 4</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <form method="post" class="d-inline">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
+                </form>
+                <a href="">
+                    <button type="submit" class="btn-confirm" data-dismiss="myModal2">Confirmar</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
