@@ -92,17 +92,33 @@
         {% comment %} 
             Reagendar e cancelar
         {% endcomment %}
-        {% if edit %} 
-            <button class="button_edit" data-toggle="modal" data-target="#myModal_edit">
+        {% if edit %}
+        <div class="menu2">
+            <button class="button_edit" id="toggleMenu">
                 <img src="{% static "assets/img/icons/edit.svg" %}" alt="">
             </button>
+            <div class="dropdown-menu2">
+                <a href="#">Reagendar</a>
+                <a  id="cancel" href="#">Cancelar</a>
+            </div>
+        </div>
+        
         {% endif %}
         
         {% comment %} 
             editar, excluir ou criar
         {% endcomment %}
         {% if edit2 %}
-            <button class="button_edit2" data-toggle="modal" data-target="#myModal_selecionar"><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></button>
+        <div class="menu2">
+            <button class="button_edit" id="toggleMenu">
+                <img src="{% static "assets/img/icons/edit.svg" %}" alt="">
+            </button>
+            <div class="dropdown-menu2">
+                <a  id="agendar" data-toggle="modal" data-target="#myModal_selecionar">Agendar</a>
+                <a href="#">Reagendar</a>
+                <a  id="cancel" href="#">Cancelar</a>
+            </div>
+            {% comment %} <button class="button_edit2" data-toggle="modal" data-target="#myModal_selecionar"><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></button> {% endcomment %}
         {% endif %}
 
         {% if button_solicitar %}
