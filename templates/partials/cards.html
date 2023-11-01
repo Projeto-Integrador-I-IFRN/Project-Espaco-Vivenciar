@@ -2,11 +2,13 @@
 {%include "perfil/modal.html"%}
 {%include "perfil/modal_edit.html"%}
 {%include "atendente/modal_paciente.html"%}
+{%include "atendente/modal_selecionar.html"%}
 {%include "atendente/modal2.html"%}
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
 <link rel="stylesheet" href="{% static 'atendente/css/modal-paciente.css' %}">
+<link rel="stylesheet" href="{% static 'atendente/css/modal_selecionar.css' %}">
 
 <div class="card-item">
     {% if card == "agendamento" %}
@@ -100,7 +102,7 @@
             editar, excluir ou criar
         {% endcomment %}
         {% if edit2 %}
-            <button class="button_edit2" data-toggle="modal" data-target="#myModal"><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></button>
+            <button class="button_edit2" data-toggle="modal" data-target="#myModal_selecionar"><img src="{% static "assets/img/icons/edit.svg" %}" alt=""></button>
         {% endif %}
 
         {% if button_solicitar %}

@@ -1,0 +1,26 @@
+.conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.option-select {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+ .option-select img {
+    height: 30px;
+    width: 30px;
+}
+
+.option-select label {
+    font-size: 20px;
+}
