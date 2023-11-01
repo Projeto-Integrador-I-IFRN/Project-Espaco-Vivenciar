@@ -35,7 +35,10 @@ h2
     min-width: 200px;
     flex-wrap: wrap;
 }
-
+.modal-dialog
+{
+    width: fit-content;
+}
 .third-section {
     display: flex;
     flex-direction: column;
@@ -65,7 +68,12 @@ h2
 
 .wpp
 {
-    margin-left: 50px;
+    margin-left: 100px;
+}
+
+.modal-header h1
+{
+    font-size: 24px;
 }
 
 .endereco-section {
@@ -88,7 +96,6 @@ h2
 .card-info
 {
     width: 44rem;
-    padding: 20px;
 }
 input:focus
 {
