@@ -249,3 +249,12 @@ label {
     border-radius: 10px;
     display: none; /* Inicialmente, oculte os campos de edição */
 }
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}

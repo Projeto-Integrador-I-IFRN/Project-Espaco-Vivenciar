@@ -23,3 +23,13 @@ body {
     margin: 0 auto;
     overflow-x: hidden;
 }
+
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}

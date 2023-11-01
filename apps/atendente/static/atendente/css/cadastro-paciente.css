@@ -17,13 +17,6 @@
     color: var(--background-white);
 }
 
-body {
-    background-color: var(--background-white);
-    width: 100%;
-    max-width: 2000px;
-    margin: 0 auto;
-}
-
 .container-listagem {
     margin-top: 50px;
     margin-bottom: 100px;
@@ -48,9 +41,21 @@ body {
 
 .first-div input {
     width: 100%;
-    height: 48px;
+    height: 45px;
+    padding: 10px;
     background-color:  #E9E9E9;
     border-radius: 10px;
+
+}
+
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
 }
 
 .first-div input::placeholder {

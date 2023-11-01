@@ -164,6 +164,16 @@
     padding: 0;
 }
 
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}
+
 .close:hover, .close:focus {
     color: #000;
     text-decoration: none;

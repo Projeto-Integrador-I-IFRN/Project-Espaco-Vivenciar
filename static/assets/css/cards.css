@@ -213,6 +213,15 @@ hr
     
 }
 
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}
 .btn-card-2 {
     background-color: var(--green-base);
     border-radius: 30px;

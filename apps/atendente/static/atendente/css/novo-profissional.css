@@ -242,3 +242,12 @@ label {
     border-radius: 10px;
     
 }
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}

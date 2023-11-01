@@ -24,3 +24,12 @@
 .option-select label {
     font-size: 20px;
 }
+input:focus
+{
+    outline-color: var(--green-base);
+}
+
+select:focus
+{
+    outline-color: var(--green-base);
+}
