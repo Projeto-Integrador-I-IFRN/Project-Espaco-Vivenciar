@@ -64,9 +64,6 @@ body {
     height: 40px;
     text-align: center;
     cursor: pointer;
-}
-
-.cadastrar-paciente-button a {
     color: var(--background-white);
 }
 
@@ -109,7 +106,7 @@ body {
 .listagem-pacientes {
     overflow-y: scroll;
     height: 100%;
-    padding: 0 20px 0 20px;
+    padding: 0 20px 0 20px;    
 }
 
 .listagem-pacientes::-webkit-scrollbar {
@@ -128,6 +125,13 @@ body {
     height: 60px;
     display: flex;
     align-items: center;
+}
+
+.card-paciente:hover
+{
+    border-radius: 10px;
+    background-color: #cccccc22;
+    cursor: pointer;
 }
 
 .listagem-pacientes .card-paciente img {
@@ -267,10 +271,6 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#button-excluir a
-{
     color: white;
 }
 
