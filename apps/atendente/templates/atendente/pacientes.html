@@ -2,151 +2,153 @@
 {% load static %}
 {% block gerenciar_pacientes %}
     <div class="container-listagem">
-        <div class="content-top">
-            <h1>Gerenciar Pacientes</h1>
-            <div>
-                <button class="cadastrar-paciente-button"><a href="{% url 'perfil:Cadastro' %}" target="_blank">+ Novo Paciente</a></button>
+        <div class="container2">
+
+            <div class="content-top">
+                <h1>Gerenciar Pacientes</h1>
+                <div>
+                    <button class="cadastrar-paciente-button"><a href="{% url 'perfil:Cadastro' %}" target="_blank">+ Novo Paciente</a></button>
+                </div>
             </div>
-        </div>
-
-        <div class="content-gerenciar-pacientes">
-
-            <section class="first-div">
-                    <input type="search" name="search" id=""  placeholder="Buscar Paciente">
-
-                <div class="card-listagem">
-
-                    <div class="listagem-pacientes">
-                        <ul>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>Usuário</strong></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/paciente.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>José Francisco da Silva</strong></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>Usuário</strong></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>Usuário</strong></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>Usuário</strong></p>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="card-paciente">
-                                    <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
-                                    <p><strong>Usuário</strong></p>
-                                </div>
-                            </li>
-                        </ul>
+    
+            <div class="content-gerenciar-pacientes">
+    
+                <section class="first-div">
+                        <input type="search" name="search" id=""  placeholder="Buscar Paciente">
+    
+                    <div class="card-listagem">
+    
+                        <div class="listagem-pacientes">
+                            <ul>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>Usuário</strong></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/paciente.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>José Francisco da Silva</strong></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>Usuário</strong></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>Usuário</strong></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>Usuário</strong></p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="card-paciente">
+                                        <img src="{% static "assets/img/icons/admin.svg" %}" alt="Imagem do Paciente 2">
+                                        <p><strong>Usuário</strong></p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </section>
-            
-
-            <section class="pacientes-detalhados">
-                  <div class="card-info">
-                <div class="card-header">
-                    <h2>Informações pessoais</h2>
-                    <div class="buttons">
-                        <button id="editButton">Editar</button>
-                        <button id="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
+                </section>
+                
+    
+                <section class="pacientes-detalhados">
+                      <div class="card-info">
+                    <div class="card-header">
+                        <h2>Informações pessoais</h2>
+                        <div class="buttons">
+                            <button id="editButton">Editar</button>
+                            <button id="button-excluir"><a href="{% url "atendente:Cadastrar-Profissionais" %}">Excluir</a></button>
+                        </div>
                     </div>
-                </div>
-                <div class="info-user">
-                    <div class="first-section">
-                        <div class="image-paciente">
-                            <img src="{% static "assets/img/icons/paciente-perfil.svg" %}" alt="">
+                    <div class="info-user">
+                        <div class="first-section">
+                            <div class="image-paciente">
+                                <img src="{% static "assets/img/icons/paciente-perfil.svg" %}" alt="">
+                            </div>
+                            <div class="campos">
+                                <label for="nome">Nome</label>
+                                <p class="view-field">José Francisco da Silva</p>
+                                <input type="text" class="edit-field" value="José Francisco da Silva" style="display: none;">
+                            </div>
+                            <div class="campos">
+                                <label for="gênero">Gênero</label>
+                                <p class="view-field">Masculino</p>
+                                <select class="edit-field" style="display: none;">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="campos">
-                            <label for="nome">Nome</label>
-                            <p class="view-field">José Francisco da Silva</p>
-                            <input type="text" class="edit-field" value="José Francisco da Silva" style="display: none;">
+                        <div class="sections">
+                            <div class="second-section">
+                                <div class="campos">
+                                    <label for="data">Data de Nascimento</label>
+                                    <p class="view-field">15/12/2002</p>
+                                    <input type="date" class="edit-field" value="1953-12-15" style="display: none;">
+                                </div>
+                                
+                                <div class="campos">
+                                    <label for="e-mail">E-mail</label>
+                                    <p class="view-field">josedasilva@gmail.com</p>
+                                    <input type="text" class="edit-field" value="josedasilva@gmail.com" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="third-section">
+                                <div class="campos">
+                                    <label for="cpf">CPF</label>
+                                    <p class="view-field">000.000.000-00</p>
+                                    <input type="text" class="edit-field" value="000.000.000-00" style="display: none;">
+                                </div>
+                                <div class="campos">
+                                    <label for="contato">Contato</label>
+                                    <p class="view-field">(84) 99999-9999</p>
+                                    <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
+                                </div>
+                            </div>
                         </div>
-                        <div class="campos">
-                            <label for="gênero">Gênero</label>
-                            <p class="view-field">Masculino</p>
-                            <select class="edit-field" style="display: none;">
-                                <option value="Masculino">Masculino</option>
-                                <option value="Feminino">Feminino</option>
-                                <option value="Outro">Outro</option>
-                            </select>
-                        </div>
+                    </div>
+                    <div class="endereco">
+                        <h2>Endereço</h2>
                     </div>
                     <div class="sections">
-                        <div class="second-section">
+                        <div class="endereco-section">
                             <div class="campos">
-                                <label for="data">Data de Nascimento</label>
-                                <p class="view-field">15/12/2002</p>
-                                <input type="date" class="edit-field" value="1953-12-15" style="display: none;">
+                                <label for="cidade">Cidade</label>
+                                <p class="view-field">Pau dos Ferros</p>
+                                <input type="text" class="edit-field" value="Pau dos Ferros" style="display: none;">
                             </div>
-                            
                             <div class="campos">
-                                <label for="e-mail">E-mail</label>
-                                <p class="view-field">josedasilva@gmail.com</p>
-                                <input type="text" class="edit-field" value="josedasilva@gmail.com" style="display: none;">
+                                <label for="bairro">Bairro</label>
+                                <p class="view-field">Centro</p>
+                                <input type="text" class="edit-field" value="Centro" style="display: none;">
                             </div>
                         </div>
-                        <div class="third-section">
+                        <div class="endereco-section">
                             <div class="campos">
-                                <label for="cpf">CPF</label>
-                                <p class="view-field">000.000.000-00</p>
-                                <input type="text" class="edit-field" value="000.000.000-00" style="display: none;">
+                                <label for="rua">Rua</label>
+                                <p class="view-field">Rua da Independencia</p>
+                                <input type="text" class="edit-field" value="Rua da Independencia" style="display: none;">
                             </div>
                             <div class="campos">
-                                <label for="contato">Contato</label>
-                                <p class="view-field">(84) 99999-9999</p>
-                                <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
+                                <label for="number">Número</label>
+                                <p class="view-field">150</p>
+                                <input type="text" class="edit-field" value="150" style="display: none;">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="endereco">
-                    <h2>Endereço</h2>
-                </div>
-                <div class="sections">
-                    <div class="endereco-section">
-                        <div class="campos">
-                            <label for="cidade">Cidade</label>
-                            <p class="view-field">Pau dos Ferros</p>
-                            <input type="text" class="edit-field" value="Pau dos Ferros" style="display: none;">
-                        </div>
-                        <div class="campos">
-                            <label for="bairro">Bairro</label>
-                            <p class="view-field">Centro</p>
-                            <input type="text" class="edit-field" value="Centro" style="display: none;">
-                        </div>
-                    </div>
-                    <div class="endereco-section">
-                        <div class="campos">
-                            <label for="rua">Rua</label>
-                            <p class="view-field">Rua da Independencia</p>
-                            <input type="text" class="edit-field" value="Rua da Independencia" style="display: none;">
-                        </div>
-                        <div class="campos">
-                            <label for="number">Número</label>
-                            <p class="view-field">150</p>
-                            <input type="text" class="edit-field" value="150" style="display: none;">
-                        </div>
-                    </div>
-                </div>
-            </section>
-                
+                </section>
+        </div>     
 </div>
 {% endblock gerenciar_pacientes %}
