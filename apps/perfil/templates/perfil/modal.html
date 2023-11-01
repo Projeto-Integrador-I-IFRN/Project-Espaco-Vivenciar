@@ -40,12 +40,12 @@
             <!-- TODO: Quando criar template do perfil do medico, criar js para pegar as options -->
 
             <div class="modal-footer">
+                <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
                 <form method="post" class="d-inline">
                     {% csrf_token %}
                     {{ form.as_p }}
                     <button type="submit" class="btn-confirm">Confirmar</button>
                 </form>
-                <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
             </div>
         </div>
     </div>

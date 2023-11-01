@@ -3,26 +3,83 @@
     flex-direction: column;
 }
 
-.options {
-    display: flex;
-    flex-direction: column;
+.card-listagem2 {
     overflow: hidden;
+    background-color: white;
+    width: 450px;
+   height: 300px;
+    margin-top: 20px;
+    padding: 20px
 }
 
-.option-select {
+.first-div2 input[type="search"] {
+    width: 90%;
+    height: 45px;
+    background-color:  #E9E9E9;
+    border-radius: 10px;
+    background-image: url('static/assets/img/icons/icon _Search_.svg');
+    background-repeat: no-repeat;
+    background-position: 20px;
+    padding-left: 50px;
+}
+
+.card-paciente input
+{
+    width: 20px;
+    height: 20px;
+    
+}
+/* Estilo personalizado para o radio (não selecionado) */
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid grey; /* Cor azul para o radio não selecionado */
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Pseudo-elemento para o círculo do radio (selecionado) */
+input[type="radio"]::before {
+    content: "";
+    width: 10px; /* Tamanho do círculo */
+    height: 10px;
+    background-color: var(--green-base); /* Cor verde para o radio selecionado */
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; /* Ajusta a posição verticalmente para o centro */
+    left: 50%; /* Ajusta a posição horizontalmente para o centro */
+    transform: translate(-50%, -50%); /* Centraliza o círculo */
+    display: none; /* Oculta o círculo inicialmente */
+    }
+    
+    /* Estilo para o radio selecionado */
+input[type="radio"]:checked::before {
+    display: block; /* Mostra o círculo quando o radio está selecionado */
+    }
+
+/* Estilo para o radio selecionado */
+input[type="radio"]:checked {
+    border: 2px solid var(--green-base); /* Substitua pela cor que você deseja */
+}
+
+.paciente
+{
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-top: 5px;
+}
+.card-paciente
+{
+    gap: 20px;
 }
 
- .option-select img {
-    height: 30px;
-    width: 30px;
-}
-
-.option-select label {
-    font-size: 20px;
+.first-div2
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 input:focus
 {
@@ -32,4 +89,8 @@ input:focus
 select:focus
 {
     outline-color: var(--green-base);
+}
+
+.option-select label {
+    font-size: 20px;
 }

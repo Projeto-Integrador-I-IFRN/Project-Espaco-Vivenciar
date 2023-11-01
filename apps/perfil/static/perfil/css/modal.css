@@ -132,11 +132,6 @@
     border-radius: 10px;
 }
 
-#horario-atendimento
-{
-    color: var(--green-base);
-}
-
 .horarios-atendimento
 {
     align-items: center;
