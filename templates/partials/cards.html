@@ -82,6 +82,10 @@
             <button class="button_indeferido" data-toggle="modal" data-target="#pacienteModal"><img src="{% static "assets/img/icons/info.svg" %}" alt=""></button>
         {% endif %}
 
+        {% if button_indeferido2 %}
+        <button class="button_indeferido2" data-toggle="modal" data-target="#pacienteModal2"><img src="{% static "assets/img/icons/info.svg" %}" alt=""></button>
+    {% endif %}
+
         {% if button_whastApp %}
             <a href=""><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
         {% endif %}
