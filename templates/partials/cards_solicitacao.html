@@ -1,0 +1,24 @@
+{% load static %}
+{%include "atendente/modal_paciente2.html"%}
+<div class="card-item">
+
+            <img src="{% static "assets/img/icons/paciente.svg" %}" alt="">
+            <div class="user">
+                <p class = "name">José da Silva<p>
+            </div>
+
+            <div class="horario">   
+                <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                <p>9:00h - 10:00h</p>
+            </div>
+ 
+            <div class="list-service">
+                <img src="{% static "assets/img/icons/motivo.svg" %}" alt="">
+                <P>Motivo da consulta</P>
+            </div>
+
+            <button class="button_indeferido" data-toggle="modal" data-target="#pacienteModal2"><img src="{% static "assets/img/icons/info.svg" %}" alt=""></button>
+
+            <button class="button-recusar">Recusar</button>
+            <button class="button-aceitar">Aceitar</button>
+    </div>

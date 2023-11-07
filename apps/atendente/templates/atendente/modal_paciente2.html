@@ -1,0 +1,96 @@
+{% load static %}
+
+<div class="modal fade custom-modal" id="pacienteModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title2" id="myModalLabel">Informações pessoais</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section class="card-info">
+                    <div class="info-user">
+                        <div class="first-section">
+                            <div class="image-paciente">
+                                <img src="{% static "assets/img/icons/paciente-perfil.svg" %}" alt="">
+                            </div>
+                            <div class="campos">
+                                <label for="nome">Nome</label>
+                                <p class="view-field">José Francisco da Silva</p>
+                                <input type="text" class="edit-field" value="José Francisco da Silva" style="display: none;">
+                            </div>
+                            <div class="campos">
+                                <label for="data">Data de Nascimento</label>
+                                <p class="view-field">15/12/2002</p>
+                                <input type="date" class="edit-field" value="1953-12-15" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="sections">
+                            <div class="second-section">
+                                <div class="campos">
+                                    <label for="gênero">Gênero</label>
+                                    <p class="view-field">Masculino</p>
+                                    <select class="edit-field" style="display: none;">
+                                        <option value="Masculino">Masculino</option>
+                                        <option value="Feminino">Feminino</option>
+                                        <option value="Outro">Outro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="campos">
+                                    <label for="e-mail">E-mail</label>
+                                    <p class="view-field">josedasilva@gmail.com</p>
+                                    <input type="text" class="edit-field" value="josedasilva@gmail.com" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="third-section">
+                                <div class="campos">
+                                    <label for="cpf">CPF</label>
+                                    <p class="view-field">000.000.000-00</p>
+                                    <input type="text" class="edit-field" value="000.000.000-00" style="display: none;">
+                                </div>
+                                <div class="campos">
+                                    <label for="contato">Contato</label>
+                                    <p class="view-field">(84) 99999-9999</p>
+                                    <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="endereco">
+                        <h2>Endereço</h2>
+                    </div>
+                    <div class="sections">
+                        <div class="endereco-section">
+                            <div class="campos">
+                                <label for="cidade">Cidade</label>
+                                <p class="view-field">Pau dos Ferros</p>
+                                <input type="text" class="edit-field" value="Pau dos Ferros" style="display: none;">
+                            </div>
+                            <div class="campos">
+                                <label for="bairro">Bairro</label>
+                                <p class="view-field">Centro</p>
+                                <input type="text" class="edit-field" value="Centro" style="display: none;">
+                            </div>
+                        </div>
+                        <div class="endereco-section">
+                            <div class="campos">
+                                <label for="rua">Rua</label>
+                                <p class="view-field">Rua da Independencia</p>
+                                <input type="text" class="edit-field" value="Rua da Independencia" style="display: none;">
+                            </div>
+                            <div class="campos">
+                                <label for="number">Número</label>
+                                <p class="view-field">150</p>
+                                <input type="text" class="edit-field" value="150" style="display: none;">
+                            </div>
+                        </div>
+                        <a href=""><img class="wpp" src="{% static "assets/img/icons/wpp2.svg" %}" alt=""></a>
+                    </div>
+                </section>
+          </div>
+        </div>
+      </div>
+</div>
