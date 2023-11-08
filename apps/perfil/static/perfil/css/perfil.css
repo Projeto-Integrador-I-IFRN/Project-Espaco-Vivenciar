@@ -241,12 +241,13 @@ label {
 
 #novo-servico 
 {
-    min-width: 12rem;
-    font-size: 14px;
-    color: var(--dark-grey);
-    border: 1px solid #ccc; 
-    padding: 10px;
+    min-width: 10rem;
+    max-width: 20rem;
+    min-height: 2.18rem;
+    border: 0.95px solid #D9D9D9;
     border-radius: 10px;
+    padding: 8px;
+    font-size: 14px;
     display: none; /* Inicialmente, oculte os campos de edição */
 }
 input:focus

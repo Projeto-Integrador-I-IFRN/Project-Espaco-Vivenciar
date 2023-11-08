@@ -21,7 +21,7 @@
 }
 
 .modal-dialog {
-    width: 30rem;
+    width: fit-content;
 }
 
 .modal-header {
@@ -166,6 +166,7 @@ input:focus
     outline-color: var(--green-base);
 }
 
+
 select:focus
 {
     outline-color: var(--green-base);
@@ -185,7 +186,7 @@ select:focus
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: #4b4b4b44;
+    background-color: #4b4b4b60;
     opacity: 0.5;
     filter: alpha(opacity=50);
 }

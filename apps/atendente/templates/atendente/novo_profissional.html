@@ -1,4 +1,5 @@
-{% load static %}
+{% load static %}\
+{%include "atendente/modal_add_service.html"%}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -11,6 +12,10 @@
     <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'atendente/js/novo-profissional.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <title>Gerenciar Profissionais</title>
 </head>
 <body>
@@ -60,14 +65,13 @@
             <section class="card-info">
                 <div class="card-header">
                     <h2>Serviços Oferecidos</h2>
-                    <button id="add-service"> + Adicionar Serviço</button>
+                    <button id="add-service" data-toggle="modal" data-target="#modalAddService"> + Adicionar Serviço</button>
                 </div>
                 <div class="sections">
                     <section class="servicos-section">
                         <ul id="lista-servicos">
-
+                            <li> Consulta (30min)<button class="delete-service" style="display: block;">x</button></li>
                         </ul>
-                        <input type="text" id="novo-servico" placeholder="Novo Serviço">
                     </section>
                 </div>
             </section>

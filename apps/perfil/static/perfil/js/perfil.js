@@ -90,4 +90,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     addServiceButton.addEventListener("click", addNewService);
 });
-xxxx

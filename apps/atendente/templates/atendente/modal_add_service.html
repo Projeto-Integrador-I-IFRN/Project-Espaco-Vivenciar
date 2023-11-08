@@ -1,0 +1,46 @@
+{% load static %}
+<div class="modal fade custom-modal" id="modalAddService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="myModalLabel">Adicione um novo serviço</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-main-content">
+                    <div class="conteudo">
+                        <div class = "colunas">
+                            <p>Serviço</p>
+                            <input type="text" id="novo-servico" placeholder="Novo Serviço">
+                        </div>
+                        <div class="horarios-atendimento">
+                            <div class = "colunas">
+                                <p>Média de duração</p>
+                                <select name="Motivo-consulta" id="motivo-consulta">
+                                    <option value="motivo1">30min</option>
+                                    <option value="motivo2">1h</option>
+                                    <option value="motivo3">2h</option>
+                                    <option value="motivo4">3h</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TODO: Quando criar template do perfil do medico, criar js para pegar as options -->
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" data-dismiss="modal">Cancelar</button>
+                <form method="post" class="d-inline">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-confirm">Confirmar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
