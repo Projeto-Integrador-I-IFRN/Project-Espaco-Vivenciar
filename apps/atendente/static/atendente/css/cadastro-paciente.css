@@ -39,8 +39,12 @@
     font-size: 40px;
 }
 
+.nav-add{
+    display: flex;
+    justify-content: space-between;
+}
 .first-div input{
-    width: 100%;
+    width: 32rem;
     height: 45px;
     background-color:  #E9E9E9;
     border-radius: 10px;
@@ -58,10 +62,6 @@ input:focus
 select:focus
 {
     outline-color: var(--green-base);
-}
-
-.first-div input::placeholder {
-    padding-left: 20px;
 }
 
 .cadastrar-paciente-button {
@@ -94,9 +94,8 @@ select:focus
 .content-gerenciar-pacientes {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-top: 20px;
-    max-height: 688px;
-    gap: 100px;
 }
 
 .card-listagem {
@@ -111,9 +110,8 @@ select:focus
 }
 
 .listagem-pacientes {
-    overflow-y: scroll;
     height: 100%;
-    padding: 0 20px 0 20px;    
+    margin-top: 65px;
 }
 
 .listagem-pacientes::-webkit-scrollbar {
@@ -181,7 +179,7 @@ label {
     border: 1px solid #ccc; 
     padding: 10px;
     border-radius: 10px;
-    display: none; /* Inicialmente, oculte os campos de edição */
+    
 }
 
 .card-header {

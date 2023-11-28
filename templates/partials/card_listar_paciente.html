@@ -1,0 +1,15 @@
+{% load static %}
+<div class="card-item-paciente">
+    <div class="foto-nome">
+        <img src="{% static "assets/img/icons/icon-paciente.svg" %}" alt="">
+        <div class="user">
+            <p class="name-paciente" style="width: 400px;">{{ paciente.nome_paciente }}</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <a href = "{% url 'atendente:editar-paciente' id=paciente.id %}"><button class="button-editar">Editar</button></a>
+        <a href = "{% url 'atendente:excluir-paciente' id=paciente.id %}"><button class="button-excluir">Excluir</button></a>
+    </div>
+</div>
+

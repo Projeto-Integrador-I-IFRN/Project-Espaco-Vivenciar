@@ -10,17 +10,31 @@
     --dark-grey: #616161;
 }
 
-.card-item p
+p
 {
     color: var(--dark-grey);
 }
 
-.card-item .name
+.name
 {
     color: var(--green-base);
     font-weight: 600;
     font-size: 18px;
 }
+
+.name-paciente
+{
+    color: #393E39;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.info-cpf{
+    display: flex;
+    align-items: center;
+    gap: 107px;
+}
+
 
 .title {
     color: var(--green-base);
@@ -94,6 +108,24 @@
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
+.card-item-paciente {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    background-color: #ffffff;
+    height: 7.18rem;
+    width: 62.93rem;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-item-paciente .foto-nome
+{
+    margin-left: 30px;
+}
 
 .card-profissional
 {
@@ -145,7 +177,7 @@
     margin-top: 20px;
 }
 
-.card-item .data h2{
+.data h2{
     font-size: 18px;
     font-weight: 500;
 }
@@ -178,13 +210,13 @@ hr
     background-color: #CFCFCF;
 }
 
-.card-item .data h3
+.data h3
 {
     font-size: 40px;
     font-weight: 600;
 }
 
-.card-item .horario {
+.horario {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -234,12 +266,12 @@ select:focus
     color: var(--background-white);
 }
 
-.card-item .list-service{
+.list-service{
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.card-item .button-solicitar {
+.button-solicitar {
     background-color: var(--green-base);
     color: var(--background-white);
     border-radius: 30px;
@@ -249,7 +281,7 @@ select:focus
     cursor: pointer;
 }
 
-.card-item .button-recusar {
+.button-recusar {
     background-color: #F3F3F3;
     color: #EA0303;
     box-shadow: 0 3px 1px rgba(0,0,0,0.15);
@@ -259,17 +291,19 @@ select:focus
     font-weight: 600;
     cursor: pointer;
 }
-.card-item .button-aceitar {
-    background-color: var(--green-base);
-    color: var(--background-white);
+
+.button-excluir {
+    background-color: transparent;
+    color: #EA0303;
+    border: 2px solid #EA0303;;
     width: 130px;
     height: 35px;
     border-radius: 30px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
-.card-item .button-detalhar {
+.button-editar {
     background-color: transparent;
     color: var(--green-base);
     border: 2px solid var(--green-base);
@@ -279,15 +313,39 @@ select:focus
     font-weight: 600;
     cursor: pointer;
 }
-.card-item .button_edit {
+
+.button-aceitar {
+    background-color: var(--green-base);
+    color: var(--background-white);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.button-detalhar {
+    background-color: transparent;
+    color: var(--green-base);
+    border: 2px solid var(--green-base);
+    width: 130px;
+    height: 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button_edit {
     background-color: transparent;
     cursor: pointer;
 }
-.card-item .button_edit2 {
+
+ .button_edit2 {
     background-color: transparent;
     cursor: pointer;
 }
-.card-item .button_indeferido {
+
+.button_indeferido {
     background-color: transparent;
     cursor: pointer;
 }
@@ -308,12 +366,12 @@ select:focus
     max-width: 900px;
 }
 
-.card-item .info-user 
+.info-user 
 {
     display: flex;
     gap: 10px;
 }
-.card-item .info-user2 img
+.info-user2 img
 {
     width: 60%;
 }
@@ -438,4 +496,11 @@ select:focus
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.foto-nome
+{
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }

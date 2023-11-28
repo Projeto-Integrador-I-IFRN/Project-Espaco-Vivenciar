@@ -10,7 +10,7 @@ class Paciente(models.Model):
     nome_paciente = models.CharField('Nome', max_length= 200)
     data_nascimento = models.DateField('Data de Nascimento')
     email = models.EmailField(max_length= 200)
-    cpf_paciente = models.CharField(max_length= 11)
+    cpf_paciente = models.CharField('cpf', max_length= 11)
 
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'

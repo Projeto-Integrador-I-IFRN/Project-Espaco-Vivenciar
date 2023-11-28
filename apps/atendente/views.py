@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView
 from .forms import NovaAgenda
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView, ListView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def Home(request):
@@ -32,10 +34,6 @@ def GerenciarAgendas(request):
 def GerenciarProfissionais(request):
     title = "Profissional"
     return render(request, 'atendente/profissional.html', {'title': title})
-
-def GerenciarPacientes(request):
-    title = "Paciente"
-    return render(request, 'atendente/pacientes.html', {'title': title})
 
 def CadastrarProfissionais(request):
     title = "Cadastro de profissionais"
@@ -75,4 +73,35 @@ def AgendamentosSolicitacoes(request):
         'count_solicitacoes': False,
         'edit': True
     }
-    return render(request, 'atendente/agendamentos_solicitacoes_consultas.html', context=context)
+    return render(request, 'atendente/agendamentos_solicitacoes_consultas.html', context= context)
+
+
+# CRUD PACIENTE
+from apps.core.models import Paciente
+from .forms import PacienteForm
+class ListarPacientes(ListView):
+    model = Paciente
+    template_name = 'atendente/pacientes.html'
+    context_object_name = 'pacientes'
+
+class CriarPaciente(CreateView):
+    template_name = 'atendente/criar-paciente.html'
+    form_class = PacienteForm
+    success_url = reverse_lazy('atendente:listar-pacientes')
+
+class ExcluirPaciente(DeleteView):
+    model = Paciente
+    pk_url_kwarg = 'id'
+    success_url = reverse_lazy('atendente:listar-pacientes')
+
+    def get(self, *args, **kwargs):
+        return self.delete(*args, **kwargs)
+
+class EditarPaciente(UpdateView):
+    model = Paciente
+    template_name = 'atendente/criar-paciente.html'
+    form_class = PacienteForm
+    pk_url_kwarg = 'id'
+    
+    def get_success_url(self):
+        return reverse_lazy('atendente:listar-pacientes')

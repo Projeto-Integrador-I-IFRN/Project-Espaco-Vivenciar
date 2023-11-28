@@ -1,0 +1,12 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+
+{% block gerenciar_pacientes %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" id="editButton">Salvar</button>
+</form>
+    
+{% endblock gerenciar_pacientes %}
