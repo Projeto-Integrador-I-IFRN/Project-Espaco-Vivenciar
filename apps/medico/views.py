@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 def GerenciarProfissionais(request):

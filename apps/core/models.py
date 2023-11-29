@@ -15,8 +15,19 @@ class Paciente(models.Model):
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'
 
-class Profissional(models.Model):
-    pass
-
 class Servico(models.Model):
-    pass
+    nome_servico = models.CharField('Nome', max_length= 200)
+    duracao_servico = models.DurationField('Duração')
+
+    def __str__(self):
+        return f'Nome: {self.nome_servico} '
+    
+class Profissional(models.Model):
+    imagem = models.ImageField(upload_to='caminho/do/upload/')
+    nome_medico = models.CharField('Nome', max_length= 200)
+    especialidade = models.CharField('Especialidade', max_length= 200)
+    servicos = models.ManyToManyField(Servico, verbose_name='Serviços')
+
+    def __str__(self):
+        return f'Nome: {self.nome_medico} - {self.especialidade}'
+
