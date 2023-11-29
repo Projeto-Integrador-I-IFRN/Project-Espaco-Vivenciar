@@ -1,16 +1,16 @@
 {% load static %}
-<div class="card-item-2">
-    <a href="{% url "medico:Gerenciar-Profissionais" %}">
-    {% if card == "profissional" %}
-        {% if info_user %}
-        <div class="card-profissional">
-                <img src="{% static "assets/img/icons/medico.svg" %}" alt="">
-                <div class="user">
-                    <h1 class = "name">Dr. Kaio Moura</h1>
-                    <p>Clínico geral</p>
-                </div>
-            </div>
-        </a>
-        {% endif %}
+<div class="card-item-paciente">
+    <div class="foto-nome">
+        <img src="{{ profissional.imagem.url }}" alt="Imagem" id="imagem-profissional">
+        <div class="user">
+            <p class="name-paciente" style="width: 400px;">{{ profissional.nome_medico }}</p>
+            <p style="width: 100px;" >{{ profissional.especialidade }}</p>
+        </div>
+    </div>
+    
+
+    <div class="buttons">
+        <a href = "#"><button class="button-editar">Editar</button></a>
+        <a href = "#"><button class="button-excluir">Excluir</button></a>
+    </div>
 </div>
-{% endif %}

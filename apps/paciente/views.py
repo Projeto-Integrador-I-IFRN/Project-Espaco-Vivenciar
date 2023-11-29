@@ -3,11 +3,30 @@ from django.views.generic import TemplateView, CreateView, UpdateView, DeleteVie
 from apps.core.models import Paciente
 from .forms import PacienteForm
 from django.urls import reverse_lazy
+import re
 
 class ListarPacientes(ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Formata o CPF de cada paciente na lista
+        for paciente in context['pacientes']:
+            paciente.cpf_formatado = formatar_cpf(paciente.cpf_paciente)
+
+        return context
+
+def formatar_cpf(cpf):
+    # Remove caracteres não numéricos do CPF
+    cpf_numerico = re.sub('[^0-9]', '', str(cpf))
+
+    # Formata o CPF
+    cpf_formatado = '{}.{}.{}-{}'.format(cpf_numerico[:3], cpf_numerico[3:6], cpf_numerico[6:9], cpf_numerico[9:])
+    
+    return cpf_formatado
 
 class CriarPaciente(CreateView):
     template_name = 'paciente/criar-paciente.html'

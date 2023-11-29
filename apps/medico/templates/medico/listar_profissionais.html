@@ -1,0 +1,29 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+{% block cadastrar_profissionais %}
+<div class="container-listagem">
+    <div class="container2">
+
+        <div class="content-top">
+            <h1>Gerenciar Profissionais</h1>
+        </div>
+            <section class="first-div">
+                <div class = "nav-add">
+                    <input type="search" name="search" placeholder="Buscar Paciente">
+                    <a href = "{% url 'medico:Cadastrar-Profissionais' %}"> <button class="cadastrar-paciente-button" >+ Novo Paciente</button></a>
+                </div>
+                    <div class="listagem-pacientes">
+                        <ul>
+                            {% for profissional in profissionais %}
+                                <li>
+                                    {% include "partials/card_profissional.html" %}
+                                </li>
+                        {% endfor %}
+
+                        </ul>
+                    </div>
+            </section>
+            
+{% endblock cadastrar_profissionais %}
+
+

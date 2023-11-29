@@ -1,12 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DeleteView
+from django.views.generic import  CreateView, UpdateView, ListView, DeleteView
 from django.urls import reverse_lazy
+from apps.core.models import Profissional
 
 # Create your views here.
-def GerenciarProfissionais(request):
-    title = "Profissional"
-    return render(request, 'medico/profissional.html', {'title': title})
-
 def CadastrarProfissionais(request):
     title = "Cadastro de profissionais"
     context = {
@@ -19,3 +16,10 @@ def CadastrarProfissionais(request):
 def NovoProfissional(request):
     title = "Novo profissional"
     return render(request, 'medico/novo_profissional.html', {'title': title})
+
+class ListarProfissionais(ListView):
+    model = Profissional
+    template_name = 'medico/listar_profissionais.html'
+    context_object_name = 'profissionais'
+
+

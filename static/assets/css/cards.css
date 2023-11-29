@@ -27,6 +27,7 @@ p
     color: #393E39;
     font-weight: 600;
     font-size: 17px;
+    width: 400px;
 }
 
 .info-cpf{
@@ -304,13 +305,12 @@ select:focus
 }
 
 .button-editar {
-    background-color: transparent;
-    color: var(--green-base);
-    border: 2px solid var(--green-base);
+    background-color: var(--green-base);
+    color: var(--background-white);
     width: 130px;
     height: 35px;
     border-radius: 30px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
 }
 

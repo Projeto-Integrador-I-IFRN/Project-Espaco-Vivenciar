@@ -23,7 +23,7 @@ class Servico(models.Model):
         return f'Nome: {self.nome_servico} '
     
 class Profissional(models.Model):
-    imagem = models.ImageField(upload_to='caminho/do/upload/')
+    imagem = models.ImageField(upload_to='media')
     nome_medico = models.CharField('Nome', max_length= 200)
     especialidade = models.CharField('Especialidade', max_length= 200)
     servicos = models.ManyToManyField(Servico, verbose_name='Serviços')

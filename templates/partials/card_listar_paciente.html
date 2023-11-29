@@ -1,9 +1,11 @@
 {% load static %}
 <div class="card-item-paciente">
     <div class="foto-nome">
-        <img src="{% static "assets/img/icons/icon-paciente.svg" %}" alt="">
+        <div class="circle-avatar" id="patient-avatar">{{ paciente.nome_paciente.0 }}</div>
         <div class="user">
-            <p class="name-paciente" style="width: 400px;">{{ paciente.nome_paciente }}</p>
+            <p class="name-paciente" >{{ paciente.nome_paciente }}</p>
+            <p>{{ paciente.cpf_formatado }}</p>
+            
         </div>
     </div>
 
@@ -13,3 +15,4 @@
     </div>
 </div>
 
+<script src="{% static 'paciente/js/foto-perfil.js' %}"></script>
