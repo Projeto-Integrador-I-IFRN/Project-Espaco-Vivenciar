@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'apps.perfil',
     'bootstrap_modal_forms',
     'apps.atendente',
+    'apps.medico',
+    'apps.paciente'
 ]
 
 MIDDLEWARE = [

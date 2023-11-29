@@ -1,4 +1,5 @@
 {% load static %}
+
 <header>
     <div class="nav">
         <a href="{% url 'atendente:Home' %}">
@@ -7,8 +8,8 @@
         <div class="menu">
             <img class="home-icon" src="{% static 'assets/img/icons/admin.svg' %}">
             <div class="dropdown-menu">
-                <a href="{% url 'atendente:Cadastrar-Profissionais' %}">Gerenciar Profissionais</a>
-                <a href="{% url "atendente:listar-pacientes" %}">Gerenciar Pacientes</a>
+                <a href="{% url 'medico:Cadastrar-Profissionais' %}">Gerenciar Profissionais</a>
+                <a href="{% url "paciente:listar-pacientes" %}">Gerenciar Pacientes</a>
                 <a class = "sair-link" href="{% url 'core:Index' %}">Sair</a>
             </div>
         </div>

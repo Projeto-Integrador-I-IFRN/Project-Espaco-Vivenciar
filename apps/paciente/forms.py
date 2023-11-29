@@ -1,10 +1,6 @@
 from django import forms
 from apps.core.models import Paciente
 
-class NovaAgenda(forms.Form):
-    campo1 = forms.CharField()
-    campo2 = forms.IntegerField()
-
 class PacienteForm(forms.ModelForm):
     class Meta:
         model = Paciente
