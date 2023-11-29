@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'apps.atendente',
     'apps.medico',
     'apps.paciente',
-    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [
