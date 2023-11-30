@@ -10,8 +10,9 @@
     </div>
 
     <div class="buttons">
-        <a href = "{% url 'paciente:editar-paciente' id=paciente.id %}"><button class="button-editar">Editar</button></a>
-        <a href = "{% url 'paciente:excluir-paciente' id=paciente.id %}"><button class="button-excluir">Excluir</button></a>
+        <a href = "{% url 'paciente:editar-paciente' id=paciente.id %}"><button class="lapis"><img src="{% static 'assets/img/icons/pencil.svg'%}" alt="lapis de edição">Editar</button></a>
+        
+        <a href = "{% url 'paciente:excluir-paciente' id=paciente.id %}"><button class="lixeira"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
     </div>
 </div>
 

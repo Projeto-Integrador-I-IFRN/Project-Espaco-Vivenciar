@@ -24,6 +24,7 @@ body {
     overflow-x: hidden;
 }
 
+
 main {
     margin-top: 3.125rem;
     /* 50px */
@@ -43,7 +44,17 @@ main {
     font-weight: 400;
 }
 
-.container {
+.container2 {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-around;
+    flex-direction: row;
+    width: auto;
+}
+
+.container
+{
     display: flex;
     align-items: center;
     margin: auto;

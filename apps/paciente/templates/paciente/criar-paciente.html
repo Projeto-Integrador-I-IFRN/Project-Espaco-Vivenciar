@@ -1,12 +1,82 @@
 {% extends "base/base_home_atendente.html" %}
 {% load static %}
-
 {% block gerenciar_pacientes %}
-
+<div class="centralizar">
 <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit" id="editButton">Salvar</button>
+    <section class="card-info">
+        <div class="card-header">
+            <h2>Informações pessoais</h2>
+            <button type="submit" id="editButton">Salvar</button>
+        </div>
+        <div class="info-user">
+            <div class="sections">
+            <div class="section">
+                <div class="campos">
+                    <label for="nome">Nome</label>
+                    {{ form.nome_paciente }}
+                </div>
+                <div class="campos">
+                    <label for="data">Data de Nascimento</label>
+                    {{ form.data_nascimento }}
+                </div>
+            </div>
+                <div class="section">
+                    <div class="campos">
+                        <label for="gênero">Gênero</label>
+                        <p class="view-field">Masculino</p>
+                        <select class="edit-field" style="display: none;">
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                
+                    <div class="campos">
+                        <label for="e-mail">E-mail</label>
+                        {{ form.email }}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="campos">
+                        <label for="cpf">CPF</label>
+                        {{ form.cpf_paciente }}
+                    </div>
+                    <div class="campos">
+                        <label for="contato">Contato</label>
+                        <p class="view-field">(84) 99999-9999</p>
+                        <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="endereco">
+            <h2>Endereço</h2>
+        </div>
+        <div class="sections">
+            <div class="endereco-section">
+                <div class="campos">
+                    <label for="cidade">Cidade</label>
+                    
+                </div>
+                <div class="campos">
+                    <label for="bairro">Bairro</label>
+                    
+                </div>
+            </div>
+            <div class="endereco-section">
+                <div class="campos">
+                    <label for="rua">Rua</label>
+                   
+                </div>
+                <div class="campos">
+                    <label for="number">Número</label>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
 </form>
-    
+</div>
 {% endblock gerenciar_pacientes %}

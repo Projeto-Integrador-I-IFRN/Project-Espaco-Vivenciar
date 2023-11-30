@@ -19,25 +19,31 @@
 
 body {
     background-color: var(--background-white);
-    display: flex;
-    flex-direction: column;
     align-items: center;
     min-height: 100vh;
 }
 
 .container {
-    width: 100%;
-    max-width: 50rem;
-    margin-bottom: 100px;
-    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    justify-content: space-around;
+    flex-direction: column;
+    width: auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
 }
 
 .card-info {
     background-color: white;
     border-radius: 20px;
     width: 100%;
-    max-width: 55rem;
-    height: auto; /* Ajuste a altura para se ajustar ao conteúdo */
+    max-width: 45rem;
+    height: auto;
+    /* Ajuste a altura para se ajustar ao conteúdo */
     padding: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;
@@ -66,15 +72,6 @@ label {
     color: var(--dark-grey);
 }
 
-.edit-field {
-    min-width: 12rem;
-    font-size: 14px;
-    color: var(--dark-grey);
-    border: 1px solid #ccc; 
-    padding: 10px;
-    border-radius: 10px;
-    display: none; /* Inicialmente, oculte os campos de edição */
-}
 
 .card-header {
     display: flex;
@@ -83,30 +80,15 @@ label {
     margin-bottom: 2rem;
 }
 
-.first-section {
+.section {
     display: flex;
-    gap: 80px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.second-section {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
+    gap: 50px;
     min-width: 200px;
     flex-wrap: wrap;
 }
 
-.third-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-width: 200px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
 
 .endereco {
     margin-top: 4rem;
@@ -115,12 +97,16 @@ label {
 
 .sections {
     display: flex;
-    gap: 80px;
+    flex-direction: column;
+    gap: 30px;
     margin-top: 1.4rem;
 }
 
 .campos {
-    gap: 15px;
+    gap: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
 }
 
 .endereco-section {
@@ -131,8 +117,7 @@ label {
     min-width: 200px;
 }
 
-.servicos-section
-{
+.servicos-section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -156,8 +141,7 @@ label {
     align-items: center;
 }
 
-#button-excluir
-{
+#button-excluir {
     background-color: rgb(227, 2, 2);
     /* border: 2px solid var(--green-base); */
     font-weight: 600;
@@ -172,20 +156,17 @@ label {
     align-items: center;
 }
 
-#button-excluir a
-{
+#button-excluir a {
     color: white;
 }
 
-.buttons
-{
+.buttons {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 50px;
 }
 
-#add-service
-{
+#add-service {
     background-color: white;
     color: var(--green-base);
     border: 2px solid var(--green-base);
@@ -200,6 +181,7 @@ label {
     justify-content: center;
     align-items: center;
 }
+
 .servicos-section ul {
     list-style-type: none;
 }
@@ -222,25 +204,17 @@ label {
     align-items: center;
 }
 
-.delete-service:hover
-{
+.delete-service:hover {
     opacity: 90%;
 }
 
-#novo-servico {
-    display: none; /* Oculto por padrão */
-}
-
-#add-service {
-    display: none; /* Oculto por padrão */
-}
 
 .delete-service {
-    display: none; /* Oculto por padrão */
+    display: none;
+    /* Oculto por padrão */
 }
 
-#novo-servico 
-{
+#novo-servico {
     min-width: 10rem;
     max-width: 20rem;
     min-height: 2.18rem;
@@ -248,14 +222,39 @@ label {
     border-radius: 10px;
     padding: 8px;
     font-size: 14px;
-    display: none; /* Inicialmente, oculte os campos de edição */
+    display: none;
+    /* Inicialmente, oculte os campos de edição */
 }
-input:focus
-{
+
+input:focus {
     outline-color: var(--green-base);
 }
 
-select:focus
-{
+select:focus {
     outline-color: var(--green-base);
+}
+
+.lixeira {
+    font-size: 16px;
+    color: rgb(227, 2, 2);
+    background-color: transparent;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.lapis {
+    font-size: 16px;
+    color:  var(--green-base);
+    background-color: transparent;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.buttons:hover
+{
+    opacity: 80%;
 }

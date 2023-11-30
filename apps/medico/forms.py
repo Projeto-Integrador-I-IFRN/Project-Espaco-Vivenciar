@@ -1,10 +1,12 @@
 from django import forms
-from core.models import Profissional, Servico
+from apps.core.models import Profissional, Servico
 
 class ProfissionalForm(forms.ModelForm):
-    class Meta: 
-        fields = '__all__'
+    class Meta:
+        model = Profissional
+        fields = ['imagem', 'nome_medico', 'especialidade']
 
 class ServicoForm(forms.ModelForm):
-    class Meta: 
-        fields = '__all__'
+    class Meta:
+        model = Servico
+        fields = ['nome_servico', 'duracao_servico']
