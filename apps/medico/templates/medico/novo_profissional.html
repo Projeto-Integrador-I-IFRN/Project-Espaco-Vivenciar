@@ -1,5 +1,4 @@
 {% load static %}
-{%include "medico/modal_add_service.html"%}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,11 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'atendente/css/novo-profissional.css' %}">
     <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
-   
+    <link rel="stylesheet" href="{% static 'medico/css/modal.css' %}">
+    
+    <script src="{% static 'medico/js/modal.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -68,7 +69,18 @@
             <section class="card-info">
                 <div class="card-header">
                     <h2>Serviços Oferecidos</h2>
-                   <button id="add-service" data-toggle="modal" data-target="#modalAddService"> + Adicionar Serviço</button>
+                    <button class="botao-padrao" id="abrirModal" hx-get={% url 'medico:criar-servico' %} hx-trigger='click' hx-target='#modal' hx-swap="innerHTML">
+                        <i class="ph ph-user-circle-plus"></i>
+                        Novo paciente
+                      </button>
+
+                    <dialog class="cadastro-de-paciente" id="myModal">
+                        {% comment %} <button class="fecharModal"></i>X</button> {% endcomment %}
+                        <div id="modal">
+                        </div>
+
+                    </dialog>
+
                 </div>
                 <div class="sections">
                     <section class="servicos-section">

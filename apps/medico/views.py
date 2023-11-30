@@ -28,4 +28,4 @@ class CriarServico(CreateView):
     model = Servico
     form_class = ServicoForm
     template_name = 'medico/modal_add_service.html'
-    success_url = reverse_lazy('medico:listar-profissionais')  
+    success_url = reverse_lazy('medico:listar-profissionais')

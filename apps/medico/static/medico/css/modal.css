@@ -1,0 +1,169 @@
+.formulario-paciente {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.conteudo-topo-paciente {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 52px;
+    margin-top: 28px;
+    margin-bottom: 32px;
+    margin-right: 26px;
+}
+
+.conteudo-topo-paciente button {
+    border: none;
+    background-color: #FFFFFF;
+}
+
+.conteudo-topo-paciente .ph-x {
+    color: #000000;
+}
+
+.titulo-modal {
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+dialog.cadastro-de-paciente {
+    max-width: 640px;
+    max-height: 559px;
+    border: none;
+    position: relative;
+    padding: 28px 52px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.conteudo-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 32px;
+}
+
+.titulo-modal,
+.formulario-paciente,
+.footer-modal-criar-paciente {
+    width: 100%;
+}
+
+#fechar-modal {
+    position: absolute;
+}
+
+.form-item input {
+    border-radius: 8px;
+    border: 1px solid #F4F3F3;
+    width: 100%;
+    padding: 12px 16px;
+    margin-right: 1px;
+    font-size: 14px;
+}
+
+.row-2-labels {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.row-2-labels input {
+    width: 265px;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #F4F3F3;
+}
+
+.cpf-paciente {
+    display: flex;
+    flex-direction: column;
+}
+
+.whatsapp-paciente {
+    display: flex;
+    flex-direction: column;
+    margin-right: 48px;
+}
+
+.container-inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 46px;
+}
+
+.idade-paciente {
+    display: flex;
+    flex-direction: column;
+}
+
+.peso-paciente {
+    display: flex;
+    flex-direction: column;
+}
+
+.altura-paciente {
+    display: flex;
+    flex-direction: column;
+}
+
+.altura-paciente input {
+    margin-right: 48px;
+}
+
+.buttons-cadastrar-paciente {
+    display: flex;
+    gap: 20px;
+}
+
+.buttons-cadastrar-paciente #botao-salvar {
+    border-radius: 10px;
+    background: #0C9A61;
+    border: none;
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    width: 103px;
+    height: 43px;
+}
+
+.buttons-cadastrar-paciente #botao-cancelar {
+    border-radius: 10px;
+    border: 1px solid #F4F3F3;
+    background: #FFFFFF;
+    width: 103px;
+    height: 43px;
+    color: #141623;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+}
+
+.footer-modal-criar-paciente {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+
+.footer-modal-criar-paciente button {
+    border: none;
+    padding: 10px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#botao-salvar-paciente {
+    color: #FFFFFF;
+    background-color: #0C9A61;
+}
+
+#botao-cancelar-paciente {
+    background-color: transparent;
+    color: black;
+}
