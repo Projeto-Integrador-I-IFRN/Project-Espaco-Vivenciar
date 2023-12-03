@@ -3,7 +3,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from django.urls import reverse_lazy
-from apps.core.models import Profissional, Servico
+from apps.core.models import Profissional, Servicos
 from .forms import ServicoForm
 
 def CadastrarProfissionais(request):
@@ -25,7 +25,7 @@ class ListarProfissionais(ListView):
 #     # Adicione o model e o form_class conforme necessário
 
 class CriarServico(CreateView):
-    model = Servico
+    model = Servicos
     form_class = ServicoForm
     template_name = 'medico/modal_add_service.html'
     success_url = reverse_lazy('medico:listar-profissionais')

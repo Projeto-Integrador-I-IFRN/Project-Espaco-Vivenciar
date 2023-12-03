@@ -1,5 +1,5 @@
 from django import forms
-from apps.core.models import Profissional, Servico
+from apps.core.models import Profissional, Servicos
 
 class ProfissionalForm(forms.ModelForm):
     class Meta:
@@ -8,5 +8,5 @@ class ProfissionalForm(forms.ModelForm):
 
 class ServicoForm(forms.ModelForm):
     class Meta:
-        model = Servico
+        model = Servicos
         fields = ['nome_servico', 'duracao_servico']
