@@ -7,7 +7,8 @@ app_name = 'medico'
 
 urlpatterns = [
     path("atendente/profissionais/", views.ListarProfissionais.as_view(), name="listar-profissionais"),
-    path("atendente/profissionais/cadastrar", views.CadastrarProfissionais, name="Cadastrar-Profissionais"),
+    path("atendente/profissionais/cadastrar", views.CriarProfissional.as_view(), name="Cadastrar-Profissionais"),
     path('adicionar-servico/', views.CriarServico.as_view(), name='criar-servico'),
+    path('servico/', views.ListarServico.as_view(), name='listar-servico'),
 
 ]
