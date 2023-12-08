@@ -10,22 +10,26 @@ class Atendente(models.Model):
     pass
 
 class Paciente(models.Model):
+
     GENERO_CHOICES = [
         ('M', 'Masculino'),
-        ('F', 'Feminino')    
+        ('F', 'Feminino'),
+        ('Outro', 'Outro')
     ]
 
     nome_paciente = models.CharField('Nome', max_length= 200)
     data_nascimento = models.DateField('Data de Nascimento')
     genero = models.CharField('Sexo', max_length=24, choices=GENERO_CHOICES, null=True)
-    email = models.EmailField(max_length= 200)
+    email = models.EmailField(max_length= 200, unique = True, null = True)
+    contato_paciente = models.CharField('Contato', max_length = 15, unique = True, null = True )
     cpf_paciente = models.CharField(
-        max_length=11,
-
+        max_length = 11,
+        unique = True,
+        null = True,
         validators=[
             validate_integer,
-            MinLengthValidator(limit_value=11, message='O CPF deve ter exatamente 11 dígitos.'),
-            MaxLengthValidator(limit_value=11, message='O CPF deve ter exatamente 11 dígitos.'),
+            MinLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
+            MaxLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
         ]
     )
 
@@ -40,17 +44,18 @@ class Paciente(models.Model):
     
 class Profissional(models.Model):
     imagem = models.ImageField(upload_to='media')
-    nome_medico = models.CharField('Nome', max_length= 200)
-    especialidade = models.CharField('Especialidade', max_length= 200)
+    nome_medico = models.CharField('Nome', max_length = 200)
+    especialidade = models.CharField('Especialidade', max_length = 200)
+    contato_profissional = models.CharField('Contato', max_length = 15, unique = True, null = True )
 
     def __str__(self):
         return f'Nome: {self.nome_medico} - {self.especialidade}'
 class Servico(models.Model):
     nome_servico = models.CharField('Nome', max_length= 200)
     duracao_servico = models.DurationField('Duração')
-    profissional = models.ForeignKey(Profissional, on_delete= models.CASCADE)
+    profissional = models.ForeignKey(Profissional, on_delete = models.CASCADE)
 
     def __str__(self):
-        return f'Nome: {self.nome_servico} '
+        return f'Nome: {self.nome_servico}'
     
 

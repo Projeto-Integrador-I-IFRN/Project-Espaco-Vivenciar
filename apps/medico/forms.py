@@ -5,7 +5,7 @@ from django.forms import inlineformset_factory
 class ProfissionalForm(forms.ModelForm):
     class Meta:
         model = Profissional
-        fields = ['imagem', 'nome_medico', 'especialidade']
+        fields = '__all__'
 
 class ServicoForm(forms.ModelForm):
     class Meta:

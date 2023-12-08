@@ -24,11 +24,7 @@
                 <div class="section">
                     <div class="campos">
                         <label for="gênero">Gênero</label>
-                        <p class="view-field">Masculino</p>
-                        <select class="edit-field" style="display: none;">
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                            <option value="Outro">Outro</option>
+                        {{ form.genero }}
                         </select>
                     </div>
                 
@@ -44,11 +40,10 @@
                         {{ form.cpf_paciente }}
                         {{ form.cpf_paciente.errors }}
                     </div>
+
                     <div class="campos">
-                        <label for="contato">Contato</label>
-                        <p class="view-field">(84) 99999-9999</p>
-                        <input type="text" class="edit-field" value="(84) 99999-9999" style="display: none;">
-                    </div>
+                        <label for = "contato">Contato</label>
+                        {{ form.contato_paciente }}
                 </div>
             </div>
         </div>
