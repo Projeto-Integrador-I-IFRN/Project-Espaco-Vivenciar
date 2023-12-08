@@ -10,8 +10,14 @@ class Atendente(models.Model):
     pass
 
 class Paciente(models.Model):
+    GENERO_CHOICES = [
+        ('M', 'Masculino'),
+        ('F', 'Feminino')    
+    ]
+
     nome_paciente = models.CharField('Nome', max_length= 200)
     data_nascimento = models.DateField('Data de Nascimento')
+    genero = models.CharField('Sexo', max_length=24, choices=GENERO_CHOICES, null=True)
     email = models.EmailField(max_length= 200)
     cpf_paciente = models.CharField(
         max_length=11,
