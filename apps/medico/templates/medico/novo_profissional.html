@@ -28,68 +28,25 @@
         <h1>Cadastrar Profissional</h1>
         <main>
             <section class="card-info">
-                <div class="card-header">
-                    <h2>Informações pessoais</h2>
-                    <div class="buttons">
-                        <button  id="salvarButton"><a href="{% url "medico:Cadastrar-Profissionais" %}">Salvar</a></button>
-                        <button id="button-cancelar"><a href="{% url "medico:Cadastrar-Profissionais" %}">Cancelar</a></button>
-                    </div>
-                </div>
-                <div class="info-user">
-                    <div class="first-section">
-                        <div class="image-paciente">
-                            <img src="{% static "assets/img/icons/foto-nao-adicionada.svg" %}" alt="">
-                        </div>
-                        <div class="campos">
-                            <label for="nome">Nome</label>
-                            <input type="text" class="edit-field" value="Kaio Moura" >
-                        </div>
-                        <div class="campos">
-                            <label for="data">Data de Nascimento</label>
-                            <input type="date" class="edit-field" value="1984-01-10" >
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card-header">
+                        <h2>Informações pessoais</h2>
+                        <div class="buttons">
+                            <button id="salvarButton" type="submit">Salvar</button>
+                            <button id="button-cancelar"><a href="{% url 'medico:Cadastrar-Profissionais' %}">Cancelar</a></button>
+                            
                         </div>
                     </div>
-                    <div class="sections">
-                        <div class="second-section">
-                            <div class="campos">
-                                <label for="e-mail">Especialidade</label>
-                                <input type="text" class="edit-field" value="Clínco Geral" >
-                            </div>
-                        </div>
-                        <div class="third-section">
-                            <div class="campos">
-                                <label for="contato">Contato</label>
-                                <input type="text" class="edit-field" value="(84) 99999-9999" >
-                            </div>
+                    <div class="info-user">
+                        {{ form }}
+    
                     </div>
-                </div>
-            </div>
+                </form>
             </section>
+        </main>
+    </div>
 
-            <section class="card-info">
-                <div class="card-header">
-                    <h2>Serviços Oferecidos</h2>
-                    <button class="add-service" id="abrirModal" hx-get={% url 'medico:criar-servico' %} hx-trigger='click' hx-target='#modal' hx-swap="innerHTML">
-                        <i class="ph ph-user-circle-plus"></i>
-                        + Novo Serviço
-                      </button>
-
-                    <dialog class="cadastro-de-paciente" id="myModal">
-                        <div id="modal">
-                        </div>
-                    </dialog>
-                </div>
-
-                <div class="sections">
-                    <section class="servicos-section">
-                        <ul id="lista-servicos">
-                            {% for servico in servicos %}
-                            <a href = ""><li> {{servico.nome_servico}} - {{servico.duracao_servico}}</li></a>
-                            {% endfor %}
-                        </ul>
-                    </section>
-                </div>
-            </section>
         </main>
     </div>
 </body>

@@ -143,6 +143,7 @@ label {
 }
 
 #salvarButton {
+    color: white;
     background-color: var(--green-base);
     border-radius: 30px;
     width: 134px;

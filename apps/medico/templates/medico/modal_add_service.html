@@ -1,14 +1,22 @@
 {% load static %}
+{% comment %} <button class="add-service" id="abrirModal" hx-get="{% url 'medico:criar-servico' profissional_id=profissional.id %}" hx-trigger='click' hx-target='#modal' hx-swap="innerHTML">
+  <i class="ph ph-user-circle-plus"></i>
+  + Novo Serviço
+</button> {% endcomment %}
+
 <div class="conteudo-modal">
-  <p class="titulo-modal">Criar paciente</p>
-  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'medico:criar-servico' %}">
+  <p class="titulo-modal">Criar paciente</p> 
+  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'medico:criar-servico' profissional_pk=profissional_pk %}">
+
     {% csrf_token %}
     {{ form }}
+    
     <div class="footer-modal-criar-paciente">
       <button class="fecharModal" type="button" >Cancelar</button>
       <button id="botao-salvar-paciente" type="submit">Salvar</button>
     </div>
   </form>
 
-</div>
+ </div> 
 <script src="{% static 'medico/js/modal.js' %}"></script>
+

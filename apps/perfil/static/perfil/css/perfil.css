@@ -254,7 +254,12 @@ select:focus {
     cursor: pointer;
 }
 
-.buttons:hover
+.lapis:hover
+{
+    opacity: 80%;
+}
+
+.lixeira:hover
 {
     opacity: 80%;
 }

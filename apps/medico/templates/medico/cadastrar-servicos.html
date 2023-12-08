@@ -1,0 +1,26 @@
+{% load static %}
+{% extends "base_home_atendente.html" %}
+<section class="card-info">
+    <div class="card-header">
+        <h2>Serviços Oferecidos</h2>
+        <button class="add-service" id="abrirModal" hx-get={% url 'medico:criar-servico' profissional_id= profissional.id  %} hx-trigger='click' hx-target='#modal' hx-swap="innerHTML">
+            <i class="ph ph-user-circle-plus"></i>
+            + Novo Serviço
+          </button>
+
+        <dialog class="cadastro-de-paciente" id="myModal">
+            <div id="modal">
+            </div>
+        </dialog>
+    </div>
+
+    <div class="sections">
+        <section class="servicos-section">
+            <ul id="lista-servicos">
+                {% for servico in servicos %}
+                <a href = ""><li> {{servico.nome_servico}} - {{servico.duracao_servico}}</li></a>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</section>

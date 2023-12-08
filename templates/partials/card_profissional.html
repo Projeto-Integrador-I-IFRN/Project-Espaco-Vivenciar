@@ -12,6 +12,6 @@
     <div class="buttons">
         <a href = "#' id=paciente.id %}"><button class="lapis"><img src="{% static 'assets/img/icons/pencil.svg'%}" alt="lapis de edição">Editar</button></a>
         
-        <a href = "#"><button class="lixeira"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
+        <a href = "{% url "medico:excluir-profissional" id=profissional.id %}"><button class="lixeira"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
     </div>
 </div>
