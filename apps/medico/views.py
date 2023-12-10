@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 
 from django.urls import reverse_lazy
-from apps.core.models import Profissional, Servico
+from apps.medico.models import Profissional, Servico
 from .forms import ServicoForm, ProfissionalForm
 from django.contrib import messages
 

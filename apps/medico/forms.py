@@ -1,5 +1,5 @@
 from django import forms
-from apps.core.models import Profissional, Servico
+from apps.medico.models import Profissional, Servico
 from django.forms import inlineformset_factory
 
 class ProfissionalForm(forms.ModelForm):

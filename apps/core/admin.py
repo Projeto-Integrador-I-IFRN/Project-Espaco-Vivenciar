@@ -1,5 +1,9 @@
 from django.contrib import admin
-from .models import Paciente, Profissional, Servico, Agendamento, AgendaMedica, Horario
+from apps.paciente.models import Paciente 
+from apps.medico.models import Profissional, Servico
+from apps.agenda_medico.models import AgendaMedica, Horario
+from apps.agendamento.models import Agendamento
+
 from django import forms
 
 class HorarioInline(admin.TabularInline):  # ou StackedInline, dependendo da sua preferência visual
