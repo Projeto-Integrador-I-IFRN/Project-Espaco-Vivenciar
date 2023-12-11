@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import ProtectedError
 
 class Profissional(models.Model):
     imagem = models.ImageField(upload_to =' media')

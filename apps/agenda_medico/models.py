@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from apps.medico.models import Profissional, Servico
 
 class AgendaMedica(models.Model):
-    profissional = models.ForeignKey(Profissional, on_delete = models.CASCADE, null = True)
+    profissional = models.ForeignKey(Profissional, on_delete = models.PROTECT, null = True)
     data = models.DateField(null = True)
     servico = models.ForeignKey( Servico, on_delete=models.CASCADE, null = True)
     horario_inicio = models.TimeField()
@@ -33,9 +33,10 @@ class AgendaMedica(models.Model):
             if horario_fim_atendimento <= horario_fim:
 
                 horario = Horario.objects.create(
-                    agenda_medica = self,
-                    inicio = horario_inicio.time(),
-                    fim = horario_fim_atendimento.time()
+                agenda_medica = self,
+                inicio = horario_inicio.time(),
+                fim = horario_fim_atendimento.time(),
+                disponivel = True  # ou o valor apropriado para disponibilidade
                 )
 
             horario_inicio += duracao_servico
@@ -73,10 +74,11 @@ class AgendaMedica(models.Model):
         return f'Agenda de {self.profissional.nome_medico} em {self.data}'
     
 class Horario(models.Model):
-    agenda_medica = models.ForeignKey(AgendaMedica, on_delete= models.CASCADE, blank = True)
+    agenda_medica = models.ForeignKey(AgendaMedica, on_delete = models.CASCADE, blank = True, related_name = 'horario_selecionado')
     inicio = models.TimeField()
     fim = models.TimeField()
+    disponivel = models.BooleanField( default = True)
 
     def __str__(self):
-        return f'{self.inicio} - {self.fim}'
+        return f'{self.inicio} - {self.fim} - {self.disponivel}'
 
