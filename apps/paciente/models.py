@@ -1,8 +1,8 @@
 from django.db import models
-from django import forms
 from django.core.validators import MinLengthValidator, MaxLengthValidator, validate_integer
+from django import forms
 
-# Create your models here.
+
 class Paciente(models.Model):
 
     GENERO_CHOICES = [
@@ -11,11 +11,12 @@ class Paciente(models.Model):
         ('Outro', 'Outro')
     ]
 
-    nome_paciente = models.CharField('Nome', max_length= 200)
+    nome_paciente = models.CharField('Nome', max_length = 200)
     data_nascimento = models.DateField('Data de Nascimento')
-    genero = models.CharField('Sexo', max_length=24, choices=GENERO_CHOICES, null=True)
+    genero = models.CharField('Sexo', max_length=24, choices = GENERO_CHOICES, null = True)
     email = models.EmailField(max_length= 200, unique = True, null = True)
-    contato_paciente = models.CharField('Contato', max_length = 15, unique = True, null = True )
+    contato_paciente = models.CharField('Contato', max_length = 15, unique = True, null = True)
+
     cpf_paciente = models.CharField(
         max_length = 11,
         unique = True,
@@ -35,3 +36,4 @@ class Paciente(models.Model):
         if len(cpf_paciente) != 11:
             raise forms.ValidationError('O CPF deve ter exatamente 11 caracteres.')
         return cpf_paciente
+    

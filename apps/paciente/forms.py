@@ -1,5 +1,5 @@
 from django import forms
-from apps.core.models import Paciente
+from apps.paciente.models import Paciente
 
 class PacienteForm(forms.ModelForm):
     class Meta:

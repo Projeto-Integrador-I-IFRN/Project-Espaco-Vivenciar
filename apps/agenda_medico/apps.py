@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AgendamentoConfig(AppConfig):
+class AgendaMedicoConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.agendamento'
+    name = 'apps.agenda_medico'

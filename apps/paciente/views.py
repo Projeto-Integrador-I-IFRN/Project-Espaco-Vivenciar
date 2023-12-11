@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView, ListView
-from apps.core.models import Paciente
+from apps.paciente.models import Paciente
 from .forms import PacienteForm
 from django.urls import reverse_lazy
 import re
