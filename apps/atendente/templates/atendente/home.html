@@ -13,38 +13,16 @@
               <img src="{% static "assets/img/home-img.svg" %}" alt="">
             </div>
           </div>
-
           <div class="wrapper">
             <i id="left" class="fa-solid fa-angle-left"></i>
             <ul class="carousel">
+
+              {% for profissional in profissionais %}
               <li class="card">
-                <a href="{% url "atendente:Gerenciar-Agendas" %}">
-                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
-                <h2>Clínico Geral</h2>
-                <p>Dr. Kaio Moura</p>
-                </a>
+              {% include "partials/card-carousel.html" %}
               </li>
-              <li class="card">
-                <a href="{% url "atendente:Gerenciar-Agendas" %}">
-                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
-                <h2>Clínico Geral</h2>
-                <p>Dr. Kaio Moura</p>
-                </a>
-              </li>
-              <li class="card">
-                <a href="{% url "atendente:Gerenciar-Agendas" %}">
-                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
-                <h2>Clínico Geral</h2>
-                <p>Dr. Kaio Moura</p>
-                </a>
-              </li>
-              <li class="card">
-                <a href="{% url "atendente:Gerenciar-Agendas" %}">
-                <div class="img"><img src="{% static "assets/img/icons/medico-grande.svg" %}" alt="img" draggable="false"></div>
-                <h2>Clínico Geral</h2>
-                <p>Dr. Kaio Moura</p>
-                </a>
-              </li>
+              {% endfor %}
+
             </ul>
             <i id="right" class="fa-solid fa-angle-right"></i>
           </div>

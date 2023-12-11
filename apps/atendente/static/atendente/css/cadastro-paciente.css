@@ -177,7 +177,7 @@ label {
 }
 
 .edit-field {
-    min-width: 12rem;
+    min-width: 14rem;
     font-size: 14px;
     color: var(--dark-grey);
     border: 1px solid #ccc; 

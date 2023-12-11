@@ -41,7 +41,7 @@ form {
     background-color: white;
     border-radius: 20px;
     width: 100%;
-    max-width: 45rem;
+    max-width: 40rem;
     height: auto;
     /* Ajuste a altura para se ajustar ao conteúdo */
     padding: 2rem;
@@ -51,6 +51,10 @@ form {
     margin-top: 50px;
 }
 
+.first-div
+{
+    min-width: 1000px;
+}
 h1 {
     font-size: 40px;
     color: var(--green-base);

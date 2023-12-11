@@ -16,8 +16,8 @@ class Profissional(models.Model):
      
 class Servico(models.Model):
     nome_servico = models.CharField('Nome', max_length= 200)
-    duracao_horas = models.PositiveIntegerField()
-    duracao_minutos = models.PositiveIntegerField()
+    duracao_horas = models.PositiveIntegerField( default= 0)
+    duracao_minutos = models.PositiveIntegerField( default= 0)
     profissional = models.ForeignKey(Profissional, on_delete = models.CASCADE)
 
     def duracao_total_minutos(self):

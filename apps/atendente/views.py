@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from apps.medico.models import Profissional
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView
 # from .forms import NovaAgenda
@@ -6,9 +7,10 @@ from django.views.generic import TemplateView, CreateView, UpdateView, DeleteVie
 from django.urls import reverse_lazy
 
 # Create your views here.
-def Home(request):
-    title = "Home"
-    return render(request, 'atendente/home.html', {'title': title} )
+class Home(ListView):
+    model = Profissional
+    template_name = 'atendente/home.html'
+    context_object_name = 'profissionais'
 
 def GerenciarAgendas(request):
     title = "Gerenciar agendas"
