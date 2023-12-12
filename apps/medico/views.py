@@ -47,9 +47,16 @@ class CriarServico(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profissional_pk = self.kwargs.get('profissional_pk')
+        profissional = Profissional.objects.get(pk=profissional_pk)
         context['profissional_pk'] = profissional_pk
+        context['profissional'] = profissional
         return context
-
+    
+    def form_valid(self, form):
+        # Antes de salvar o formulário, defina o profissional com base no contexto
+        form.instance.profissional = self.get_context_data()['profissional']
+        response = super().form_valid(form)
+        return redirect(self.get_success_url())
 
 class ListarServico(ListView):
     model = Servico

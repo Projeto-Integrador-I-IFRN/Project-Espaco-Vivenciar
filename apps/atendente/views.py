@@ -33,9 +33,9 @@ def GerenciarAgendas(request):
     }
     return render(request, 'atendente/gerenciar_agenda.html', context=context)
 
-def mostrar_modal_atendente(request):
-    form = NovaAgenda()
-    return render(request, 'atendente/modal2.html', {'form': form})
+# def mostrar_modal_atendente(request):
+#     form = NovaAgenda()
+#     return render(request, 'atendente/modal2.html', {'form': form})
 
 def AgendamentosSolicitacoes(request):
     title = "Solicitações"

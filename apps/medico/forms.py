@@ -10,6 +10,6 @@ class ProfissionalForm(forms.ModelForm):
 class ServicoForm(forms.ModelForm):
     class Meta:
         model = Servico
-        fields = '__all__'
+        exclude = ['profissional']
 
 # ProfissionalServicoFormSet = inlineformset_factory(Profissional, Servico, form=ServicoForm, extra=1, can_delete=True)
