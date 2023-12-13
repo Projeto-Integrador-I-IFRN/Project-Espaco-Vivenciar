@@ -1,16 +1,22 @@
+// Dentro do seu arquivo medico/js/modal.js
 document.addEventListener("DOMContentLoaded", function () {
-    const openModal = document.getElementById("abrirModal");
+    const abrirModal = document.getElementById("abrirModal");
+    const abrirModal2 = document.getElementById("abrirModal2");
     const modal = document.getElementById("myModal");
+    const modal2 = document.getElementById("myModal2");
 
-        openModal.addEventListener("click", () => {
-            console.log("open!!");
-            modal.showModal();
-        });
-        // Adicione um ouvinte de eventos para o botão "Cancelar" dentro do conteúdo
+    abrirModal.addEventListener("click", () => abrirModalHandler(modal));
+    abrirModal2.addEventListener("click", () => abrirModalHandler(modal2));
+
+    function abrirModalHandler(modal) {
+        console.log(`Abrir Modal ${modal.id}!!`);
+
+        modal.showModal();
+
         modal.addEventListener("click", (event) => {
-            if (event.target.classList.contains("fecharModal")){
+            if (event.target.classList.contains("fecharModal")) {
                 modal.close();
             }
         });
+    }
 });
-

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
     <link rel="stylesheet" href="{% static 'medico/css/modal.css' %}">
     <script src="{% static 'medico/js/modal.js' %}"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="{% static 'perfil/css/modal.css' %}">
     <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,53 +22,95 @@
         <h1>Cadastrar Profissional</h1>
         <main>
             <section class="card-info">
-                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card-header">
                         <h2>Informações pessoais</h2>
-                        <div class="buttons">
+                        {% comment %} <div class="buttons">
                             <button id="salvarButton">Salvar</button>
                             <button id="button-cancelar"><a href="#">Cancelar</a></button>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <div class="info-user">
             
-                        {{ form.imagem }}
+                        <img src="{{ profissional.imagem.url }}" alt="Imagem" id="imagem-profissional">
                            
                             <div>
                             <div class="first-section">
                                 <div class="campos">
                                     <label for="nome">Nome</label>
-                                    <p>{{ form.nome_medico }}</p>
+                                    <p>{{ profissional.nome_medico }}</p>
                                 </div>
                                 <div class="campos">
                                     <label for="data">Registro Profissional</label>
-                                    <p>{{ form.numero_registro }}</p>
+                                    <p>{{ profissional.numero_registro }}</p>
                                 </div>
                             </div>
                         <div class="sections">
                             <div class="second-section">
                                 <div class="campos">
                                     <label for="e-mail">Especialidade</label>
-                                    <p>{{ form.especialidade }}</p>
+                                    <p>{{ profissional.especialidade }}</p>
                                 </div>
                             </div>
                             <div class="third-section">
                                 <div class="campos">
                                     <label for="contato">Contato</label>
-                                    <p>{{ form.contato_profissional }}</p>
+                                    <p>{{ profissional.contato_profissional }}</p>
                                 </div>
                             </div>
                         </div>
+                    </div>
                   
-                </form>
+            
             </section>
     
 
-        </main>
-    </div>
-    </div>
+<section class="card-info">
+    <div class="card-header">
+        <h2>Serviços Oferecidos</h2>
+        <button class="add-service" id="abrirModal" hx-get={% url 'medico:criar-servico' profissional_pk=profissional.pk %} hx-trigger='click' hx-target='#modal' hx-swap="innerHTML">
+            <i class="ph ph-user-circle-plus"></i>
+            Novo Serviço
+          </button> 
 
+        <dialog class="cadastro-de-paciente" id="myModal">
+            <div id="modal">
+            </div>
+        </dialog>
+
+        <dialog class="cadastro-de-paciente" id="myModal2">
+            <div id="modal2">
+            </div>
+        </dialog>
+
+    </div>
+    <div>
+        <section class="servicos-section">
+            <table>
+                <tbody>
+                    {% for servico in servicos %}
+                        <tr>
+
+                            <td>{{ servico.nome_servico }}</td>
+                            <td>Duração: {{ servico.duracao_horas }}h {{ servico.duracao_minutos }}min</td>
+                            <td> <div class="buttons">
+
+                                <button class="lapis" id="abrirModal2" hx-get={% url 'medico:editar-servico' profissional_pk=profissional.pk servico_pk=servico.pk %} hx-trigger='click' hx-target='#modal2' hx-swap="innerHTML">
+                                    <img src="{% static 'assets/img/icons/pencil.svg'%}" alt="lapis de edição">
+                                  </button> 
+                                
+                                <a href="{% url 'medico:excluir-servico' servico_pk=servico.pk profissional_pk=profissional.pk%}"><button class="lixeira"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira"></button></a>
+                            </div>
+                        </td>
+                            
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</section>
+</main>
+</div>
 </body>
 </html>
-

@@ -2,8 +2,9 @@
 {% load static %}
 {% block gerenciar_pacientes %}
 <div class="centralizar">
-<form method="post">
+    <form method="post">
     {% csrf_token %}
+        <h1>Cadastrar Paciente</h1>
     <section class="card-info">
         <div class="card-header">
             <h2>Informações pessoais</h2>

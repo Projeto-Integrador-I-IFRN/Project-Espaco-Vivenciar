@@ -16,7 +16,9 @@
                         <ul>
                             {% for profissional in profissionais %}
                                 <li>
+                                    <a href = "{% url 'medico:detalhe-profissional' profissional_pk=profissional.pk %}"> 
                                     {% include "partials/card_profissional.html" %}
+                                    </a>
                                 </li>
                         {% endfor %}
 

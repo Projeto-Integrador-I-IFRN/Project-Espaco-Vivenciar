@@ -87,9 +87,15 @@ select:focus
     /* overflow-y: scroll; */
 }
 
+#titulo-cadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-top: 50px;
+
+}
 .card-info
 {
-    margin: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -136,6 +142,11 @@ select:focus
     align-items: center;
 }
 
+.centralizar
+{
+    display: flex;
+    justify-content: center;
+}
 .card-paciente:hover
 {
     border-radius: 10px;

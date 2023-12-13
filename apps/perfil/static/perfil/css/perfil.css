@@ -32,16 +32,11 @@ body {
     width: auto;
 }
 
-form {
-    display: flex;
-    justify-content: center;
-}
 
 .card-info {
     background-color: white;
     border-radius: 20px;
-    width: 100%;
-    max-width: 40rem;
+    max-width: 42rem;
     height: auto;
     /* Ajuste a altura para se ajustar ao conteúdo */
     padding: 2rem;
@@ -88,7 +83,7 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 50px;
+    gap: 80px;
     min-width: 200px;
     flex-wrap: wrap;
 }
