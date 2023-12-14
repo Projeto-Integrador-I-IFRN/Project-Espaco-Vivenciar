@@ -38,6 +38,17 @@ class ExcluirProfissional(DeleteView):
     def get(self, *args, **kwargs):
         return self.delete(*args, **kwargs)
 
+
+class EditarProfissional(UpdateView):
+    model = Profissional
+    form_class = ProfissionalForm
+    template_name = 'medico/novo_profissional.html'
+    pk_url_kwarg = 'profissional_pk'
+
+    def get_success_url(self):
+        # Após salvar o serviço, redirecione de volta para a página de detalhes do profissional
+        return reverse('medico:detalhe-profissional', kwargs={'profissional_pk': self.object.pk})
+
 class CriarServico(CreateView):
     model = Servico
     form_class = ServicoForm

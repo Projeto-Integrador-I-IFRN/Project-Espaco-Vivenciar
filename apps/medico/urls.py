@@ -14,4 +14,5 @@ urlpatterns = [
     path('editar-servico/<int:servico_pk>/<int:profissional_pk>/', views.EditarServico.as_view(), name='editar-servico'),
     path("atendente/profissional/excluir/<int:id>", views.ExcluirProfissional.as_view(), name="excluir-profissional"),
     path('detalhe-profissional/<int:profissional_pk>/', views.DetalharProfissional.as_view(), name='detalhe-profissional'),
+    path('editar-profissional/<int:profissional_pk>/', views.EditarProfissional.as_view(), name='editar-profissional'),
 ]

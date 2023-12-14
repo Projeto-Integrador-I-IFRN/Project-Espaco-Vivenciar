@@ -32,13 +32,11 @@ body {
     width: auto;
 }
 
-
 .card-info {
     background-color: white;
     border-radius: 20px;
     max-width: 42rem;
     height: auto;
-    /* Ajuste a altura para se ajustar ao conteúdo */
     padding: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;

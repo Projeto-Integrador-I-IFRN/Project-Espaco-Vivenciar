@@ -25,10 +25,11 @@
                     {% csrf_token %}
                     <div class="card-header">
                         <h2>Informações pessoais</h2>
-                        {% comment %} <div class="buttons">
-                            <button id="salvarButton">Salvar</button>
-                            <button id="button-cancelar"><a href="#">Cancelar</a></button>
-                        </div> {% endcomment %}
+                        <div>
+                            <a href = "{% url 'medico:editar-profissional' profissional_pk=profissional.pk %}">
+                                <button id="salvarButton">Editar</button>
+                            </a>
+                        </div> 
                     </div>
                     <div class="info-user">
             
