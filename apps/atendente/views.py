@@ -7,31 +7,6 @@ from django.views.generic import TemplateView, CreateView, UpdateView, DeleteVie
 from django.urls import reverse_lazy
 
 # Create your views here.
-class Home(ListView):
-    model = Profissional
-    template_name = 'atendente/home.html'
-    context_object_name = 'profissionais'
-
-def GerenciarAgendas(request):
-    title = "Gerenciar agendas"
-    context = {
-        'title': title,
-        'card': 'agendamento',
-        'data': True,
-        'info_user': True,
-        'info_user2': False,
-        'horario': True,
-        'horario2': True,
-        'lista_servico': True,
-        'button_solicitar': True,
-        'button_whatsApp': True,
-        'button_indeferido': False,
-        'button_recusar': False,
-        'button_aceitar': False,
-        'edit': True,
-        'edit2': False
-    }
-    return render(request, 'atendente/gerenciar_agenda.html', context=context)
 
 # def mostrar_modal_atendente(request):
 #     form = NovaAgenda()

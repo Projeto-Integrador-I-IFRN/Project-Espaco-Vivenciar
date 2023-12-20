@@ -29,7 +29,7 @@
     font-weight: bold;
 }
 
-dialog.cadastro-de-paciente {
+dialog {
     max-width: 640px;
     max-height: 559px;
     border: none;
@@ -39,11 +39,17 @@ dialog.cadastro-de-paciente {
     border-radius: 10px;
 }
 
+#modal3
+{
+    border: none;
+}
 .conteudo-modal {
+
     display: flex;
     flex-direction: column;
     align-items: start;
     gap: 32px;
+    border: none;
 }
 
 .titulo-modal,

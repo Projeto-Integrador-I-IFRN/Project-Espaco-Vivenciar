@@ -1,3 +1,11 @@
+*
+{
+    margin: 0;
+    text-decoration: none;
+    border: none;
+    text-decoration: none;
+}
+
 
 .wrapper {
     display: flex;
@@ -10,12 +18,14 @@
     margin: auto;
     margin-top: 80px;
     margin-bottom: 100px;
+    border: none;
 }
 
 .wrapper i {
     margin: auto;
     cursor: pointer;
     font-size: 2.25rem;
+    
     text-align: center;
     line-height: 50px;
     transform: translateY(-50%);
