@@ -32,7 +32,15 @@
 
     <a href="{% url "atendente:Agendamentos-Solicitacoes" %}"><button class="button-detalhar">Detalhar</button></a>
     
-    
-    
+    <div class="menu2">
+        <button class="button_edit" id="toggleMenu">
+            <img src="{% static "assets/img/icons/edit.svg" %}" alt="">
+        </button>
+        <div class="dropdown-menu2">
+            <a href="#">Ver Horários</a>
+            <a  id="cancel" href="#">Excluir agenda</a>
+        </div>
+    </div>   
 
 </div>
+

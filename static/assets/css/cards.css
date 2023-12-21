@@ -227,7 +227,7 @@ hr {
 
 .horario p {
     color: var(--green-base);
-    
+
 }
 
 .btn-card {
@@ -453,23 +453,21 @@ select:focus {
 .dropdown-menu2 {
     display: none;
     position: absolute;
-    top: 100%;
-    /* Isso posicionará o dropdown abaixo do .menu */
+    top: 112%;
     right: 0;
     background-color: white;
-    height: fit-content;
     gap: 5px;
     box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.15);
-    padding: 25px;
+    padding: 15px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 500;
+    width: 130px
 }
 
 .dropdown-menu2 a {
     color: #616161;
     padding: 10px;
-    width: fit-content;
     cursor: pointer;
 }
 
@@ -490,7 +488,6 @@ select:focus {
 .menu2:hover .dropdown-menu2 {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
 }
 
 .foto-nome {
