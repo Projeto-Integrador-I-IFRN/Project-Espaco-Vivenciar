@@ -10,6 +10,7 @@ class ListarPacientes(ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
+    paginate_by = 10
 
     def get_queryset(self):
         query = self.request.GET.get('search')

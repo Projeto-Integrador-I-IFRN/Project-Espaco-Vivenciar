@@ -1,0 +1,25 @@
+:root {
+    --background-white: #F7F7F7;
+    --green-base: #006650d3;
+}
+
+.custom-pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-pagination a, .custom-pagination button {
+    font-size: 13px;
+    margin: 0 5px;
+    text-decoration: none;
+    border: 1px solid #ccc; 
+    padding: 5px 10px; 
+    background-color: var(--green-base);
+    color: white;
+}
+
+.custom-pagination .active {
+    font-weight: bold;
+    background-color: #062d24d3; 
+    color: #fff; 
+}
