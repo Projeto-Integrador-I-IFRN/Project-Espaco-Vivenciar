@@ -2,6 +2,7 @@ import random
 from faker import Faker
 from django.core.management.base import BaseCommand
 from apps.paciente.models import Paciente
+from cpf_generator import CPF
 
 fake = Faker('pt_BR')
 
@@ -15,7 +16,9 @@ class Command(BaseCommand):
             genero = random.choice(['M', 'F', 'Outro'])
             email = fake.email()
             contato_paciente = fake.phone_number()
-            cpf_paciente = fake.numerify(text='############')
+
+            # Gerar CPF válido
+            cpf_paciente = CPF.generate()
 
             Paciente.objects.create(
                 nome_paciente=nome_paciente,
