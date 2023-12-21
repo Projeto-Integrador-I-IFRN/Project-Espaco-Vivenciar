@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView, ListView
 from apps.paciente.models import Paciente
+from django.db.models import Q
 from .forms import PacienteForm
 from django.urls import reverse_lazy
 import re
@@ -9,6 +10,14 @@ class ListarPacientes(ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
+
+    def get_queryset(self):
+        query = self.request.GET.get('search')
+        object_list = Paciente.objects.all()
+        if query:
+            object_list = object_list.filter(Q(nome_paciente__icontains=query)| Q(cpf_paciente__icontains=query))
+            
+        return object_list
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

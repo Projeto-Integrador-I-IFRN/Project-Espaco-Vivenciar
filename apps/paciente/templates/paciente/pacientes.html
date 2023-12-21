@@ -3,25 +3,28 @@
 {% block gerenciar_pacientes %}
     <div class="container-listagem">
         <div class="container">
-
             <div class="content-top">
                 <h1>Gerenciar Pacientes</h1>
             </div>
-                <section class="first-div">
-                    <div class = "nav-add">
-                        <input type="search" name="search" placeholder="Buscar Paciente">
-                        <a href = "{% url 'paciente:criar-paciente' %}"> <button class="cadastrar-paciente-button" >+ Novo Paciente</button></a>
-                    </div>
-                        <div class="listagem-pacientes">
-                            <ul>
-                                {% for paciente in pacientes %}
-                                    <li>
-                                        {% include "partials/card_listar_paciente.html" %}
-                                    </li>
-                            {% endfor %}
-
-                            </ul>
-                        </div>
-                </section>
-                
+            <section class="first-div">
+                <div class="nav-add">
+                    <form method="get">
+                        <input type="search" name="search" placeholder="Buscar Paciente" value="{{ request.GET.search }}" >
+                    </form>
+                    <a href="{% url 'paciente:criar-paciente' %}">
+                        <button class="cadastrar-paciente-button">+ Novo Paciente</button>
+                    </a>
+                </div>
+                <div class="listagem-pacientes">
+                    <ul>
+                        {% for paciente in pacientes %}
+                            <li>
+                                {% include "partials/card_listar_paciente.html" %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
 {% endblock gerenciar_pacientes %}

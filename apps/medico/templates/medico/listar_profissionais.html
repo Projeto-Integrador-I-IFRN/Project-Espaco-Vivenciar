@@ -9,7 +9,9 @@
         </div>
             <section class="first-div">
                 <div class = "nav-add">
-                    <input type="search" name="search" placeholder="Buscar Paciente">
+                    <form method="GET">
+                        <input type="search" name="search" placeholder="Buscar Profissionais" value="{{ request.GET.search }}">
+                    </form>
                     <a href = "{% url 'medico:Cadastrar-Profissionais' %}"> <button class="cadastrar-paciente-button" >+ Novo Profissional</button></a>
                 </div>
                     <div class="listagem-pacientes">

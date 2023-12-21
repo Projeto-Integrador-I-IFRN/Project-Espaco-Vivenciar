@@ -3,7 +3,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView, DetailView
-
+from django.db.models import Q
 from django.urls import reverse_lazy
 from apps.medico.models import Profissional, Servico
 from .forms import ServicoForm, ProfissionalForm
@@ -14,6 +14,15 @@ class ListarProfissionais(ListView):
     template_name = 'medico/listar_profissionais.html'
     context_object_name = 'profissionais'
 
+    def get_queryset(self):
+        query = self.request.GET.get('search')
+        object_list = Profissional.objects.all()
+
+        if query:
+            object_list = object_list.filter(Q(nome_medico__icontains=query)| Q(especialidade__icontains=query))
+        return object_list
+    
+
 class CriarProfissional(CreateView):
     model = Profissional
     form_class = ProfissionalForm
@@ -21,8 +30,6 @@ class CriarProfissional(CreateView):
     success_url = reverse_lazy('medico:listar-profissionais')
 
     def get_success_url(self):
-        print('---------------------------------------------------------------------------------\n')
-        print(self.object.id)
         return reverse('medico:detalhe-profissional', kwargs={'profissional_pk': self.object.pk})
 
     def form_valid(self, form):
