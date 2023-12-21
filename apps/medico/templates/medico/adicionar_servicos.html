@@ -78,8 +78,8 @@
             </div>
         </dialog>
 
-        <dialog class="cadastro-de-paciente" id="myModal2">
-            <div id="modal2">
+        <dialog class="myModal2">
+            <div class="modal2">
             </div>
         </dialog>
 
@@ -95,7 +95,7 @@
                             <td>Duração: {{ servico.duracao_horas }}h {{ servico.duracao_minutos }}min</td>
                             <td> <div class="buttons">
 
-                                <button class="lapis" id="abrirModal2" hx-get={% url 'medico:editar-servico' profissional_pk=profissional.pk servico_pk=servico.pk %} hx-trigger='click' hx-target='#modal2' hx-swap="innerHTML">
+                                <button id ="lapis" class="abrirModal2" hx-get={% url 'medico:editar-servico' profissional_pk=profissional.pk servico_pk=servico.pk %} hx-trigger='click' hx-target='.modal2' hx-swap="innerHTML">
                                     <img src="{% static 'assets/img/icons/pencil.svg'%}" alt="lapis de edição">
                                   </button> 
                                 
