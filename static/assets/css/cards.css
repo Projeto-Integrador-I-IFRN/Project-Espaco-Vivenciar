@@ -249,6 +249,7 @@ hr {
 
 .horario p {
     color: var(--green-base);
+    font-weight: 600;
 
 }
 
