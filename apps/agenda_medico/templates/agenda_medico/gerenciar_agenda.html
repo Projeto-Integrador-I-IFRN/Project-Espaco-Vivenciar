@@ -1,5 +1,5 @@
 {% extends "base/base_home_atendente.html" %}
-{%include "atendente/modal2.html"%}
+{% include "atendente/modal2.html" %}
 {% load static %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -8,19 +8,23 @@
     <div class="container">
         <div class="card-list">
             <div class="title">
-                <h1>Agenda - Clínico geral</h1>
+                <h1>Agenda - {{ servico.nome_servico }}  </h1>
             </div>
             <div class="content">
+
                 <div class="data-alternada">
                     <img src="{% static "assets/img/icons/left.svg" %}">
                     <p>Outubro</p>
                     <img src="{% static "assets/img/icons/right.svg" %}">
-            </div>
+                </div>
                 <div class="button-cadastrar-agenda">
-                    <button class="btn-novaAgenda" data-toggle="modal" data-target="#myModal2">+  Nova agenda</button>
+                    <button class="btn-novaAgenda" data-toggle="modal" data-target="#myModal2">+ Nova agenda</button>
                 </div>
             </div>
-            {% include "partials/cards.html" with card='agendamento' info_user=False horario=False lista_servico=False edit=False edit2=True button_solicitar=False count_agendados=True count_solicitacoes=True button_detalhar=True  %}
+            {% for agenda in agendas %}
+                    {% include "agenda_medico/card_agenda.html"   %}
+                {% endfor %}
+
         </div>
     </div>
 {% endblock cadastrar_agenda %}

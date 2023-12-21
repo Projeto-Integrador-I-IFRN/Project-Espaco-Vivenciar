@@ -24,5 +24,5 @@ class Servico(models.Model):
         return self.duracao_horas * 60 + self.duracao_minutos
 
     def __str__(self):
-        return f'Nome: {self.nome_servico}'
+        return f'{self.nome_servico}'
     
