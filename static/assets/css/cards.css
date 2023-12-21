@@ -30,7 +30,7 @@ p {
 }
 
 .name {
-    color: var(--green-base);
+    color: #282c28;
     font-weight: 600;
     font-size: 18px;
 }
@@ -119,6 +119,28 @@ p {
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
+.card-item-hora {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: #ffffff;
+    height: 8.12rem;
+    width: 66.87rem;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-first {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    margin-left: 30px;
+
+}
+
 .card-item-paciente {
     display: flex;
     justify-content: space-around;
@@ -188,7 +210,7 @@ p {
     font-weight: 600;
 }
 
-.card-item .data {
+.data {
     color: var(--dark-grey);
     display: flex;
     flex-direction: column;
@@ -494,4 +516,8 @@ select:focus {
     display: flex;
     align-items: center;
     gap: 30px;
+}
+
+.space-buttons {
+    margin-right: 50px;
 }

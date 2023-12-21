@@ -1,12 +1,10 @@
 from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, View
+from django.views.generic import CreateView, DeleteView, ListView, View
 from apps.medico.models import Profissional
-from .models import AgendaMedica
+from .models import AgendaMedica, Horario
 from .forms import SelecionarAgendaForm
 from django.views.generic.edit import FormView
-from django.http import HttpResponseRedirect
-from datetime import datetime
 
 class Home(ListView):
     model = Profissional
@@ -64,12 +62,34 @@ class ListarAgenda(ListView):
         context['servico'] = profissional.servico_set.get(id=servico_id)  # Obtenha o serviço pelo ID
         context['agendas'] = profissional.agendamedica_set.filter(servico=context['servico'])
 
-        dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
-
         for agenda in context['agendas']:
-            dia_semana_numero = agenda.data.weekday()
-            agenda.dia_semana_abreviado = dias_da_semana[dia_semana_numero]
-
-        print(profissional.agendamedica_set.filter(servico=context['servico']))
+            listar_dias_semana(self, agenda= agenda)
         
         return context
+
+def listar_dias_semana(self, agenda):
+
+    dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
+    dia_semana_numero = agenda.data.weekday()
+    agenda.dia_semana_abreviado = dias_da_semana[dia_semana_numero]
+
+    return agenda.dia_semana_abreviado
+
+class ListarHorarios(ListView):
+    model = Horario
+    template_name = 'agenda_medico/listar_horarios.html'
+    context_object_name = 'horarios'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        agenda_id = self.kwargs.get('agenda_id')
+        agenda = AgendaMedica.objects.get(id=agenda_id)
+        context['agenda'] = agenda
+        
+        listar_dias_semana(self, agenda)
+    
+        return context
+
+    def get_queryset(self):
+        agenda_id = self.kwargs.get('agenda_id')
+        return Horario.objects.filter(agenda_medica__id=agenda_id)

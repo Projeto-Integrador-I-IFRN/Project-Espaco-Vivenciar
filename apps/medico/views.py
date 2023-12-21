@@ -76,7 +76,7 @@ class CriarServico(CreateView):
 class ListarServico(ListView):
     model = Servico
     template_name = 'medico/cadastrar-servicos.html'
-    context_object_name = 'servicos'  # Alterado para 'servicos'
+    context_object_name = 'servicos'  
 
 class DetalharProfissional(DetailView):
     model = Profissional

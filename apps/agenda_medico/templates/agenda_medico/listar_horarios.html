@@ -1,0 +1,18 @@
+{% extends "base/base_home_atendente.html" %}
+{% load static %}
+{% block cadastrar_agenda %}
+    <div class="container">
+        <div class="card-list">
+        
+            
+            <div class="title">
+                <h1>Horários disponíveis - {{ agenda.servico.nome_servico }}  </h1>
+            </div>
+
+            {% for horario in horarios %}
+                    {% include "agenda_medico/card_horario.html"   %}
+                {% endfor %}
+
+        </div>
+    </div>
+{% endblock cadastrar_agenda %}
