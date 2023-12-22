@@ -27,7 +27,11 @@
 
 <div class="space-buttons">
     <div class="buttons">
-        <a href = "#' "><button class="lapis"><img src="{% static 'assets/img/icons/la_user-clock.svg'%}" alt="lapis de edição">Agendar</button></a>
+        <button class='abrirModal7' hx-get="{% url 'agendamento:criar-agendamento' horario_pk=horario.pk %}"hx-trigger='click' hx-target='#modal7' hx-swap="innerHTML" id="lapis">
+            <img src="{% static 'assets/img/icons/la_user-clock.svg' %}"  alt="lapis de edição">Agendar
+        </button>
+        
+
         <button class='abrirModal6' id="lixeira" hx-get="{% url 'agenda_medico:excluir-horario' agenda_pk=agenda.pk horario_pk=horario.pk%}" hx-trigger='click' hx-target='#modal6' hx-swap="innerHTML"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
     </div>
 </div>

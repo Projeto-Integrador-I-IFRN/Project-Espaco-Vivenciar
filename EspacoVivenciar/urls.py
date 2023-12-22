@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include("apps.medico.urls")),
     path('', include("apps.paciente.urls")),\
     path('', include("apps.agenda_medico.urls")),
+    path('', include("apps.agendamento.urls")),
     path('admin/', admin.site.urls),
 ]
 

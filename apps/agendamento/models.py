@@ -51,5 +51,5 @@ class Solicitacao(models.Model):
         verbose_name_plural = 'Solicitações'
 
 class Agendamento(models.Model):
-    paciente = models.ForeignKey( to = Paciente, on_delete = models.PROTECT)
-    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, null = True)
+    paciente = models.ForeignKey( to = Paciente, on_delete = models.PROTECT, blank=True)
+    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, null = True,blank=True)
