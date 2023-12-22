@@ -53,7 +53,7 @@ class AgendaMedicaAdmin(admin.ModelAdmin):
 admin.site.register(Horario, HorarioAdmin)
 
 class SolicitacaoAdmin(admin.ModelAdmin):
-    list_display = ['paciente', 'profissional', 'horario_selecionado', 'status']
+    list_display = ['paciente','horario_selecionado', 'status']
     actions = ['aceitar_solicitacoes', 'recusar_solicitacoes']
 
     def aceitar_solicitacoes(self, request, queryset):
