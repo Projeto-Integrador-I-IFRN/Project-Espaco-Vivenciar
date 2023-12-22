@@ -14,9 +14,10 @@ class ListarPacientes(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('search')
+
         object_list = Paciente.objects.all()
         if query:
-            object_list = object_list.filter(Q(nome_paciente__icontains=query)| Q(cpf_paciente__icontains=query))
+            object_list = object_list.filter(Q(nome_paciente__icontains=query) | Q(cpf_paciente__icontains=query))
             
         return object_list
 

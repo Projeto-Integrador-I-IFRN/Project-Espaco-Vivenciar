@@ -1,18 +1,23 @@
 {% extends "base/base_home_atendente.html" %}
 {% load static %}
 {% block cadastrar_agenda %}
-    <div class="container">
-        <div class="card-list">
-            <div class="title">
-                <h1>Agenda - {{ servico.nome_servico }}  </h1>
-            </div>
-            <div class="content">
-
-                <dialog id="myModal4">
-                    <div id="modal4">
-                    </div>
-                </dialog>
-
+<div class="container">
+    <div class="card-list">
+        <div class="title">
+            <h1>Agenda - {{ servico.nome_servico }}  </h1>
+        </div>
+        <div class="content">
+            
+            <dialog id="myModal4">
+                <div id="modal4">
+                </div>
+            </dialog>
+            
+            <dialog class="myModal5">
+                <div id="modal5">
+                </div>
+            </dialog>
+                
                 <div class="data-alternada">
                     <img src="{% static "assets/img/icons/left.svg" %}">
                     <p>Outubro</p>
@@ -23,10 +28,11 @@
                         <i class="ph ph-user-circle-plus"></i>
                         + Nova agenda
                       </button>
+                    </div>
+                    
                 </div>
-                
-            </div>
-            {% for agenda in agendas %}
+
+                {% for agenda in agendas %}
                     {% include "agenda_medico/card_agenda.html"   %}
                 {% endfor %}
 

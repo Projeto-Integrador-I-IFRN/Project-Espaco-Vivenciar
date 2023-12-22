@@ -1,6 +1,7 @@
 from django import forms
 from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica
+import re
 class SelecionarAgendaForm(forms.Form):
     servico = forms.ModelChoiceField(queryset=Servico.objects.none(), label='Selecione o serviço', widget=forms.Select(attrs={'class': 'edit-field'}))
 
@@ -10,12 +11,21 @@ class SelecionarAgendaForm(forms.Form):
         if profissional:
             self.fields['servico'].queryset = profissional.servico_set.all()
 
+class CustomDateInput(forms.DateInput):
+    def format_value(self, value):
+        if value:
+            return value.strftime('%d/%m/%Y')
+        return value
+
 class AgendaMedicaForm(forms.ModelForm):
-        class Meta:
-            model = AgendaMedica
-            exclude = ['profissional', 'servico']
-            widgets = {
-            'data' : forms.DateInput(attrs={'class': 'edit-field' }),
-            'horario_inicio': forms.TimeInput(attrs={'class': 'edit-field'}),
-            'horario_fim': forms.TimeInput(attrs={'class': 'edit-field'}),
-        }
+    data = forms.DateField(
+        widget=CustomDateInput(attrs={'class': 'edit-field', 'placeholder': 'dd/mm/aaaa'}),
+        input_formats=['%d/%m/%Y', '%Y/%m/%d', '%d-%m-%Y', '%Y-%m-%d'],
+    )
+    class Meta:
+        model = AgendaMedica
+        exclude = ['profissional', 'servico']
+        widgets = {
+        'horario_inicio': forms.TimeInput(attrs={'class': 'edit-field', 'placeholder': '00:00'}),
+        'horario_fim': forms.TimeInput(attrs={'class': 'edit-field', 'placeholder': '00:00'}),
+    }

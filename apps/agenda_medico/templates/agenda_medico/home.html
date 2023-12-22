@@ -23,11 +23,11 @@
     <ul class="carousel">
       {% for profissional in profissionais %}
 
-        <a class ="abrirModal3" hx-get="{% url 'agenda_medico:selecionar_agenda' profissional_pk=profissional.pk %}" hx-trigger='click' hx-target='#modal3' hx-swap="innerHTML">
+        <button class ="abrirModal3" hx-get="{% url 'agenda_medico:selecionar_agenda' profissional_pk=profissional.pk %}" hx-trigger='click' hx-target='#modal3' hx-swap="innerHTML">
         <li class="card">
             {% include "partials/card-carousel.html" %}
           </li>
-        </a>
+        </button>
         
       {% endfor %}
     </ul>

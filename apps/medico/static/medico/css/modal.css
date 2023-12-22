@@ -29,6 +29,12 @@
     font-weight: bold;
 }
 
+.titulo-modal-2 {
+    color: #1a1a1a;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 dialog {
     max-width: 640px;
     max-height: 559px;
@@ -39,10 +45,10 @@ dialog {
     border-radius: 10px;
 }
 
-#modal3
-{
+#modal3 {
     border: none;
 }
+
 .conteudo-modal {
 
     display: flex;
@@ -95,6 +101,9 @@ dialog {
     margin-right: 48px;
 }
 
+.confirmacao{
+    font-size: 14px;
+}
 .container-inputs {
     display: flex;
     justify-content: space-between;
@@ -151,8 +160,8 @@ dialog {
 .footer-modal-criar-paciente {
     display: flex;
     align-items: center;
-    justify-content: end;
-    gap: 20px;
+    gap: 25px;
+    justify-content: center;
 }
 
 .footer-modal-criar-paciente button {
@@ -163,8 +172,18 @@ dialog {
     cursor: pointer;
 }
 
+.fecharModal {
+    border: 1.5px solid var(--green-base);
+    background-color: transparent;
+    color: var(--green-base);
+}
+
 #botao-salvar-paciente {
     background-color: var(--green-base);
     color: var(--background-white);
 }
 
+#botao-salvar-paciente-2 {
+    background-color: var(--green-base);
+    color: white;
+}

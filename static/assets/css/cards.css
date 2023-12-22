@@ -67,10 +67,10 @@ p {
     font-size: 34px;
 }
 
-.content p {
+/* .content p {
     font-weight: 600;
     font-size: 25px;
-}
+} */
 
 .data-alternada p {
     color: var(--dark-grey);
@@ -515,7 +515,6 @@ select:focus {
     top: 112%;
     right: 0;
     background-color: white;
-    gap: 5px;
     box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.15);
     padding: 15px;
     border-radius: 10px;
@@ -530,16 +529,20 @@ select:focus {
     cursor: pointer;
 }
 
+.dropdown-menu2 button {
+    color: #616161;
+    padding: 10px;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 14px;
+}
+
 .dropdown-menu2 #cancel {
     color: #EA0303;
 }
 
-/* .dropdown-menu2 #agendar
-{
-    color: var(--green-base);
-} */
 
-.dropdown-menu2 a:hover {
+.dropdown-menu2 button:hover {
     background-color: #cccccc28;
     border-radius: 10px;
 }

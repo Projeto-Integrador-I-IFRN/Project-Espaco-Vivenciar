@@ -66,7 +66,6 @@ class ListarAgenda(ListView):
 
         for agenda in context['agendas']:
             agenda.dia_semana_abreviado = listar_dias_semana(agenda)
-
         return context
 
 def listar_dias_semana(agenda):
@@ -137,3 +136,26 @@ class CriarAgendaView(CreateView):
         profissional_pk = self.kwargs.get('profissional_pk')
         servico_id = self.kwargs.get('servico_id')
         return reverse_lazy('agenda_medico:listar-agenda', kwargs={'profissional_pk': profissional_pk, 'servico_id': servico_id})
+    
+class ExcluirAgenda(DeleteView):
+    model = AgendaMedica
+    template_name = 'agenda_medico/excluir_agenda.html'  
+    success_url = reverse_lazy('agenda_medico:listar-agenda')
+    pk_url_kwarg = 'agenda_pk'
+
+    def get_success_url(self):
+        profissional_pk = self.object.profissional.pk
+        servico_id = self.object.servico.id
+        return reverse_lazy('agenda_medico:listar-agenda', kwargs={'profissional_pk': profissional_pk, 'servico_id': servico_id})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        agenda = self.object
+        context['profissional_pk'] = agenda.profissional.pk
+        context['servico_id'] = agenda.servico.id
+        context['agenda_pk'] = agenda.pk
+        print(agenda.pk)
+       
+        return context
+    

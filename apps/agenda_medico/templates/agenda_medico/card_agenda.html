@@ -37,8 +37,8 @@
             <img src="{% static "assets/img/icons/edit.svg" %}" alt="">
         </button>
         <div class="dropdown-menu2">
-            <a href="{% url "agenda_medico:listar-horarios" agenda_id=agenda.id %}">Ver Horários</a>
-            <a  id="cancel" href="#">Excluir agenda</a>
+            <button href="{% url "agenda_medico:listar-horarios" agenda_id=agenda.id %}">Ver Horários</button>
+            <button  class='abrirModal5' id="cancel" hx-get="{% url 'agenda_medico:excluir-agenda' agenda_pk=agenda.pk %}" hx-trigger='click' hx-target='#modal5' hx-swap="innerHTML">Excluir</button>
         </div>
     </div>   
 
