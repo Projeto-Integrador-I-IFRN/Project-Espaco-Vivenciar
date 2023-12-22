@@ -131,6 +131,7 @@ STATICFILES_DIRS = (
     BASE_DIR / 'apps/core/static',
     BASE_DIR / 'apps/perfil/static',
     BASE_DIR / 'apps/atendente/static',
+    BASE_DIR / 'apps/agenda_medico/static',
 ) 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

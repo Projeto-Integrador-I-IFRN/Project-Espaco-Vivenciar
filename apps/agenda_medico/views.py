@@ -1,10 +1,11 @@
 from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, ListView, View
+from django.views.generic import CreateView, DeleteView, ListView, View, MonthArchiveView
 from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica, Horario
 from .forms import SelecionarAgendaForm, AgendaMedicaForm
 from django.views.generic.edit import FormView
+from django.http import JsonResponse
 
 class Home(ListView):
     model = Profissional
@@ -73,11 +74,12 @@ def listar_dias_semana(agenda):
     dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
     dia_semana_numero = agenda.data.weekday()
     return dias_da_semana[dia_semana_numero]
-
+    
 class ListarHorarios(ListView):
     model = Horario
     template_name = 'agenda_medico/listar_horarios.html'
     context_object_name = 'horarios'
+    paginate_by = 7
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
