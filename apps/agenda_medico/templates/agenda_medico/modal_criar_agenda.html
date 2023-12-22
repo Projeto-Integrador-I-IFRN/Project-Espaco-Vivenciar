@@ -1,0 +1,16 @@
+{% load static %}
+<div class="conteudo-modal">
+  <p class="titulo-modal">Criar agenda - {{ servico.nome_servico }}</p> 
+  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'agenda_medico:criar-agenda' profissional_pk=profissional_pk servico_id=servico_id%}">
+
+    {% csrf_token %}
+    
+    {{ form }}
+    
+    <div class="footer-modal-criar-paciente">
+      <button class="fecharModal" type="button" >Cancelar</button>
+      <button id="botao-salvar-paciente" type="submit">Salvar</button>
+    </div>
+  </form>
+ </div> 
+

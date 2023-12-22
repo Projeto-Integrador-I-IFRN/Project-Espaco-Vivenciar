@@ -8,14 +8,23 @@
             </div>
             <div class="content">
 
+                <dialog id="myModal4">
+                    <div id="modal4">
+                    </div>
+                </dialog>
+
                 <div class="data-alternada">
                     <img src="{% static "assets/img/icons/left.svg" %}">
                     <p>Outubro</p>
                     <img src="{% static "assets/img/icons/right.svg" %}">
                 </div>
                 <div class="button-cadastrar-agenda">
-                    <button class="btn-novaAgenda" data-toggle="modal" data-target="#myModal2">+ Nova agenda</button>
+                    <button class="btn-novaAgenda" id="abrirModal4" hx-get={% url 'agenda_medico:criar-agenda' profissional_pk=profissional_pk servico_id=servico_id%} hx-trigger='click' hx-target='#modal4' hx-swap="innerHTML">
+                        <i class="ph ph-user-circle-plus"></i>
+                        + Nova agenda
+                      </button>
                 </div>
+                
             </div>
             {% for agenda in agendas %}
                     {% include "agenda_medico/card_agenda.html"   %}
