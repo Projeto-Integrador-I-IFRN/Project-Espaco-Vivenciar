@@ -1,9 +1,9 @@
 from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, ListView, View
-from apps.medico.models import Profissional
+from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica, Horario
-from .forms import SelecionarAgendaForm
+from .forms import SelecionarAgendaForm, AgendaMedicaForm
 from django.views.generic.edit import FormView
 
 class Home(ListView):
@@ -56,24 +56,23 @@ class ListarAgenda(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         profissional_pk = self.kwargs.get('profissional_pk')
-        servico_id = self.kwargs.get('servico_id')  # Obtenha o ID do serviço da URL
+        servico_id = self.kwargs.get('servico_id')
         profissional = Profissional.objects.get(pk=profissional_pk)
         context['profissional'] = profissional
-        context['servico'] = profissional.servico_set.get(id=servico_id)  # Obtenha o serviço pelo ID
+        context['servico'] = profissional.servico_set.get(id=servico_id)
         context['agendas'] = profissional.agendamedica_set.filter(servico=context['servico'])
+        context['servico_id'] = servico_id
+        context['profissional_pk'] = profissional_pk
 
         for agenda in context['agendas']:
-            listar_dias_semana(self, agenda= agenda)
-        
+            agenda.dia_semana_abreviado = listar_dias_semana(agenda)
+
         return context
 
-def listar_dias_semana(self, agenda):
-
+def listar_dias_semana(agenda):
     dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
     dia_semana_numero = agenda.data.weekday()
-    agenda.dia_semana_abreviado = dias_da_semana[dia_semana_numero]
-
-    return agenda.dia_semana_abreviado
+    return dias_da_semana[dia_semana_numero]
 
 class ListarHorarios(ListView):
     model = Horario
@@ -85,11 +84,56 @@ class ListarHorarios(ListView):
         agenda_id = self.kwargs.get('agenda_id')
         agenda = AgendaMedica.objects.get(id=agenda_id)
         context['agenda'] = agenda
-        
-        listar_dias_semana(self, agenda)
-    
+        context['dia_semana_abreviado'] = listar_dias_semana(agenda)
         return context
 
     def get_queryset(self):
         agenda_id = self.kwargs.get('agenda_id')
         return Horario.objects.filter(agenda_medica__id=agenda_id)
+
+
+class CriarAgendaView(CreateView):
+    model = AgendaMedica
+    form_class = AgendaMedicaForm
+    template_name = 'agenda_medico/modal_criar_agenda.html'
+    success_url = reverse_lazy('agenda_medico:listar-agenda')
+
+    def form_valid(self, form):
+        profissional_pk = self.kwargs.get('profissional_pk')
+        servico_id = self.kwargs.get('servico_id')
+
+        servico = Servico.objects.get(id=servico_id)
+        profissional = Profissional.objects.get(pk=profissional_pk)
+    
+        form.instance.profissional = profissional
+        form.instance.servico = servico
+
+            # Cria a instância da AgendaMedica
+        agenda_medica_instance = form.save()
+
+            # Chama o método para gerar os horários da agenda
+        agenda_medica_instance.gerar_horarios_atendimento()
+
+        return super().form_valid(form)
+    
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        profissional_pk = self.kwargs.get('profissional_pk')
+        servico_id = self.kwargs.get('servico_id')
+
+        # Certifique-se de que está passando o objeto Servico corretamente para o contexto
+        servico = Servico.objects.get(id=servico_id)
+        profissional = Profissional.objects.get(pk=profissional_pk)
+
+        context['profissional_pk'] = profissional_pk
+        context['servico_id'] = servico_id
+        context['servico'] = servico
+        context['profissional'] = profissional
+
+        return context
+    
+    def get_success_url(self):
+        profissional_pk = self.kwargs.get('profissional_pk')
+        servico_id = self.kwargs.get('servico_id')
+        return reverse_lazy('agenda_medico:listar-agenda', kwargs={'profissional_pk': profissional_pk, 'servico_id': servico_id})

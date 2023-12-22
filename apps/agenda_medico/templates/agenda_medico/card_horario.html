@@ -3,23 +3,23 @@
     
     <div class = "card-first">
     <div class="data-hr">
-        <div class="data">
-            <h2>{{ agenda.dia_semana_abreviado }}</h2>
+        <div class="data2">
+            <h2>{{ dia_semana_abreviado }}</h2>
             <h3>{{ agenda.data.day }}</h3>
         </div>
-        <hr>
+        <hr id ='hr'>
     </div>
 
     <div class="user">
         <p class = "name">{{ agenda.profissional.nome_medico}}<p>
-        <p>{{ agenda.profissional.especialidade}}</p>
+        <p class = 'especialidade'>{{ agenda.profissional.especialidade}}</p>
     </div>
 
     <div class="horario-solicitar">
         <p class="horario-atendimento">Tempo de duração</p>
         <div class="horario">
             <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
-            <p>{{ horario.inicio }}h  - {{ horario.fim}}h</p>
+            <p class = 'hora'>{{ horario.inicio }}h  - {{ horario.fim}}h</p>
         </div>
     </div>
 </div>

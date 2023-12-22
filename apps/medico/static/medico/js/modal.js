@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const abrirModal = document.getElementById("abrirModal");
+    const abrirModal4 = document.getElementById("abrirModal4");
     const abrirModal2Elements = document.getElementsByClassName("abrirModal2");
     const abrirModal3Elements = document.getElementsByClassName("abrirModal3");
     const modal = document.getElementById("myModal");
+    const modal4 = document.getElementById("myModal4");
     const modal2 = document.getElementsByClassName("myModal2")[0];
     const modal3 = document.getElementsByClassName("myModal3")[0];
-    
+
 
     if (abrirModal) {
         abrirModal.addEventListener("click", () => abrirModalHandler(modal));
@@ -23,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    if (abrirModal4) {
+        abrirModal4.addEventListener("click", () => abrirModalHandler(modal4));
+    }
     function abrirModalHandler(modal) {
         if (typeof modal.showModal === 'function') {
             console.log(`Abrir Modal ${modal.id}!!`);

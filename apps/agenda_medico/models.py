@@ -4,15 +4,17 @@ from django.core.exceptions import ValidationError
 from apps.medico.models import Profissional, Servico
 
 class AgendaMedica(models.Model):
-    profissional = models.ForeignKey(Profissional, on_delete = models.PROTECT, null = True)
-    data = models.DateField(null = True)
-    servico = models.ForeignKey( Servico, on_delete=models.CASCADE, null = True)
-    horario_inicio = models.TimeField()
-    horario_fim = models.TimeField()
+    profissional = models.ForeignKey(Profissional, on_delete = models.PROTECT, null = True, blank = True)
+    data = models.DateField()
+    servico = models.ForeignKey(Servico, on_delete=models.CASCADE, null = True, blank = True)
+    horario_inicio = models.TimeField(verbose_name = 'Horário de início')
+    horario_fim = models.TimeField(verbose_name = 'Horário de fim')
 
     def get_duracao_servico(self):
-        duracao_servico = timedelta(minutes=self.servico.duracao_total_minutos())
-        return duracao_servico
+        if self.servico:
+            duracao_servico = timedelta(minutes=self.servico.duracao_total_minutos())
+            return duracao_servico
+        return timedelta()
     
     def get_horario_inicio(self):
         horario_inicio = datetime.combine(self.data, self.horario_inicio)
