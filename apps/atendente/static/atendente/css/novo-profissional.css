@@ -283,6 +283,21 @@ select:focus {
     cursor: pointer;
 }
 
+#lixeira {
+    font-size: 16px;
+    color: rgb(227, 2, 2);
+    background-color: transparent;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#lixeira:hover
+{
+    opacity: 80%;
+}
+
 .lapis {
     font-size: 16px;
     color:  var(--green-base);

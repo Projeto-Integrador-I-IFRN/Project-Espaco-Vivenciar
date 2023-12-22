@@ -260,3 +260,18 @@ select:focus {
 {
     opacity: 80%;
 }
+
+#lixeira {
+    font-size: 16px;
+    color: rgb(227, 2, 2);
+    background-color: transparent;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#lixeira:hover
+{
+    opacity: 80%;
+}

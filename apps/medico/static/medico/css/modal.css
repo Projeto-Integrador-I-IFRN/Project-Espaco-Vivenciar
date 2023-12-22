@@ -184,6 +184,6 @@ dialog {
 }
 
 #botao-salvar-paciente-2 {
-    background-color: var(--green-base);
+    background-color: rgb(227, 2, 2);
     color: white;
 }

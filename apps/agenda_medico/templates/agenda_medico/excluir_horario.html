@@ -1,0 +1,12 @@
+{% load static %}
+<div class="conteudo-modal">
+  <p class="titulo-modal-2">Excluir Horário</p>
+  <p class="confirmacao">Tem certeza que deseja excluir o horário?</p>
+  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'agenda_medico:excluir-horario' agenda_pk=agenda_pk horario_pk=horario.pk %}" >
+    {% csrf_token %}
+    <div class="footer-modal-criar-paciente">
+      <button class="fecharModal" type="button" >Cancelar</button>
+      <button id="botao-salvar-paciente-2" type="submit">Confirmar</button>
+    </div>
+  </form>
+ </div> 

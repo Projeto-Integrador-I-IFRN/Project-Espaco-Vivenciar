@@ -2,6 +2,11 @@
 {% load static %}
 {% block cadastrar_agenda %}
     <div class="container">
+
+        <dialog class="myModal6">
+            <div id="modal6">
+            </div>
+        </dialog>
         <div class="card-list">
             
             <div class="title">
@@ -10,7 +15,7 @@
 
             {% for horario in horarios %}
                     {% include "agenda_medico/card_horario.html"   %}
-                {% endfor %}
+            {% endfor %}
 
         </div>
     </div>

@@ -1,18 +1,19 @@
 {% load static %}
 <div class="card-item-hora">
-    
     <div class = "card-first">
-    <div class="data-hr">
-        <div class="data2">
-            <h2>{{ dia_semana_abreviado }}</h2>
-            <h3>{{ agenda.data.day }}</h3>
-        </div>
-        <hr id ='hr'>
-    </div>
+            <div class= 'card-first-1'>
+            <div class="data-hr">
+                <div class="data2">
+                    <h2>{{ dia_semana_abreviado }}</h2>
+                    <h3>{{ agenda.data.day }}</h3>
+                </div>
+                <hr id ='hr'>
+            </div>
 
-    <div class="user">
-        <p class = "name">{{ agenda.profissional.nome_medico}}<p>
-        <p class = 'especialidade'>{{ agenda.profissional.especialidade}}</p>
+            <div class="user">
+                <p class = "name">{{ agenda.profissional.nome_medico}}<p>
+                <p class = 'especialidade'>{{ agenda.profissional.especialidade}}</p>
+            </div>
     </div>
 
     <div class="horario-solicitar">
@@ -27,8 +28,7 @@
 <div class="space-buttons">
     <div class="buttons">
         <a href = "#' "><button class="lapis"><img src="{% static 'assets/img/icons/la_user-clock.svg'%}" alt="lapis de edição">Agendar</button></a>
-        <a href = "#"> <button class="lixeira"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
+        <button class='abrirModal6' id="lixeira" hx-get="{% url 'agenda_medico:excluir-horario' agenda_pk=agenda.pk horario_pk=horario.pk%}" hx-trigger='click' hx-target='#modal6' hx-swap="innerHTML"><img src="{% static 'assets/img/icons/trash.svg'%}" alt="lixeira">Excluir</button></a>
     </div>
 </div>
 </div>
-

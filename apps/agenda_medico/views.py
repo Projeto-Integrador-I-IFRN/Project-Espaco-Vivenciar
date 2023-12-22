@@ -73,24 +73,6 @@ def listar_dias_semana(agenda):
     dia_semana_numero = agenda.data.weekday()
     return dias_da_semana[dia_semana_numero]
 
-class ListarHorarios(ListView):
-    model = Horario
-    template_name = 'agenda_medico/listar_horarios.html'
-    context_object_name = 'horarios'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        agenda_id = self.kwargs.get('agenda_id')
-        agenda = AgendaMedica.objects.get(id=agenda_id)
-        context['agenda'] = agenda
-        context['dia_semana_abreviado'] = listar_dias_semana(agenda)
-        return context
-
-    def get_queryset(self):
-        agenda_id = self.kwargs.get('agenda_id')
-        return Horario.objects.filter(agenda_medica__id=agenda_id)
-
-
 class CriarAgendaView(CreateView):
     model = AgendaMedica
     form_class = AgendaMedicaForm
@@ -159,3 +141,39 @@ class ExcluirAgenda(DeleteView):
        
         return context
     
+
+class ListarHorarios(ListView):
+    model = Horario
+    template_name = 'agenda_medico/listar_horarios.html'
+    context_object_name = 'horarios'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        agenda_id = self.kwargs.get('agenda_id')
+        agenda = AgendaMedica.objects.get(id=agenda_id)
+        context['agenda'] = agenda
+        context['dia_semana_abreviado'] = listar_dias_semana(agenda)
+        return context
+
+    def get_queryset(self):
+        agenda_id = self.kwargs.get('agenda_id')
+        return Horario.objects.filter(agenda_medica__id=agenda_id)
+
+
+class ExcluirHorario(DeleteView):
+    model = Horario
+    template_name = 'agenda_medico/excluir_horario.html' 
+    pk_url_kwarg = 'horario_pk'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        agenda_pk = self.kwargs.get('agenda_pk')
+        horario_pk = self.kwargs.get('horario_pk')
+        agenda = AgendaMedica.objects.get(id=agenda_pk)
+        context['agenda'] = agenda
+        context['agenda_pk'] = agenda_pk
+        return context
+    
+    def get_success_url(self):
+        agenda_pk = self.kwargs.get('agenda_pk')
+        return reverse_lazy('agenda_medico:listar-horarios', kwargs={'agenda_id': agenda_pk})

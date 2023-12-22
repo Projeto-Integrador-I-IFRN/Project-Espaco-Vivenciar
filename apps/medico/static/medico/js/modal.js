@@ -4,11 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const abrirModal2Elements = document.getElementsByClassName("abrirModal2");
     const abrirModal3Elements = document.getElementsByClassName("abrirModal3");
     const abrirModal5Elements = document.getElementsByClassName("abrirModal5");
+    const abrirModal6Elements = document.getElementsByClassName("abrirModal6");
     const modal = document.getElementById("myModal");
     const modal4 = document.getElementById("myModal4");
     const modal2 = document.getElementsByClassName("myModal2")[0];
     const modal3 = document.getElementsByClassName("myModal3")[0];
     const modal5 = document.getElementsByClassName("myModal5")[0];
+    const modal6 = document.getElementsByClassName("myModal6")[0];
 
 
     if (abrirModal) {
@@ -34,6 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (abrirModal5Elements.length > 0) {
         for (const abrirModal5 of abrirModal5Elements) {
             abrirModal5.addEventListener("click", () => abrirModalHandler(modal5));
+        }
+    }
+
+    if (abrirModal6Elements.length > 0) {
+        for (const abrirModal6 of abrirModal6Elements) {
+            abrirModal6.addEventListener("click", () => abrirModalHandler(modal6));
         }
     }
 
