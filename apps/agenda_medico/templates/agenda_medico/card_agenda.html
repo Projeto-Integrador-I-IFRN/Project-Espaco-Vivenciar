@@ -30,7 +30,7 @@
         <p class= 'agenda-p'>Solicitações</p>
     </div>
 
-    <a href="{% url "atendente:Agendamentos-Solicitacoes" %}"><button class="button-detalhar">Detalhar</button></a>
+    <a href="{% url "agendamento:listar-agendamentos" agenda_pk=agenda.pk %}"><button class="button-detalhar">Detalhar</button></a>
     
     <div class="menu2">
         <button class="button_edit" id="toggleMenu">

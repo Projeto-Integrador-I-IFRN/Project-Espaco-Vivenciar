@@ -1,11 +1,12 @@
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
-from django.views.generic.list import ListView
-from .models import Agendamento
+from django.shortcuts import render
+from django.views.generic import ListView, View, CreateView
+from .models import Agendamento, Solicitacao
 from .forms import AgendamentoForm
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
+from .utils import obter_dia_semana_por_agenda_id
 
 class CriarAgendamento(CreateView):
     model = Agendamento
@@ -35,13 +36,23 @@ class CriarAgendamento(CreateView):
         print(agenda_pk)
         return reverse_lazy('agendamento:listar-agendamentos', kwargs={'agenda_pk': agenda_pk})
 
-class ListarAgendamentos(ListView):
-    model = Agendamento
+class ListarAgendamentosSolicitacoes(ListView):
     template_name = 'agendamento/agendamentos_solicitacoes.html'
-    context_object_name = 'agendamentos'
+    model = Agendamento
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Adicione a pk da agenda ao contexto
-        context['agenda_pk'] = self.kwargs.get('agenda_pk')
+        tipo_modelo = self.request.GET.get('tipo_modelo', 'agendamento')
+
+        if tipo_modelo == 'agendamento':
+            queryset = Agendamento.objects.all()
+        elif tipo_modelo == 'solicitacao':
+            queryset = Solicitacao.objects.all()
+        else:
+            queryset = Agendamento.objects.all()
+
+        # Assuming horario_selecionado has agenda_medica field
+        context['itens'] = queryset.select_related('horario_selecionado__agenda_medica').all()
+
+        context['tipo_modelo'] = tipo_modelo
         return context

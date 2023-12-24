@@ -32,7 +32,7 @@ class Solicitacao(models.Model):
             self.alterar_disponibilidade_horario(True)
 
     def __str__(self):
-        return f'Solicitação de {self.paciente.nome_paciente} para {self.profissional.nome_medico} em {self.horario_selecionado} para o procedimento: {self.horario_selecionado.agenda_medica.servico.nome_servico}'
+        return f'Solicitação de {self.paciente.nome_paciente} em {self.horario_selecionado} para o procedimento: {self.horario_selecionado.agenda_medica.servico.nome_servico}'
     
     def clean(self):
         if not self.horario_selecionado.disponivel:

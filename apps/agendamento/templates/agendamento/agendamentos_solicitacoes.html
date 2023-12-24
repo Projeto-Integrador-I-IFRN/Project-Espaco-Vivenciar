@@ -1,5 +1,6 @@
 {% extends "base/base_home_atendente.html" %}
 {% load static %}
+
 {% block solicitacoes_atendente %}
 <div class="container">
     <div class="card-list">
@@ -8,44 +9,52 @@
         </div>
 
         <ul class="nav-tab-menu">
-            <li class="tab-item active" data-tab="agendamentos" id = "button-agendamentos">
-                <div class="tab-menu">
-                    <div class="qtd-agendados">
-                        <p>10</p>
+            <li class="tab-item {% if tipo_modelo == 'agendamento' %}active{% endif %}" data-tab="agendamentos" id="button-agendamentos">
+                <a href="?tipo_modelo=agendamento">
+                    <div class="tab-menu">
+                        <div class="qtd-agendados">
+                            <p>10</p>
+                        </div>
+                        <p>Agendamentos</p>
                     </div>
-                    <p>Agendamentos</p>
-                </div>
+                </a>
             </li>
-            <li class="tab-item" data-tab="solicitacoes" id = "button-solicitacoes">
-                <div class="tab-menu">
-                    <div class="qtd-solicitacoes">
-                        <p>3</p>
+
+            <li class="tab-item {% if tipo_modelo == 'solicitacao' %}active{% endif %}" data-tab="solicitacoes" id="button-solicitacoes">
+                <a href="?tipo_modelo=solicitacao">
+                    <div class="tab-menu">
+                        <div class="qtd-solicitacoes">
+                            <p>3</p>
+                        </div>
+                        <p>Solicitações</p>
                     </div>
-                    <p>Solicitações</p>
-                </div>
+                </a>
             </li>
         </ul>
-    {% for agendamento in agendamentos%}
-        <div class="tab-content tab-content-agendamentos active" id="agendamentos">
-           {{agendamento}}
+
+        <div class="tab-content" id="agendamentos">
+            {% for item in itens %}
+                {% include "agendamento/card_agendamento.html" %}
+            {% endfor %}
         </div>
-    {% endfor %}
 
         <div class="tab-content" id="solicitacoes" style="display: none">
-            {% include "partials/cards_solicitacao.html" %}
+            {% for item in itens %}
+                {% include "agendamento/card_solicitacao.html" %}
+            {% endfor %}
+        </div>
     </div>
 </div>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const tabButtons = document.querySelectorAll(".tab-item");
-        const contentContainer = document.getElementById("content-container");
-        const solicitacoes = document.getElementById("solicitacoes");
         const agendamentos = document.getElementById("agendamentos");
+        const solicitacoes = document.getElementById("solicitacoes");
 
         tabButtons.forEach(button => {
             button.addEventListener("click", () => {
                 tabButtons.forEach(b => b.classList.remove("active"));
-
                 button.classList.add("active");
 
                 const tabId = button.getAttribute("data-tab");
@@ -60,6 +69,5 @@
             });
         });
     });
-
 </script>
 {% endblock solicitacoes_atendente %}
