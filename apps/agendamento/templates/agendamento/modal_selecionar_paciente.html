@@ -3,17 +3,17 @@
   <p class="titulo-modal">Criar agendamento</p> 
   <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'agendamento:criar-agendamento' horario_pk=horario_pk %}">
 
-    {% csrf_token %}emodel
+    {% csrf_token %}
     {% for paciente in pacientes %}
-      <div>
-        <input type="radio" name="paciente_id" class="opcao1" value="{{ paciente.id }}" id="opcao{{ paciente.id }}">
-        <label for="opcao{{ paciente.id }}">
+      <div class='container-pacientes'>
           <div class="paciente">
+            <input type="radio" name="paciente_id" class="opcao1" value="{{ paciente.id }}" id="opcao{{ paciente.id }}">
+            <label for="opcao{{ paciente.id }}">
             <div class="foto-nome">
               <div class="circle-avatar" id="patient-avatar">{{ paciente.nome_paciente.0 }}</div>
               <div class="user">
                 <p class="name-paciente">{{ paciente.nome_paciente }}</p>
-                <p>{{ paciente.cpf_formatado }}</p>
+                <p>{{ paciente.cpf_paciente }}</p>
               </div>
             </div>
           </div>

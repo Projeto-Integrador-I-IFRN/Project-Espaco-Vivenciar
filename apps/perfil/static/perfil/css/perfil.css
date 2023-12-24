@@ -201,6 +201,10 @@ label {
     align-items: center;
 }
 
+.paciente{
+    display: flex;
+    gap: 10px;
+}
 .delete-service:hover {
     opacity: 90%;
 }
@@ -272,6 +276,21 @@ select:focus {
 }
 
 #lixeira:hover
+{
+    opacity: 80%;
+}
+
+#lapis {
+    font-size: 16px;
+    color:  var(--green-base);
+    background-color: transparent;
+    font-weight: 600;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#lapis:hover
 {
     opacity: 80%;
 }
