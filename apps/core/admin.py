@@ -2,10 +2,12 @@ from django.contrib import admin
 from apps.paciente.models import Paciente 
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
-from apps.agendamento.models import Solicitacao
+from apps.agendamento.models import Solicitacao, Agendamento
 from django import forms
 from django.db import models
 from django.db.models import ProtectedError
+
+admin.site.register(Agendamento)
 
 class HorarioInline(admin.TabularInline):  # ou StackedInline, dependendo da sua preferência visual
     model = Horario
@@ -53,7 +55,7 @@ class AgendaMedicaAdmin(admin.ModelAdmin):
 admin.site.register(Horario, HorarioAdmin)
 
 class SolicitacaoAdmin(admin.ModelAdmin):
-    list_display = ['paciente', 'profissional', 'horario_selecionado', 'status']
+    list_display = ['paciente','horario_selecionado', 'status']
     actions = ['aceitar_solicitacoes', 'recusar_solicitacoes']
 
     def aceitar_solicitacoes(self, request, queryset):

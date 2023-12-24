@@ -1,0 +1,30 @@
+{% load static %}
+<div class="conteudo-modal">
+  <p class="titulo-modal">Criar agendamento</p> 
+  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'agendamento:criar-agendamento' horario_pk=horario_pk %}">
+
+    {% csrf_token %}
+    {% for paciente in pacientes %}
+      <div class='container-pacientes'>
+          <div class="paciente">
+            <input type="radio" name="paciente_id" class="opcao1" value="{{ paciente.id }}" id="opcao{{ paciente.id }}">
+            <label for="opcao{{ paciente.id }}">
+            <div class="foto-nome">
+              <div class="circle-avatar" id="patient-avatar">{{ paciente.nome_paciente.0 }}</div>
+              <div class="user">
+                <p class="name-paciente">{{ paciente.nome_paciente }}</p>
+                <p>{{ paciente.cpf_paciente }}</p>
+              </div>
+            </div>
+          </div>
+        </label>
+      </div>
+    {% endfor %}
+    {{form.errors}}
+    <div class="footer-modal-criar-paciente">
+      <button class="fecharModal" type="button" >Cancelar</button>
+      <button id="botao-salvar-paciente" type="submit">Confirmar</button>
+    </div>
+  </form>
+ </div> 
+

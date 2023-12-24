@@ -12,9 +12,7 @@ class Solicitacao(models.Model):
     ]
 
     paciente = models.ForeignKey( to = Paciente, on_delete = models.PROTECT)
-    profissional = models.ForeignKey( to = Profissional, on_delete = models.PROTECT)
-    agenda_medica = models.ForeignKey(to= AgendaMedica, on_delete = models.PROTECT)
-    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT)
+    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, null = True)
     status = models.CharField(max_length = 20, choices = CHOICES, default = 'P', blank = True)
 
     def alterar_disponibilidade_horario(self, disponibilidade):
@@ -53,5 +51,5 @@ class Solicitacao(models.Model):
         verbose_name_plural = 'Solicitações'
 
 class Agendamento(models.Model):
-    pass
-#     
+    paciente = models.ForeignKey( to = Paciente, on_delete = models.PROTECT, blank=True)
+    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, null = True,blank=True)
