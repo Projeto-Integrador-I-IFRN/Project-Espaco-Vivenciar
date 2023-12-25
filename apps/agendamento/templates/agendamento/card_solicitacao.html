@@ -4,22 +4,39 @@
             <div class= 'card-first-1'>
                 <div class="data-hr">
                     <div class="data2">
-                        <h2>{{ dia_semana_abreviado }}</h2>
-                        <h3>{{item.horario_selecionado.agenda_medica.data.day }}</h3>
+                        <h2> {{ dias_da_semana }}</h2>
+                        <h3>{{ item.horario_selecionado.agenda_medica.data.day }}</h3>
                     </div>
                     <hr id ='hr'>
                     
                     <div class="foto-nome">
-                        <div class="circle-avatar" id="patient-avatar">{{item.paciente.nome_paciente.0 }}</div>
+                        <div class="circle-avatar" id="patient-avatar">{{ item.paciente.nome_paciente.0 }}</div>
                             <div class="user">
-                                <p class="name-paciente" >{{tem.paciente.nome_paciente }}</p>
-                                <p>{{item.paciente.cpf_paciente }}</p>
+                                <p class="name-paciente2" >{{ item.paciente.nome_paciente }}</p>
+                                <p>{{ item.paciente.cpf_paciente }}</p>
                             </div>
                         </div>
                     </div>
                  
                 </div>
-    </div>
+            </div>
+            <div class="horario-solicitar">
+                <p class="horario-atendimento">Horário solicitado</p>
+                <div class="horario">
+                    <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                    <p class = 'hora'>{{ item.horario_selecionado.inicio }}h  - {{ item.horario_selecionado.fim}}h</p>
+                </div>
+            </div>
+            <div class="space-buttons">
+                <div class="buttons">
+                    <button id="lapis">
+                        <img src="{% static 'assets/img/icons/iconamoon_check-bold.svg' %}"  alt="lapis de edição">Aceitar
+                    </button>
+                    
+            
+                    <button  id="lixeira" ><img src="{% static 'assets/img/icons/heroicons-solid_x.svg'%}" alt="lixeira">Recusar</button></a>
+                </div>
+</div>
 </div>
 
 <script src="{% static 'paciente/js/foto-perfil.js' %}"></script>

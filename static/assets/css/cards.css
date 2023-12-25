@@ -50,6 +50,12 @@ p {
     width: 400px;
 }
 
+.name-paciente2 {
+    color: #393E39;
+    font-weight: 600;
+    font-size: 17px;
+}
+
 .info-cpf {
     display: flex;
     align-items: center;

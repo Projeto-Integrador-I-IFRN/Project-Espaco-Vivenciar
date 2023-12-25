@@ -6,7 +6,7 @@ from .forms import AgendamentoForm
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
-from .utils import obter_dia_semana_por_agenda_id
+
 
 class CriarAgendamento(CreateView):
     model = Agendamento
@@ -44,15 +44,38 @@ class ListarAgendamentosSolicitacoes(ListView):
         context = super().get_context_data(**kwargs)
         tipo_modelo = self.request.GET.get('tipo_modelo', 'agendamento')
 
+        agenda_medica_id = self.kwargs.get('agenda_pk')  # Correct the parameter name
+
         if tipo_modelo == 'agendamento':
-            queryset = Agendamento.objects.all()
+            queryset = Agendamento.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id)
         elif tipo_modelo == 'solicitacao':
-            queryset = Solicitacao.objects.all()
+            queryset = Solicitacao.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id)
         else:
-            queryset = Agendamento.objects.all()
+            queryset = Agendamento.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id)
 
-        # Assuming horario_selecionado has agenda_medica field
         context['itens'] = queryset.select_related('horario_selecionado__agenda_medica').all()
-
         context['tipo_modelo'] = tipo_modelo
+
+        if queryset.exists():
+            # Retrieve and add the 'servico' to the context
+            agenda_medica = queryset.first().horario_selecionado.agenda_medica
+            context['itens'] = queryset.select_related('horario_selecionado__agenda_medica').all()
+            context['servico'] = agenda_medica.servico
+
+            # Pass the list of days of the week to the context
+            context['dias_da_semana'] = self.listar_dias_semana(agenda_medica)
+
+            # Add a flag indicating the type of the item
+            context['is_agendamento'] = isinstance(queryset.first(), Agendamento)
+
+            # Add counts to the context
+            context['count_agendamentos'] = Agendamento.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id).count()
+            context['count_solicitacoes'] = Solicitacao.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id).count()
+
         return context
+
+    def listar_dias_semana(self, agenda):
+        dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
+        dia_semana_numero = agenda.data.weekday()
+        return dias_da_semana[dia_semana_numero]
+

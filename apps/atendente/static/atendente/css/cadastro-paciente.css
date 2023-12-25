@@ -39,14 +39,15 @@
     font-size: 40px;
 }
 
-.nav-add{
+.nav-add {
     display: flex;
     justify-content: space-between;
 }
-.first-div input{
+
+.first-div input {
     width: 32rem;
     height: 45px;
-    background-color:  #E9E9E9;
+    background-color: #E9E9E9;
     border-radius: 10px;
     background-image: url('static/assets/img/icons/icon _Search_.svg');
     background-repeat: no-repeat;
@@ -54,13 +55,22 @@
     padding-left: 50px;
 }
 
-input:focus
-{
+#search-input {
+    width: 100%;
+    height: 45px;
+    background-color: #E9E9E9;
+    border-radius: 10px;
+    background-image: url('static/assets/img/icons/icon _Search_.svg');
+    background-repeat: no-repeat;
+    background-position: 20px;
+    padding-left: 50px;
+}
+
+input:focus {
     outline-color: var(--green-base);
 }
 
-select:focus
-{
+select:focus {
     outline-color: var(--green-base);
 }
 
@@ -74,7 +84,7 @@ select:focus
     color: var(--background-white);
 }
 
-.cadastrar-paciente-button:hover{
+.cadastrar-paciente-button:hover {
     opacity: 95%;
 }
 
@@ -94,8 +104,8 @@ select:focus
     margin-top: 50px;
 
 }
-.card-info
-{
+
+.card-info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -124,11 +134,11 @@ select:focus
     margin-top: 65px;
 }
 
-.listagem-pacientes::-webkit-scrollbar {
-    width: 10px;
+.listagem-pacientes2::-webkit-scrollbar {
+    width: 8px;
 }
 
-.listagem-pacientes::-webkit-scrollbar-thumb {
+.listagem-pacientes2::-webkit-scrollbar-thumb {
     background-color: rgb(167, 167, 167);
     border-radius: 20px;
     height: 30px;
@@ -142,13 +152,12 @@ select:focus
     align-items: center;
 }
 
-.centralizar
-{
+.centralizar {
     display: flex;
     justify-content: center;
 }
-.card-paciente:hover
-{
+
+.card-paciente:hover {
     border-radius: 10px;
     background-color: #cccccc22;
     cursor: pointer;
@@ -191,10 +200,10 @@ label {
     min-width: 14rem;
     font-size: 14px;
     color: var(--dark-grey);
-    border: 1px solid #ccc; 
+    border: 1px solid #ccc;
     padding: 10px;
     border-radius: 10px;
-    
+
 }
 
 .card-header {
@@ -253,8 +262,7 @@ label {
     min-width: 200px;
 }
 
-.servicos-section
-{
+.servicos-section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -278,8 +286,7 @@ label {
     align-items: center;
 }
 
-#button-excluir
-{
+#button-excluir {
     background-color: rgb(227, 2, 2);
     /* border: 2px solid var(--green-base); */
     border-radius: 30px;
@@ -294,8 +301,7 @@ label {
     color: white;
 }
 
-.buttons
-{
+.buttons {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -305,18 +311,47 @@ label {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: #3498db; 
-    color: #fff; 
+    background-color: #3498db;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 24px; 
+    font-size: 24px;
 }
 
-#imagem-profissional
-{
-    width: 80px; 
-    height: 80px; 
-    object-fit: cover; 
+#patient-avatar2 {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.nome_paciente {
+    font-size: 16px;
+    color: rgb(32, 32, 32);
+    font-weight: 600;
+}
+
+.listagem-pacientes2 {
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 20px;
+}
+
+.cpf_paciente {
+    font-size: 15px;
+}
+
+#imagem-profissional {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 50%;
 }
