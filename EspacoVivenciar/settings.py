@@ -145,3 +145,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 THUMBNAIL_QUALITY = 85
+
+AUTH_USER_MODEL = 'perfil.PerfilUser'

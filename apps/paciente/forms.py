@@ -10,6 +10,5 @@ class PacienteForm(forms.ModelForm):
         'data_nascimento' : forms.DateInput(attrs={'class': 'edit-field' }),
         'genero' : forms.Select(attrs={'class': 'edit-field' }),
         'cpf_paciente' : forms.TextInput(attrs={'class': 'edit-field' }),
-        'email' : forms.TextInput(attrs={'class': 'edit-field' }),
         'contato_paciente' : forms.TextInput(attrs={'class': 'edit-field' }),
     }

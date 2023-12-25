@@ -15,7 +15,7 @@ class HorarioInline(admin.TabularInline):  # ou StackedInline, dependendo da sua
 
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
-    list_display = ('nome_paciente', 'data_nascimento', 'genero', 'email', 'cpf_paciente')
+    list_display = ('nome_paciente', 'data_nascimento', 'genero', 'cpf_paciente')
 
 @admin.register(Profissional)
 class ProfissionalAdmin(admin.ModelAdmin):

@@ -15,84 +15,99 @@
 
     <title>Espaço Vivenciar</title>
 </head>
+<body>
     <div class="login-card">
         <div class="container">
             <div class="content-primeira-parte"> 
                 <div class="title">
                     <h1>Cadastre-se</h1>
                 </div>
-                <div class="form">
-                    <label for="e-mail">E-mail</label>
-                    <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
-                </div>
-                <div class="form">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" placeholder="000.000.000-00">
-                </div>
-                <div class="form">
-                    <label for="cpf">Confirmar CPF</label>
-                    <input type="text" name="cpf" placeholder="000.000.000-00">
-                </div>
-                <div class="btn-continue">
-                    <button id="continuar-button">Continue</button>
-                    <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
-                </div>
+                <form id="form-primeira-parte" method="POST" action="{% url 'perfil:Cadastro' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="btn-continue">
+                        <button type="submit" id="continuar-button">Continue</button>
+                        <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
+                    </div>
+                </form>
             </div>
 
-            
             <div class="content-segunda-parte" style="display: none;">
                 <div class="title">
                     <h1>Cadastre-se</h1>
                 </div>
-                <div class="form">
-                    <label for="nome">Nome completo</label>
-                    <input type="text" name="nome" placeholder="Ex: Maria Jose da Silva">
-                </div>
-                <div class="form">
-                    <label for="data-nascimento">Data de Nascimento</label>
-                    <input type="date" name="data-nascimento" placeholder="">
-                </div>
-                <div class="content-label">
+                <form id="form-segunda-parte" method="POST" action="{% url 'perfil:Cadastro' %}">
+                    {% csrf_token %}
                     <div class="form">
-                        <label for="genero">Gênero</label>
-                        <select name="Gênero" id="genero">
-                            <option value="Feminino">Feminino</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Outro">Outro</option>
-                        </select>
+                        <label for="nome">Nome completo</label>
+                        {{ paciente_form.nome_paciente }}
                     </div>
                     <div class="form">
-                        <label>Contato</label>
-                        <input type="text" name="contato" placeholder="Ex: (00) 00000-0000">
+                        <label for="data-nascimento">Data de Nascimento</label>
+                        {{ paciente_form.data_nascimento }}
                     </div>
-                </div>
-                <div class="btn-continue">
-                    <button id="continuar-button"><a href="{% url "perfil:Login" %}">Concluir</a></button>
-                    <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
-                </div>
+                    <div class="content-label">
+                        <div class="form">
+                            <label for="genero">Gênero</label>
+                            {{ paciente_form.genero }}
+                        </div>
+                        <div class="form">
+                            <label for="contato">Contato</label>
+                            {{ paciente_form.contato_paciente }}
+                        </div>
+                    </div>
+                    <div class="btn-continue">
+                        <button type="submit" id="concluir-button">Concluir</button>
+                        <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
+                    </div>
+                </form>
             </div>
-            
         </div>
         <div class="img">
             <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
         </div>
     </div>
 
-    <script>
-        const voltarButton = document.getElementById("voltar-button");
-        const continuarButton = document.getElementById("continuar-button");
-        const primeiraParte = document.querySelector(".content-primeira-parte");
-        const segundaParte = document.querySelector(".content-segunda-parte");
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        const voltarButton = $(".voltar-button");
+        const continuarButton = $("#continuar-button");
+        const concluirButton = $("#concluir-button");
+        const primeiraParte = $(".content-primeira-parte");
+        const segundaParte = $(".content-segunda-parte");
 
-        voltarButton.addEventListener("click", function() {
-            segundaParte.style.display = "none";
-            primeiraParte.style.display = "block";
+        continuarButton.on("click", function () {
+            if ("{{ form.is_valid }}" === "True") {
+                // Form is valid, submit the form
+                $("#form-primeira-parte").submit();
+            } else {
+                // Form is invalid, handle the errors
+                alert("Please fill in all required fields in the profile form.");
+                // Add appropriate logic to handle validation failure
+            }
         });
 
-        continuarButton.addEventListener("click", function() {
-            primeiraParte.style.display = "none";
-            segundaParte.style.display = "block";
+        concluirButton.on("click", function () {
+            // Submete o formulário da segunda parte
+            $("#form-segunda-parte").submit();
         });
-    </script>
+
+        voltarButton.on("click", function () {
+            segundaParte.hide();
+            primeiraParte.show();
+        });
+
+        function validatePerfilForm() {
+            // Adicione a lógica para verificar a validade do formulário de perfil
+            var email = $("#id_email").val();
+            var password1 = $("#id_password1").val();
+            var password2 = $("#id_password2").val();
+
+            return email && password1 && password2;
+        }
+    });
+</script>
+
 </body>
 </html>

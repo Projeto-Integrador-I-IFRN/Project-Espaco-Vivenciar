@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinLengthValidator, MaxLengthValidator, validate_integer
 from django import forms
-
+from apps.perfil.models import PerfilUser
 
 class Paciente(models.Model):
 
@@ -14,9 +14,7 @@ class Paciente(models.Model):
     nome_paciente = models.CharField('Nome', max_length = 200)
     data_nascimento = models.DateField('Data de Nascimento')
     genero = models.CharField('Sexo', max_length=24, choices = GENERO_CHOICES, null = True)
-    email = models.EmailField(max_length= 200, unique = True, null = True)
     contato_paciente = models.CharField('Contato', max_length = 15, unique = True, null = True)
-
     cpf_paciente = models.CharField(
         max_length = 11,
         unique = True,
@@ -27,7 +25,8 @@ class Paciente(models.Model):
             MaxLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
         ]
     )
-
+    user = models.ForeignKey(PerfilUser, on_delete=models.CASCADE),
+    
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'
     
