@@ -1,5 +1,5 @@
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
-from django.shortcuts import render
 from django.views.generic import ListView, View, CreateView
 from .models import Agendamento, Solicitacao
 from .forms import AgendamentoForm
@@ -25,6 +25,11 @@ class CriarAgendamento(CreateView):
         horario = Horario.objects.get(id=horario_pk)
         paciente_id = self.request.POST.get('paciente_id')
         paciente = Paciente.objects.get(id=paciente_id)
+        
+        # Set the selected time slot as unavailable
+        horario.disponivel = False
+        horario.save()
+
         form.instance.horario_selecionado = horario
         form.instance.paciente = paciente
         return super().form_valid(form)
@@ -33,8 +38,36 @@ class CriarAgendamento(CreateView):
         horario_pk = self.kwargs.get('horario_pk')
         horario = Horario.objects.get(id=horario_pk)
         agenda_pk = horario.agenda_medica.pk
+
+        return reverse_lazy('agendamento:listar-agendamentos', kwargs={'agenda_pk': agenda_pk})
+
+    def get_success_url(self):
+        horario_pk = self.kwargs.get('horario_pk')
+        horario = Horario.objects.get(id=horario_pk)
+        agenda_pk = horario.agenda_medica.pk
         print(agenda_pk)
         return reverse_lazy('agendamento:listar-agendamentos', kwargs={'agenda_pk': agenda_pk})
+
+
+class AceitarRecusarSolicitacaoView(View):
+    def post(self, request, solicitacao_id, action):
+        solicitacao = get_object_or_404(Solicitacao, pk=solicitacao_id)
+
+        if action == 'aceitar':
+            Agendamento.objects.create(
+                paciente=solicitacao.paciente,
+                horario_selecionado=solicitacao.horario_selecionado,
+            )
+            
+            solicitacao.aceitar_solicitacao()
+            solicitacao.delete()
+        elif action == 'recusar':
+    
+            solicitacao.recusar_solicitacao()
+            solicitacao.delete()
+
+        return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
+       
 
 class ListarAgendamentosSolicitacoes(ListView):
     template_name = 'agendamento/agendamentos_solicitacoes.html'
@@ -44,7 +77,8 @@ class ListarAgendamentosSolicitacoes(ListView):
         context = super().get_context_data(**kwargs)
         tipo_modelo = self.request.GET.get('tipo_modelo', 'agendamento')
 
-        agenda_medica_id = self.kwargs.get('agenda_pk')  # Correct the parameter name
+        agenda_medica_id = self.kwargs.get('agenda_pk')
+        agenda = AgendaMedica.objects.get(pk=agenda_medica_id)
 
         if tipo_modelo == 'agendamento':
             queryset = Agendamento.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id)
@@ -56,21 +90,14 @@ class ListarAgendamentosSolicitacoes(ListView):
         context['itens'] = queryset.select_related('horario_selecionado__agenda_medica').all()
         context['tipo_modelo'] = tipo_modelo
 
-        if queryset.exists():
-            # Retrieve and add the 'servico' to the context
-            agenda_medica = queryset.first().horario_selecionado.agenda_medica
-            context['itens'] = queryset.select_related('horario_selecionado__agenda_medica').all()
-            context['servico'] = agenda_medica.servico
+        context['count_agendamentos'] = Agendamento.objects.filter(horario_selecionado__agenda_medica=agenda).count()
 
-            # Pass the list of days of the week to the context
-            context['dias_da_semana'] = self.listar_dias_semana(agenda_medica)
+        context['count_solicitacoes'] = Solicitacao.objects.filter(horario_selecionado__agenda_medica=agenda).count()
 
-            # Add a flag indicating the type of the item
-            context['is_agendamento'] = isinstance(queryset.first(), Agendamento)
-
-            # Add counts to the context
-            context['count_agendamentos'] = Agendamento.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id).count()
-            context['count_solicitacoes'] = Solicitacao.objects.filter(horario_selecionado__agenda_medica__id=agenda_medica_id).count()
+        context['servico'] = agenda.servico.nome_servico
+        context['dias_da_semana'] = self.listar_dias_semana(agenda)
+        context['is_agendamento'] = isinstance(queryset.first(), Agendamento)
+        context['agenda'] = agenda
 
         return context
 
@@ -78,4 +105,3 @@ class ListarAgendamentosSolicitacoes(ListView):
         dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
         dia_semana_numero = agenda.data.weekday()
         return dias_da_semana[dia_semana_numero]
-

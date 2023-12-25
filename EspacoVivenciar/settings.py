@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'EspacoVivenciar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EspacoVivenciar',
-        'USER': 'postgres',
-        'PASSWORD': '1214212530',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

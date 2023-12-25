@@ -5,6 +5,7 @@ from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica, Horario
 from .forms import SelecionarAgendaForm, AgendaMedicaForm
 from django.views.generic.edit import FormView
+from apps.agendamento.models import Agendamento, Solicitacao
 
 class Home(ListView):
     model = Profissional
@@ -66,6 +67,11 @@ class ListarAgenda(ListView):
 
         for agenda in context['agendas']:
             agenda.dia_semana_abreviado = listar_dias_semana(agenda)
+
+            # Add the counts to each agenda
+            agenda.agendamentos_count = Agendamento.objects.filter(horario_selecionado__agenda_medica=agenda).count()
+            agenda.solicitacoes_count = Solicitacao.objects.filter(horario_selecionado__agenda_medica=agenda).count()
+
         return context
 
 def listar_dias_semana(agenda):
@@ -89,10 +95,9 @@ class CriarAgendaView(CreateView):
         form.instance.profissional = profissional
         form.instance.servico = servico
 
-            # Cria a instância da AgendaMedica
         agenda_medica_instance = form.save()
 
-            # Chama o método para gerar os horários da agenda
+        # Chama o método para gerar os horários da agenda
         agenda_medica_instance.gerar_horarios_atendimento()
 
         return super().form_valid(form)
