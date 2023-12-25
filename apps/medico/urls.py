@@ -1,5 +1,3 @@
-# apps/medico/urls.py
-
 from django.urls import path
 from . import views
 

@@ -9,7 +9,11 @@
             <div class="dropdown-menu">
                 <a href="{% url 'perfil:Perfil' %}">Meu Perfil</a>
                 <a href="{% url 'perfil:Agendamentos' %}">Meus Agendamentos</a>
-                <a class = "sair-link" href="{% url 'core:Index' %}">Sair</a>
+
+                <form class="sair-link" method='POST' action="{% url 'perfil:Logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="sair-link">Sair</button>
+                </form>
             </div>
         </div>
     </div>

@@ -18,96 +18,56 @@
 <body>
     <div class="login-card">
         <div class="container">
-            <div class="content-primeira-parte"> 
-                <div class="title">
-                    <h1>Cadastre-se</h1>
-                </div>
-                <form id="form-primeira-parte" method="POST" action="{% url 'perfil:Cadastro' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <div class="btn-continue">
-                        <button type="submit" id="continuar-button">Continue</button>
-                        <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
-                    </div>
-                </form>
+            <div class="title">
+                <h1>Cadastre-se</h1>
             </div>
-
-            <div class="content-segunda-parte" style="display: none;">
-                <div class="title">
-                    <h1>Cadastre-se</h1>
+ 
+            <form method="POST" action="{% url 'perfil:Cadastro' %}">
+                {% csrf_token %}
+                <div class="form">
+                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.perfiluser.email }}
                 </div>
-                <form id="form-segunda-parte" method="POST" action="{% url 'perfil:Cadastro' %}">
-                    {% csrf_token %}
+                <div class="form">
+                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    {{ form.perfiluser.password1 }}
+                </div>
+                <div class="form">
+                    <label for="{{ form.password2.id_for_label }}">Confirm your password</label>
+                    {{ form.perfiluser.password2 }}
+                </div>
+                <div class="form">
+                    <label for="{{ paciente_form.nome_paciente.id_for_label }}">Nome completo</label>
+                    {{ form.pacienteuser.nome_paciente }}
+                </div>
+                <div class="form">
+                    <label for="{{ paciente_form.cpf_paciente.id_for_label }}">CPF</label>
+                    {{ form.pacienteuser.cpf_paciente }}
+                </div>
+                <div class="form">
+                    <label for="{{ paciente_form.data_nascimento.id_for_label }}">Data de Nascimento</label>
+                    {{ form.pacienteuser.data_nascimento }}
+                </div>
+                <div class="content-label">
                     <div class="form">
-                        <label for="nome">Nome completo</label>
-                        {{ paciente_form.nome_paciente }}
+                        <label for="{{ paciente_form.genero.id_for_label }}">Gênero</label>
+                        {{ form.pacienteuser.genero }}
                     </div>
                     <div class="form">
-                        <label for="data-nascimento">Data de Nascimento</label>
-                        {{ paciente_form.data_nascimento }}
+                        <label for="{{ paciente_form.contato_paciente.id_for_label }}">Contato</label>
+                        {{ form.pacienteuser.contato_paciente }}
                     </div>
-                    <div class="content-label">
-                        <div class="form">
-                            <label for="genero">Gênero</label>
-                            {{ paciente_form.genero }}
-                        </div>
-                        <div class="form">
-                            <label for="contato">Contato</label>
-                            {{ paciente_form.contato_paciente }}
-                        </div>
-                    </div>
-                    <div class="btn-continue">
-                        <button type="submit" id="concluir-button">Concluir</button>
-                        <a id="voltar-button" class="voltar-button"><span>Voltar</span></a>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="btn-continue">
+                    <button type="submit" id="continuar-button">Continue</button>
+                    <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
+                </div>
+            </form>
+    
         </div>
         <div class="img">
             <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
         </div>
     </div>
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $(document).ready(function () {
-        const voltarButton = $(".voltar-button");
-        const continuarButton = $("#continuar-button");
-        const concluirButton = $("#concluir-button");
-        const primeiraParte = $(".content-primeira-parte");
-        const segundaParte = $(".content-segunda-parte");
-
-        continuarButton.on("click", function () {
-            if ("{{ form.is_valid }}" === "True") {
-                // Form is valid, submit the form
-                $("#form-primeira-parte").submit();
-            } else {
-                // Form is invalid, handle the errors
-                alert("Please fill in all required fields in the profile form.");
-                // Add appropriate logic to handle validation failure
-            }
-        });
-
-        concluirButton.on("click", function () {
-            // Submete o formulário da segunda parte
-            $("#form-segunda-parte").submit();
-        });
-
-        voltarButton.on("click", function () {
-            segundaParte.hide();
-            primeiraParte.show();
-        });
-
-        function validatePerfilForm() {
-            // Adicione a lógica para verificar a validade do formulário de perfil
-            var email = $("#id_email").val();
-            var password1 = $("#id_password1").val();
-            var password2 = $("#id_password2").val();
-
-            return email && password1 && password2;
-        }
-    });
-</script>
-
 </body>
 </html>

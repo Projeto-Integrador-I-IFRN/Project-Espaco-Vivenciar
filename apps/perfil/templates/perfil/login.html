@@ -21,19 +21,22 @@
                 <div class="title">
                     <h1>Entrar</h1>
                 </div>
+                <form method="POST">
+                {% csrf_token %}
                 <div class="form">
                     <label for="e-mail">E-mail</label>
-                    <input type="email" name="email" placeholder="Ex: mariajose@gmail.com">
+                    {{ form.username }}
                 </div>
                 <div class="form">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" placeholder="000.000.000-00">
+                    <label for="cpf">Senha</label>
+                    {{ form.password }}
                 </div>
         
                 <div class="btn-continue">
-                    <button id="continuar-button"><a href="{% url "perfil:Home" %}">Entrar</a></button>
+                    <button type="submit" id="continuar-button">Entrar</button>
                     <p>Não tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Cadastro" %}"> Cadastre-se</a></span></u></p>
                 </div>
+            </form>
             </div>
         </div>
             <div class="img">

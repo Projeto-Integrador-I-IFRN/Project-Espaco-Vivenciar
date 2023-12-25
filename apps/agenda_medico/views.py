@@ -5,8 +5,9 @@ from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica, Horario
 from .forms import SelecionarAgendaForm, AgendaMedicaForm
 from django.views.generic.edit import FormView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class Home(ListView):
+class Home(LoginRequiredMixin, ListView):
     model = Profissional
     template_name = 'agenda_medico/home.html'
     context_object_name = 'profissionais'
