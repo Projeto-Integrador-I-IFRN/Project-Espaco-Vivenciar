@@ -59,12 +59,17 @@ class ListarAgenda(ListView):
         profissional_pk = self.kwargs.get('profissional_pk')
         servico_id = self.kwargs.get('servico_id')
         profissional = Profissional.objects.get(pk=profissional_pk)
+        dia_filtrado = self.request.GET.get('dia')
         context['profissional'] = profissional
         context['servico'] = profissional.servico_set.get(id=servico_id)
         context['agendas'] = profissional.agendamedica_set.filter(servico=context['servico'])
         context['servico_id'] = servico_id
         context['profissional_pk'] = profissional_pk
-
+        
+        agendas = profissional.agendamedica_set.filter(servico=context['servico'])
+        if dia_filtrado:
+            agendas = agendas.filter(dia_semana=dia_filtrado)
+            
         for agenda in context['agendas']:
             agenda.dia_semana_abreviado = listar_dias_semana(agenda)
 
