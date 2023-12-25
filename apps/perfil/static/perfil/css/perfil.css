@@ -28,20 +28,22 @@ body {
     align-items: center;
     margin: auto;
     justify-content: space-around;
-    flex-direction: column;
+    flex-direction: row;
     width: auto;
+    margin-top: 3.125rem;
 }
 
 .card-info {
     background-color: white;
     border-radius: 20px;
-    max-width: 42rem;
+    width: 40rem;
     height: auto;
     padding: 2rem;
     padding-left: 4rem;
     padding-right: 4rem;
     filter: drop-shadow(0px 3.3px 3.3px rgba(32, 32, 32, 0.3));
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .first-div
@@ -49,7 +51,7 @@ body {
     min-width: 1000px;
 }
 h1 {
-    font-size: 40px;
+    font-size: 34px;
     color: var(--green-base);
 }
 

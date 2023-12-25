@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from bootstrap_modal_forms.generic import BSModalCreateView
+from django.views.generic import ListView, View, CreateView
 from .forms import SolicitarConsulta
+from apps.medico.models import Profissional
 
 # Create your views here.
 
@@ -11,8 +12,6 @@ def Cadastro(request):
 def Login(request):
     return render(request, 'perfil/login.html')
 
-def Home(request):
-    return render(request, 'perfil/home.html')
 
 def Perfil(request):
     return render(request, 'perfil/perfil.html')

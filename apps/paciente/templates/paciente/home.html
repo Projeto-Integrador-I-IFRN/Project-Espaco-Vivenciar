@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'perfil/css/home.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/carousel.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'medico/css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'perfil/css/header.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://unpkg.com/htmx.org@1.9.9" integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX" crossorigin="anonymous"></script>
+    <script src="{% static "medico/js/modal.js" %}" defer></script>
+
+    <script src="{% static "perfil/js/index.js" %}" defer></script>
+    <title>Espaço Vivenciar - Home</title>
+</head>
+<body>
+  {% include "partials/header_icon.html" %}
+  
+  <main>
+    <dialog class="myModal8">
+      <div id="modal8">
+      </div>
+    </dialog>
+        <div class="container">
+            <div class="home-info">
+                <p>Bem-vindo(a), Maria da Silva!</p>
+                <h1>Solicite um Agendamento</h1>
+                <br>
+                <p>Escolha um especialista e solicite seu <br> agendamento.</p>
+            </div>
+
+            <div class="home-img">
+                <img src="{% static "assets/img/home-img.svg" %}" alt="">
+            </div>
+        </div>
+        
+        <div class="wrapper">
+          <i id="left" class="fa-solid fa-angle-left"></i>
+          <ul class="carousel">
+            {% for profissional in profissionais %}
+        
+            <button class="abrirModal8" hx-get="{% url 'paciente:selecionar_agenda' profissional_pk=profissional.pk %}"
+              hx-trigger='click' hx-target='#modal8' hx-swap="innerHTML">
+              <li class="card">
+                {% include "partials/card-carousel.html" %}
+              </li>
+            </button>
+        
+            {% endfor %}
+          </ul>
+          <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+    </main>
+</body>
+</html>

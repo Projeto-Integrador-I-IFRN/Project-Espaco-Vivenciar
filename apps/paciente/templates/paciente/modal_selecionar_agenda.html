@@ -1,0 +1,16 @@
+{% load static %}
+<div class="conteudo-modal">
+  <p class="titulo-modal">Selecionar agenda</p> 
+  <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'paciente:selecionar_agenda' profissional_pk=profissional.pk %}">
+
+    {% csrf_token %}
+    
+    {{ form }}
+    
+    <div class="footer-modal-criar-paciente">
+      <button class="fecharModal" type="button" >Cancelar</button>
+      <button id="botao-salvar-paciente" type="submit">Confirmar</button>
+    </div>
+  </form>
+ </div> 
+

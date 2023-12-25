@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, View, CreateView
 from .models import Agendamento, Solicitacao
-from .forms import AgendamentoForm
+from .forms import AgendamentoForm, SolicitacaoForm
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
@@ -105,3 +105,4 @@ class ListarAgendamentosSolicitacoes(ListView):
         dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
         dia_semana_numero = agenda.data.weekday()
         return dias_da_semana[dia_semana_numero]
+    
