@@ -8,6 +8,26 @@ from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
 
 
+class CriarSolicitacao(View):
+    
+    def post(self, request, horario_pk, *args, **kwargs):
+        horario = get_object_or_404(Horario, id=horario_pk)
+        paciente = Paciente.objects.get(id=1)
+
+        solicitacao = Solicitacao.objects.create(
+            paciente=paciente,
+            horario_selecionado=horario,
+            agenda_medica=horario.agenda_medica
+        )
+        
+        # Suponha que você precise extrair profissional_pk e servico_id da sua agenda_medica
+        profissional_pk = solicitacao.agenda_medica.profissional.pk
+        servico_id = solicitacao.agenda_medica.servico.pk
+
+        # Use redirect para redirecionar para a lista de agendas
+        return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
+
+
 class CriarAgendamento(CreateView):
     model = Agendamento
     template_name = 'agendamento/modal_selecionar_paciente.html'

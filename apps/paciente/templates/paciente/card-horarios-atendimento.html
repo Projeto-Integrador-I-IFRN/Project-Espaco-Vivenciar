@@ -27,9 +27,14 @@
 
 <div class="space-buttons">
     <div class="buttons">
-        <button onclick=window.location.href="{% url 'agendamento:solicitar-agendamento' horario_pk=horario.pk %}" id="lapis">
-            <img src="{% static 'assets/img/icons/CalendarPlus.svg' %}"  alt="lapis de edição">Solicitar
-        </button>
+
+<form method="post" action="{% url 'agendamento:solicitar-agendamento' horario_pk=horario.pk %}">
+    {% csrf_token %}
+    <button type="submit">
+        <img src="{% static 'assets/img/icons/CalendarPlus.svg' %}" alt="lapis de edição"> Solicitar
+    </button>
+</form>
+
         
     </div>
 </div>

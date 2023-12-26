@@ -12,7 +12,7 @@ class Solicitacao(models.Model):
     ]
 
     paciente = models.ForeignKey( to = Paciente, on_delete = models.PROTECT, blank=True)
-    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, null = True, blank = True)
+    horario_selecionado = models.ForeignKey(to = Horario, on_delete = models.PROTECT, blank = True)
     status = models.CharField(max_length = 20, choices = CHOICES, default = 'P', blank = True)
     agenda_medica = models.ForeignKey(AgendaMedica, on_delete=models.CASCADE, related_name='solicitacoes', blank = True) 
 
