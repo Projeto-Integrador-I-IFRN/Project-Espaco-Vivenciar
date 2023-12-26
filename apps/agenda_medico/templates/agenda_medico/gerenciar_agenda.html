@@ -1,55 +1,41 @@
 {% extends "base/base_home_atendente.html" %}
 {% load static %}
 {% block cadastrar_agenda %}
-    <div class="container">
-        <div class="card-list">
-            <div class="title">
-                <h1>Agenda - {{ servico.nome_servico }}  </h1>
-            </div>
-            <div class="content">
-
-                <dialog id="myModal4">
-                    <div id="modal4">
-                    </div>
-                </dialog>
-                <div class="data-alternada">
-                    <button id="mes-anterior">
-                        <img src="{% static "assets/img/icons/left.svg" %}">
-                    </button>
-                    <p id="nome-mes">{{ agenda.nome_mes}}</p>
-                    <button id="mes-posterior">
-                        <img src="{% static "assets/img/icons/right.svg" %}">
-                    </button>
+<div class="container">
+    <div class="card-list">
+        <div class="title">
+            <h1>Agenda - {{ servico.nome_servico }}  </h1>
+        </div>
+        <div class="content">
+            
+            <dialog id="myModal4">
+                <div id="modal4">
                 </div>
+            </dialog>
+            
+            <dialog class="myModal5">
+                <div id="modal5">
+                </div>
+            </dialog>
                 
+                <div class="data-alternada">
+                    <img src="{% static "assets/img/icons/left.svg" %}">
+                    <p>Outubro</p>
+                    <img src="{% static "assets/img/icons/right.svg" %}">
+                </div>
                 <div class="button-cadastrar-agenda">
                     <button class="btn-novaAgenda" id="abrirModal4" hx-get={% url 'agenda_medico:criar-agenda' profissional_pk=profissional_pk servico_id=servico_id%} hx-trigger='click' hx-target='#modal4' hx-swap="innerHTML">
                         <i class="ph ph-user-circle-plus"></i>
                         + Nova agenda
-                    </button>
+                      </button>
+                    </div>
+                    
                 </div>
 
-                <!-- Adicione o código para o filtro por dia -->
-                <div class="filtro-por-dia">
-                    <form method="post" action="">
-                        <label for="dia">Filtrar por dia:</label>
-                        <select name="dia" id="dia">
-                            <option value="">Todos os dias</option>
-                            <option value="seg">Segunda-feira</option>
-                            <option value="ter">Terça-feira</option>
-                            <option value="qua">Quarta-feira</option>
-                            <option value="qui">Quinta-feira</option>
-                            <option value="sex">Sexta-feira</option>
-                            <!-- Adicione mais opções conforme necessário -->
-                        </select>
-                        <button type="submit">Filtrar</button>
-                    </form>
-                </div>
+                {% for agenda in agendas %}
+                    {% include "agenda_medico/card_agenda.html"   %}
+                {% endfor %}
 
-            </div>
-            {% for agenda in agendas %}
-                {% include "agenda_medico/card_agenda.html" %}
-            {% endfor %}
         </div>
     </div>
 {% endblock cadastrar_agenda %}

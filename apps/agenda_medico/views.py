@@ -1,11 +1,9 @@
-from django.shortcuts import render, reverse
+from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, DeleteView, ListView, View, MonthArchiveView
 from apps.medico.models import Profissional, Servico
 from .models import AgendaMedica, Horario
 from .forms import SelecionarAgendaForm, AgendaMedicaForm
 from django.views.generic.edit import FormView
-from django.http import JsonResponse
 
 class Home(ListView):
     model = Profissional
