@@ -1,0 +1,21 @@
+{% load static %}
+<div class="card-item {% if agenda.data == data_mais_proxima %} id="data-proxima" {% endif %}">
+    <div class="data-hr">
+        <div class="data">
+            <h2>{{ agenda.dia_semana_abreviado }}</h2>
+            <h3>{{ agenda.data.day }}</h3>
+        </div>
+        <hr>
+    </div>
+    <div class="horario-solicitar">
+        <p class="horario-atendimento">Horários de atendimento</p>
+        <div class="horario">
+            <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+            <p>{{ agenda.horario_inicio }}h  - {{ agenda.horario_fim }}h</p>
+        </div>
+    </div>
+
+    <a href="{% url "paciente:listar-horarios-atendimento" agenda_id=agenda.id %}"><button class="button-detalhar">Detalhar</button></a>
+    
+</div>
+

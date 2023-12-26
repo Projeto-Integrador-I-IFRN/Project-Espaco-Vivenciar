@@ -17,7 +17,7 @@
 
     <div class="count-solicitacoes">
         <div class="qtd-agendados">
-            <p>10</p>
+            <p>{{ agenda.agendamentos_count }}</p>
         </div>
         <p class= 'agenda-p'>Agendamentos</p>
     </div>
@@ -25,12 +25,12 @@
  
     <div class="count-solicitacoes">
         <div class="qtd-solicitacoes">
-            <p>3</p>
+            <p>{{ agenda.solicitacoes_count }}</p>
         </div>
         <p class= 'agenda-p'>Solicitações</p>
     </div>
 
-    <a href="{% url "atendente:Agendamentos-Solicitacoes" %}"><button class="button-detalhar">Detalhar</button></a>
+    <a href="{% url "agendamento:listar-agendamentos" agenda_pk=agenda.pk %}"><button class="button-detalhar">Detalhar</button></a>
     
     <div class="menu2">
         <button class="button_edit" id="toggleMenu">

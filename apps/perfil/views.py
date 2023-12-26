@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views.generic.base import RedirectView
 from django.contrib.auth import login
 from django.urls import reverse_lazy
-from bootstrap_modal_forms.generic import BSModalCreateView
+from django.views.generic import ListView, View, CreateView
 from .forms import SolicitarConsulta
 from django.views.generic import CreateView, TemplateView
 from .forms import UserProfileMultiForm, PerfilUserForm

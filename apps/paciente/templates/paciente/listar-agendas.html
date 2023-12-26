@@ -1,0 +1,27 @@
+{% extends "base/base_home.html" %}
+{% load static %}
+{% block main %}
+<div class="container">
+    <div class="card-list">
+        <div class="title">
+            <h1>Agenda - {{ servico.nome_servico }}  </h1>
+        </div>
+        <div class="content">
+            
+                
+                <div class="data-alternada">
+                    <img src="{% static "assets/img/icons/left.svg" %}">
+                    <p>Outubro</p>
+                    <img src="{% static "assets/img/icons/right.svg" %}">
+                </div>
+                
+                    
+                </div>
+
+                {% for agenda in agendas %}
+                    {% include "paciente/card-agenda.html"   %}
+                {% endfor %}
+
+        </div>
+    </div>
+{% endblock main %}

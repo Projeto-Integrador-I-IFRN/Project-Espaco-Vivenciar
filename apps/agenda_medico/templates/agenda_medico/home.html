@@ -2,36 +2,39 @@
 {% load static %}
 {% block home_atendente %}
 
-  <div class="container2">
-    <dialog class="myModal3">
-      <div id="modal3">
-      </div>
-    </dialog>
-    
-    <div class="home-info">
-      <h1>Gerencie seus agendamentos</h1>
+<dialog class="myModal3">
+  <div id="modal3">
+  </div>
+</dialog>
+
+<div class="container">
+  <div class="home-info">
+      <p>Bem-vindo(a)!</p>
+      <h1>Sistema de Agendamentos</h1>
       <br>
-      <p>Escolha um profissional e gerencie <br> seus agendamentos</p>
-    </div>
+      <p>Escolha um especialista e gerencie agendamentos <br> e solicitacoes.</p>
+  </div>
 
-    <div class="home-img">
+  <div class="home-img">
       <img src="{% static "assets/img/home-img.svg" %}" alt="">
-    </div>
   </div>
-  <div class="wrapper">
-    <i id="left" class="fa-solid fa-angle-left"></i>
-    <ul class="carousel">
-      {% for profissional in profissionais %}
+</div>
 
-        <button class ="abrirModal3" hx-get="{% url 'agenda_medico:selecionar_agenda' profissional_pk=profissional.pk %}" hx-trigger='click' hx-target='#modal3' hx-swap="innerHTML">
-        <li class="card">
-            {% include "partials/card-carousel.html" %}
-          </li>
-        </button>
-        
-      {% endfor %}
-    </ul>
-    <i id="right" class="fa-solid fa-angle-right"></i>
-  </div>
+<div class="wrapper">
+  <i id="left" class="fa-solid fa-angle-left"></i>
+  <ul class="carousel">
+    {% for profissional in profissionais %}
+
+    <button class="abrirModal3" hx-get="{% url 'agenda_medico:selecionar_agenda' profissional_pk=profissional.pk %}"
+      hx-trigger='click' hx-target='#modal3' hx-swap="innerHTML">
+      <li class="card">
+        {% include "partials/card-carousel.html" %}
+      </li>
+    </button>
+
+    {% endfor %}
+  </ul>
+  <i id="right" class="fa-solid fa-angle-right"></i>
+</div>
 
 {% endblock home_atendente %}

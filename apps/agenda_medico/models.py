@@ -10,6 +10,12 @@ class AgendaMedica(models.Model):
     horario_inicio = models.TimeField(verbose_name = 'Horário de início')
     horario_fim = models.TimeField(verbose_name = 'Horário de fim')
 
+    def get_count_agendamentos(self):
+        return self.agendamentos.count()
+
+    def get_count_solicitacoes(self):
+        return self.solicitacoes.count()
+
     def get_duracao_servico(self):
         if self.servico:
             duracao_servico = timedelta(minutes=self.servico.duracao_total_minutos())

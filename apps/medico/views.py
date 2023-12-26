@@ -20,6 +20,13 @@ class ListarProfissionais(ListView):
             object_list = object_list.filter(Q(nome_medico__icontains=query)| Q(especialidade__icontains=query))
         return object_list
     
+    def home_atendente(request):
+        profissionais = Profissional.objects.all()
+        return render(request, 'atendente/home.html', {'profissionais': profissionais})
+
+    def home_paciente(request):
+        profissionais = Profissional.objects.all()
+        return render(request, 'paciente/home.html', {'profissionais': profissionais})
 
 class CriarProfissional(CreateView):
     model = Profissional

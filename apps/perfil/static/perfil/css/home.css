@@ -42,16 +42,9 @@ main {
     /* 630px */
     font-style: normal;
     font-weight: 400;
+    color: black;
 }
 
-.container2 {
-    display: flex;
-    align-items: center;
-    margin: auto;
-    justify-content: space-around;
-    flex-direction: row;
-    width: auto;
-}
 
 .container
 {

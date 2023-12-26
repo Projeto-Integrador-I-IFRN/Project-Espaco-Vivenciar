@@ -1,7 +1,7 @@
 {% extends "base/base_home_atendente.html" %}
 {% load static %}
 {% block gerenciar_pacientes %}
-<div class="centralizar">
+<div class="container">
     <form method="post">
     {% csrf_token %}
         <h1>Cadastrar Paciente</h1>
@@ -51,28 +51,7 @@
         <div class="endereco">
             <h2>Endereço</h2>
         </div>
-        <div class="sections">
-            <div class="endereco-section">
-                <div class="campos">
-                    <label for="cidade">Cidade</label>
-                    
-                </div>
-                <div class="campos">
-                    <label for="bairro">Bairro</label>
-                    
-                </div>
-            </div>
-            <div class="endereco-section">
-                <div class="campos">
-                    <label for="rua">Rua</label>
-                   
-                </div>
-                <div class="campos">
-                    <label for="number">Número</label>
-                    
-                </div>
-            </div>
-        </div>
+        
     </section>
 </form>
 </div>

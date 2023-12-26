@@ -1,25 +1,26 @@
 {% load static %}
 <div class="conteudo-modal">
-  <p class="titulo-modal">Criar agendamento</p> 
+  <p class="titulo-modal">Criar agendamento</p>
+  <input type="search" name="search" id="search-input"  placeholder="Buscar Paciente">
   <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'agendamento:criar-agendamento' horario_pk=horario_pk %}">
 
     {% csrf_token %}
+    <div class='listagem-pacientes2'>
     {% for paciente in pacientes %}
-      <div class='container-pacientes'>
           <div class="paciente">
             <input type="radio" name="paciente_id" class="opcao1" value="{{ paciente.id }}" id="opcao{{ paciente.id }}">
             <label for="opcao{{ paciente.id }}">
             <div class="foto-nome">
-              <div class="circle-avatar" id="patient-avatar">{{ paciente.nome_paciente.0 }}</div>
-              <div class="user">
-                <p class="name-paciente">{{ paciente.nome_paciente }}</p>
-                <p>{{ paciente.cpf_paciente }}</p>
+              <div class="circle-avatar" id="patient-avatar2">{{ paciente.nome_paciente.0 }}</div>
+              <div class="user2">
+                <p  class='nome_paciente'>{{ paciente.nome_paciente }}</p>
+                <p class='cpf_paciente'>{{ paciente.cpf_paciente }}</p>
               </div>
             </div>
           </div>
         </label>
+        {% endfor %}
       </div>
-    {% endfor %}
     {{form.errors}}
     <div class="footer-modal-criar-paciente">
       <button class="fecharModal" type="button" >Cancelar</button>
@@ -27,4 +28,19 @@
     </div>
   </form>
  </div> 
+ <script>
+  
+  if (typeof avatars === 'undefined') {
+    const avatars = document.querySelectorAll('.circle-avatar');
+
+    if (avatars.length > 0) {
+      avatars.forEach((avatar, index) => {
+        const firstLetter = avatar.textContent.charAt(0);
+        const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
+        const colorIndex = firstLetter.charCodeAt(0) % colors.length;
+        avatar.style.backgroundColor = colors[colorIndex];
+      });
+    }
+  }
+</script>
 
