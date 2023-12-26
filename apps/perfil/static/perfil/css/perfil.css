@@ -140,6 +140,20 @@ label {
     align-items: center;
 }
 
+#editButton2 {
+    background-color: var(--green-base);
+    color: white;
+    border-radius: 30px;
+    width: 134px;
+    height: 35px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #button-excluir {
     background-color: rgb(227, 2, 2);
     /* border: 2px solid var(--green-base); */

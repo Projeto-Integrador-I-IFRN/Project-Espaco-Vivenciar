@@ -11,6 +11,7 @@ urlpatterns = [
     path("home/", views.HomeView.as_view(), name="Home"),
     path("perfil/", views.Perfil, name="Perfil"),
     path("agendamentos/", views.Agendamentos, name="Agendamentos"),
-    path('home/selecionar-horario', views.mostrar_modal, name='Modal'),
-    path("agendar/", views.Agendar, name="Agendar"),
+    path('perfil/detalhes/', views.DetalhesPaciente.as_view(), name='detalhes-paciente'),
+    path('perfil/editar/<int:paciente_id>', views.EditarPaciente.as_view(), name='editar-paciente'),
+   
 ]

@@ -25,6 +25,11 @@ class Paciente(models.Model):
             MaxLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
         ]
     )
+    def get_genero_display_full(self):
+    # Mapeie o valor do gênero para o nome completo
+        genero_mapping = dict(self.GENERO_CHOICES)
+        return genero_mapping.get(self.genero, self.genero)
+
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     
     def __str__(self):
@@ -35,4 +40,5 @@ class Paciente(models.Model):
         if len(cpf_paciente) != 11:
             raise forms.ValidationError('O CPF deve ter exatamente 11 caracteres.')
         return cpf_paciente
+    
     

@@ -19,7 +19,7 @@ class CustomDateInput(forms.DateInput):
 
 class AgendaMedicaForm(forms.ModelForm):
     data = forms.DateField(
-        widget=CustomDateInput(attrs={'class': 'edit-field', 'placeholder': 'dd/mm/aaaa'}),
+        widget=CustomDateInput(attrs={'class': 'edit-field', 'placeholder': 'dd/mm/aaaa', 'type': 'date'}),
         input_formats=['%d/%m/%Y', '%Y/%m/%d', '%d-%m-%Y', '%Y-%m-%d'],
     )
     class Meta:

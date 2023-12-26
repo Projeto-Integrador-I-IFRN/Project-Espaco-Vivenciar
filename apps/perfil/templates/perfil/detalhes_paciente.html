@@ -2,49 +2,49 @@
 {% load static %}
 {% block main %}
 <div class="container">
-    <form method="post">
-    {% csrf_token %}
+    <form >
         <h1>Meu Perfil</h1>
     <section class="card-info">
         <div class="card-header">
             <h2>Informações pessoais</h2>
-            <button type="submit" id="editButton">Salvar</button>
+            <a href="{% url 'perfil:editar-paciente' paciente_id=1 %}">
+                <button id="editButton2">Editar</button>
+            </a>
         </div>
         <div class="info-user">
             <div class="sections">
             <div class="section">
                 <div class="campos">
                     <label for="nome">Nome</label>
-                    {{ form.nome_paciente }}
+                    <p>{{ paciente.nome_paciente }}</p>
                 </div>
                 <div class="campos">
                     <label for="data">Data de Nascimento</label>
-                    {{ form.data_nascimento }}
+                    <p>{{ paciente.data_nascimento }}</p>
                 </div>
             </div>
                 <div class="section">
                     <div class="campos">
                         <label for="gênero">Gênero</label>
-                        {{ form.genero }}
-                        </select>
+                        <p>{{  paciente.get_genero_display_full }}</p>
                     </div>
                 
                     <div class="campos">
                         <label for="e-mail">E-mail</label>
-                        {{ form.email }}
+                        <p>{{ paciente.email }}</p>
                     </div>
                 </div>
 
                 <div class="section">
                     <div class="campos">
                         <label for="cpf">CPF</label>
-                        {{ form.cpf_paciente }}
-                        {{ form.cpf_paciente.errors }}
+                        <p>{{ paciente.cpf_paciente }}</p>
+                    
                     </div>
 
                     <div class="campos">
                         <label for = "contato">Contato</label>
-                        {{ form.contato_paciente }}
+                        <p>{{ paciente.contato_paciente }}</p>
                 </div>
             </div>
         </div>

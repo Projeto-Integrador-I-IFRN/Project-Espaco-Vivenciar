@@ -14,22 +14,40 @@ class CriarSolicitacao(View):
     
     def post(self, request, horario_pk, *args, **kwargs):
         horario = get_object_or_404(Horario, id=horario_pk)
+
+        profissional_pk = horario.agenda_medica.profissional.pk
+        servico_id = horario.agenda_medica.servico.id
+        # Verifica se o horário está disponível
+        if not horario.disponivel:
+            messages.error(request, 'O horário selecionado não está disponível.')
+            return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
+
+        # Verifica se já existe uma solicitação para o mesmo horário
+        if Solicitacao.objects.filter(horario_selecionado=horario).exists():
+            messages.error(request, 'Já existe uma solicitação para este horário.')
+            return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
+
+        # Verifica se já existe um agendamento realizado para o mesmo horário
+        if Agendamento.objects.filter(horario_selecionado=horario).exists():
+            messages.error(request, 'Já existe um agendamento realizado para este horário.')
+            return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
+
         paciente = Paciente.objects.get(id=1)
 
+        # Cria a solicitação
         solicitacao = Solicitacao.objects.create(
             paciente=paciente,
             horario_selecionado=horario,
             agenda_medica=horario.agenda_medica
         )
-        
+
         # Suponha que você precise extrair profissional_pk e servico_id da sua agenda_medica
         profissional_pk = solicitacao.agenda_medica.profissional.pk
         servico_id = solicitacao.agenda_medica.servico.pk
 
-        # Use redirect para redirecionar para a lista de agendas
+        # Use redirect ao invés de reverse_lazy para obter a URL reversa com argumentos
         return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
-
-
+    
 class CriarAgendamento(CreateView):
     model = Agendamento
     template_name = 'agendamento/modal_selecionar_paciente.html'
@@ -56,7 +74,7 @@ class CriarAgendamento(CreateView):
 
         form.instance.horario_selecionado = horario
         form.instance.paciente = paciente
-        form.instance.agenda_medica = agenda_medica.id
+        form.instance.agenda_medica = agenda_medica
         return super().form_valid(form)
         
 

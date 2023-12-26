@@ -13,5 +13,6 @@ urlpatterns = [
     
     path('paciente/selecionar-agenda/<int:profissional_pk>/', views.SelecionarAgendaView.as_view(), name='selecionar_agenda'),
     path('paciente/agenda/<int:profissional_pk>/<int:servico_id>/', views.ListarAgenda.as_view(), name='listar-agendas'),
-    path('agenda/solicitar/<int:agenda_id>', views.ListarHorarios.as_view(), name='listar-horarios-atendimento'),   
+    path('agenda/solicitar/<int:agenda_id>', views.ListarHorarios.as_view(), name='listar-horarios-atendimento'),
+      
 ]
