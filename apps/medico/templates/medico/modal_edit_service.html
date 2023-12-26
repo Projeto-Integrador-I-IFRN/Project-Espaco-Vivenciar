@@ -4,7 +4,12 @@
   <form class="formulario-paciente" id="formAdicionarServico" method="post" action="{% url 'medico:editar-servico' servico_pk=servico.pk profissional_pk=profissional.pk %}">
 
     {% csrf_token %}
-    {{ form }}
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+      </div>
+    {% endfor %}
     
     <div class="footer-modal-criar-paciente">
       <button class="fecharModal" type="button" >Cancelar</button>

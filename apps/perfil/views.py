@@ -45,7 +45,7 @@ class CustomUserRedirectView(LoginRequiredMixin, RedirectView):
                 return reverse("agenda_medico:Home")
             else:
                 print('aaaaa')
-                return reverse("perfil:Home")
+                return reverse("paciente:Home")
         else:
             print('test')
             return reverse("perfil:Login")
@@ -59,14 +59,14 @@ class Login(LoginView):
                 return reverse("agenda_medico:Home")
             else:
                 print('aaaaa')
-                return reverse("perfil:Home")
+                return reverse("paciente:Home")
         else:
             print('test')
             return reverse("perfil:Login")
 
 
 class HomeView(LoginRequiredMixin, TemplateView):
-    template_name = 'perfil/home.html'
+    template_name = 'paciente/home.html'
 
 def Perfil(request):
     return render(request, 'perfil/perfil.html')

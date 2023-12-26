@@ -6,6 +6,8 @@ from .forms import AgendamentoForm, SolicitacaoForm
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
+from django.contrib import messages
+
 
 
 class CriarSolicitacao(View):
@@ -46,20 +48,18 @@ class CriarAgendamento(CreateView):
         paciente_id = self.request.POST.get('paciente_id')
         paciente = Paciente.objects.get(id=paciente_id)
         
-        # Set the selected time slot as unavailable
+        # Suponha que o Horario esteja associado a uma AgendaMedica
+        agenda_medica = horario.agenda_medica
+        
         horario.disponivel = False
         horario.save()
 
         form.instance.horario_selecionado = horario
         form.instance.paciente = paciente
+        form.instance.agenda_medica = agenda_medica.id
         return super().form_valid(form)
+        
 
-    def get_success_url(self):
-        horario_pk = self.kwargs.get('horario_pk')
-        horario = Horario.objects.get(id=horario_pk)
-        agenda_pk = horario.agenda_medica.pk
-
-        return reverse_lazy('agendamento:listar-agendamentos', kwargs={'agenda_pk': agenda_pk})
 
     def get_success_url(self):
         horario_pk = self.kwargs.get('horario_pk')
@@ -74,20 +74,25 @@ class AceitarRecusarSolicitacaoView(View):
         solicitacao = get_object_or_404(Solicitacao, pk=solicitacao_id)
 
         if action == 'aceitar':
-            Agendamento.objects.create(
-                paciente=solicitacao.paciente,
-                horario_selecionado=solicitacao.horario_selecionado,
-            )
-            
-            solicitacao.aceitar_solicitacao()
-            solicitacao.delete()
+            # Verifica se há um horário selecionado e uma agenda médica associada
+            if solicitacao.horario_selecionado and solicitacao.agenda_medica:
+                Agendamento.objects.create(
+                    paciente=solicitacao.paciente,
+                    horario_selecionado=solicitacao.horario_selecionado,
+                    agenda_medica=solicitacao.agenda_medica
+                )
+                solicitacao.aceitar_solicitacao()
+                solicitacao.delete()
+                return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
+            else:
+                # Trate o caso em que não há horário ou agenda associada à solicitação
+                messages.error(request, 'Não há horário ou agenda associados à solicitação.')
+                return redirect('agendamento:listar-agendamentos')  # ou outra URL padrão
+
         elif action == 'recusar':
-    
             solicitacao.recusar_solicitacao()
             solicitacao.delete()
-
-        return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
-       
+            return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
 
 class ListarAgendamentosSolicitacoes(ListView):
     template_name = 'agendamento/agendamentos_solicitacoes.html'

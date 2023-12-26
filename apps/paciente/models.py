@@ -25,7 +25,7 @@ class Paciente(models.Model):
             MaxLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
         ]
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'

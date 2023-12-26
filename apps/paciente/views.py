@@ -143,6 +143,18 @@ class EditarPaciente(UpdateView):
     template_name = 'paciente/criar-paciente.html'
     form_class = PacienteForm
     pk_url_kwarg = 'id'
-    
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+
+        if 'instance' not in kwargs:
+            kwargs['instance'] = self.get_object()
+
+        # Certifique-se de que o campo de data de nascimento é convertido para string antes de passá-lo para o formulário
+        if 'data_nascimento' in kwargs['instance'].__dict__:
+            kwargs['instance'].data_nascimento = str(kwargs['instance'].data_nascimento)
+
+        return kwargs
+
     def get_success_url(self):
         return reverse_lazy('paciente:listar-pacientes')
