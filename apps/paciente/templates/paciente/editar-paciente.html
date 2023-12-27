@@ -1,10 +1,10 @@
-{% extends "base/base_home.html" %}
+{% extends "base/base_home_atendente.html" %}
 {% load static %}
-{% block main %}
+{% block gerenciar_pacientes %}
 <div class="container">
     <form method="post">
     {% csrf_token %}
-        <h1>Meu Perfil</h1>
+        <h1>Editar Paciente</h1>
         <section class="card-info">
             <div class="card-header">
                 <h2>Informações pessoais</h2>
@@ -64,4 +64,4 @@
         
 </form>
 </div>
-{% endblock main %}
+{% endblock gerenciar_pacientes %}

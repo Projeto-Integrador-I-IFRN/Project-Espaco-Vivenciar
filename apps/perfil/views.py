@@ -4,7 +4,7 @@ from django.views.generic.base import RedirectView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView
 from django.views.generic import CreateView, TemplateView, ListView
-from .forms import UserProfileMultiForm
+from apps.perfil.forms import UserProfileMultiForm
 from apps.paciente.forms import PacienteForm
 from apps.paciente.models import Paciente
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -65,8 +65,6 @@ class Login(LoginView):
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = 'paciente/home.html'
 
-def Perfil(request):
-    return render(request, 'perfil/perfil.html')
 
 class EditarPaciente(LoginRequiredMixin, UpdateView):
     model = Paciente
@@ -87,7 +85,7 @@ class EditarPaciente(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse("paciente:Home")
 
-class DetalhesPaciente(DetailView):
+class DetalhesPaciente(LoginRequiredMixin, DetailView):
     model = Paciente
     template_name = 'perfil/detalhes_paciente.html'  # Certifique-se de criar este arquivo HTML
 

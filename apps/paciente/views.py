@@ -11,9 +11,11 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 import re
 from apps.perfil.views import CreateUserAndPacienteMixin
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
-class Home(ListView):
+class Home(LoginRequiredMixin, ListView):
     model = Profissional
     template_name = 'paciente/home.html'
     context_object_name = 'profissionais'
@@ -55,7 +57,7 @@ class SelecionarAgendaView(FormView):
         return kwarg
 
 
-class ListarAgenda(ListView):
+class ListarAgenda(LoginRequiredMixin, ListView):
     model = AgendaMedica
     template_name = 'paciente/listar-agendas.html'
     context_object_name = 'agendas'
@@ -81,7 +83,7 @@ def listar_dias_semana(agenda):
     dia_semana_numero = agenda.data.weekday()
     return dias_da_semana[dia_semana_numero]
 
-class ListarHorarios(ListView):
+class ListarHorarios(LoginRequiredMixin, ListView):
     model = Horario
     template_name = 'paciente/listar-horarios-atendimento.html'
     context_object_name = 'horarios'
@@ -98,11 +100,11 @@ class ListarHorarios(ListView):
         agenda_id = self.kwargs.get('agenda_id')
         return Horario.objects.filter(agenda_medica__id=agenda_id)
     
-class ListarPacientes(ListView):
+class ListarPacientes(LoginRequiredMixin, ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_queryset(self):
         query = self.request.GET.get('search')
@@ -152,24 +154,24 @@ class ExcluirPaciente(DeleteView):
     def get(self, *args, **kwargs):
         return self.delete(*args, **kwargs)
 
-class EditarPaciente(UpdateView):
+class EditarPaciente(LoginRequiredMixin, UpdateView):
     model = Paciente
-    template_name = 'paciente/criar-paciente.html'
+    template_name = 'paciente/editar-paciente.html'
     form_class = PacienteForm
     pk_url_kwarg = 'id'
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
-
-        if 'instance' not in kwargs:
-            kwargs['instance'] = self.get_object()
-
-        # Certifique-se de que o campo de data de nascimento é convertido para string antes de passá-lo para o formulário
+        kwargs['instance'] = self.get_object()
         if 'data_nascimento' in kwargs['instance'].__dict__:
             kwargs['instance'].data_nascimento = str(kwargs['instance'].data_nascimento)
-
         return kwargs
+        
+
+    def form_valid(self, form):
+        # Save both user and paciente instances
+        form.save()
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('paciente:listar-pacientes')
-
