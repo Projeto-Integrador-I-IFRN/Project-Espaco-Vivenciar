@@ -33,7 +33,8 @@ class CriarSolicitacao(View):
             messages.error(request, 'Já existe um agendamento realizado para este horário.')
             return redirect('paciente:listar-agendas', profissional_pk=profissional_pk, servico_id=servico_id)
 
-        paciente = Paciente.objects.get(id=1)
+        paciente_id = self.request.user.id
+        paciente = get_object_or_404(Paciente, user__id=paciente_id)
 
         # Cria a solicitação
         solicitacao = Solicitacao.objects.create(
