@@ -14,16 +14,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <title>Espaço Vivenciar</title>
+    
 </head>
 <body>
-    <div class="login-card">
-        <div class="container">
-            <div class="title">
-                <h1>Cadastre-se</h1>
-            </div>
- 
-            <form method="POST" action="{% url 'perfil:Cadastro' %}">
+    {% include "partials/header.html" %}
+        <div class="container2">
+            <form method="POST" action="{% url 'perfil:Cadastro' %}" class='frme'>
+                <div class="title">
+                    <h1>Cadastre-se</h1>
+                </div>
+     
                 {% csrf_token %}
+                <div class='formulario'>
+                <div  class='aaa'>
                 <div class="form">
                     {{ form.perfiluser.email.label_tag }}
                     {{ form.perfiluser.email }}
@@ -40,33 +43,34 @@
                     {{ form.pacienteuser.nome_paciente.label_tag }}
                     {{ form.pacienteuser.nome_paciente }}
                 </div>
-                <div class="form">
-                    {{ form.pacienteuser.cpf_paciente.label_tag }}
-                    {{ form.pacienteuser.cpf_paciente }}
-                </div>
-                <div class="form">
-                    {{ form.pacienteuser.data_nascimento.label_tag }}
-                    {{ form.pacienteuser.data_nascimento }}
-                </div>
-                <div class="content-label">
+            </div>
+                <div class='aaa'>
                     <div class="form">
-                        {{ form.pacienteuser.genero.label_tag }}
-                        {{ form.pacienteuser.genero }}
+                        {{ form.pacienteuser.cpf_paciente.label_tag }}
+                        {{ form.pacienteuser.cpf_paciente }}
                     </div>
                     <div class="form">
-                        {{ form.pacienteuser.contato_paciente.label_tag }}
-                        {{ form.pacienteuser.contato_paciente }}
+                        {{ form.pacienteuser.data_nascimento.label_tag }}
+                        {{ form.pacienteuser.data_nascimento }}
                     </div>
-                </div>
-                <div class="btn-continue">
-                    <button type="submit" id="continuar-button">Continue</button>
-                    <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
-                </div>
+                    <div class="content-label">
+                        <div class="form">
+                            {{ form.pacienteuser.genero.label_tag }}
+                            {{ form.pacienteuser.genero }}
+                        </div>
+                        <div class="form" id='contato'>
+                            {{ form.pacienteuser.contato_paciente.label_tag }}
+                            {{ form.pacienteuser.contato_paciente }}
+                        </div>
+                    </div>
+                    <div class="btn-continue">
+                        <button type="submit" id="continuar-button">Cadastrar</button>
+                        <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
+                    </div>
+                    <div>
+                    </div>
             </form>
         </div>
-        <div class="img">
-            <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">
-        </div>
-    </div>
+
 </body>
 </html>

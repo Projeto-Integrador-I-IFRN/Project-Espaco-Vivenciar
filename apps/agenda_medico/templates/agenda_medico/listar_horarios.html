@@ -20,13 +20,6 @@
                 <h1>Horários disponíveis - {{ agenda.servico.nome_servico }}  </h1>
             </div>
             
-            {% if messages %}
-                <div class="alert alert-success">
-                    {% for message in messages %}
-                        <p>{{ message }}</p>
-                    {% endfor %}
-                </div>
-            {% endif %}
 
 
             {% for horario in horarios %}
@@ -36,5 +29,6 @@
 
         </div>
     </div>
+    {% include "partials/pagination.html" %}
 
 {% endblock cadastrar_agenda %}

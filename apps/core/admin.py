@@ -3,6 +3,7 @@ from apps.paciente.models import Paciente
 from apps.medico.models import Profissional, Servico
 from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.agendamento.models import Solicitacao, Agendamento
+from apps.atendente.models import Atendente
 from django import forms
 from django.db import models
 from django.db.models import ProtectedError
@@ -53,6 +54,7 @@ class AgendaMedicaAdmin(admin.ModelAdmin):
         obj.gerar_horarios_atendimento()
 
 admin.site.register(Horario, HorarioAdmin)
+admin.site.register(Atendente)
 
 class SolicitacaoAdmin(admin.ModelAdmin):
     list_display = ['paciente','horario_selecionado', 'status']

@@ -1,9 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
+  border: none;
+  text-decoration: none;
 }
 :root {
   --background-white: #F7F7F7;
@@ -15,7 +15,12 @@
   color: var(--background-white);
 }
 
-body {
+.aaa{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.body-login {
   
   background-image: url('../img/background.svg');
   background-position: center center;
@@ -28,11 +33,16 @@ body {
   background-attachment: fixed;
 }
 
+.frme
+{
+  margin: auto;
+  margin-top: 50px;
+}
 .form
 {
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  
 }
 
 .login-card {
@@ -64,7 +74,7 @@ body {
 }
 
 .edit-field {
-  min-width: 14rem;
+  width: 25rem;
   font-size: 14px;
   color: var(--dark-grey);
   border: 1px solid #ccc;
@@ -73,8 +83,14 @@ body {
 
 }
 
+.labels
+{
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 form input {
-  min-width: 14rem;
+  width: 22rem;
   font-size: 14px;
   color: var(--dark-grey);
   border: 1px solid #ccc;
@@ -100,22 +116,23 @@ form input {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
 }
 
 .content-label input 
 {
-  width: 190px;
+  width: 200px;
 }
 
 .content-label select
 {
 
-    min-width: 14rem;
     font-size: 14px;
     color: var(--dark-grey);
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 10px;
+    width: 150px;
 }
 
 .btn-continue {
@@ -135,9 +152,21 @@ form input {
   color: var(--green-base);
 }
 
+.cadastro-container
+{
+  width: 300px;
+}
+
+.formulario
+{
+  display: flex;
+  align-items: start;
+  gap: 100px;
+  justify-content: center;
+}
 .btn-continue button{
   background-color: var(--green-base);
-  width: 380px;
+ 
   height: 50px;
   color: var(--background-white);
   font-size: 16px;
@@ -158,6 +187,15 @@ span {
   color: var(--green-base);
 }
 
+.container2
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  margin: auto;
+  width: 100%;
+}
 .voltar-button {
   cursor: pointer;
   margin-top: 10px;
@@ -174,4 +212,60 @@ span {
   {
     display: none;
   }
+}
+
+header img {
+  cursor: pointer;
+}
+
+header .nav
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6.25rem;
+  margin-right: 6.25rem;
+  /* 100px*/
+  width: auto;
+}
+
+header
+{
+  width: 100vw;
+}
+
+.home-logo {
+  width: 10.87rem;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6.25rem;
+  /* 50px */
+  margin-right: 6.25rem;
+  /* 100px*/
+  width: auto;
+  
+}
+
+
+header .nav .login-button {
+  background-color: var(--green-base);
+  color: white;
+  width: 120px;
+  height: 35px;
+  flex-shrink: 0;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  cursor: pointer;
+}
+
+header button a {
+  color: #ffffff;
 }

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="{% static 'perfil/css/cadastro-login.css'%}">
-    <link rel="stylesheet" href="{% static 'assets/css/scroll.css'%}">
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
     <title>Espaço Vivenciar</title>
+    
 </head>
+<body class = 'body-login'>
     <div class="login-card">
         <div class="container">
             <div class="content-primeira-parte"> 
@@ -24,11 +25,11 @@
                 <form method="POST">
                 {% csrf_token %}
                 <div class="form">
-                    <label for="e-mail">E-mail</label>
+                    <label class='labels' for="e-mail">E-mail</label>
                     {{ form.username }}
                 </div>
                 <div class="form">
-                    <label for="cpf">Senha</label>
+                    <label class='labels' for="cpf">Senha</label>
                     {{ form.password }}
                 </div>
         

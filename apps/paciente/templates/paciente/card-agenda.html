@@ -1,12 +1,20 @@
-{% load static %}
-<div class="card-item {% if agenda.data == data_mais_proxima %} id="data-proxima" {% endif %}">
-    <div class="data-hr">
-        <div class="data">
-            <h2>{{ agenda.dia_semana_abreviado }}</h2>
-            <h3>{{ agenda.data.day }}</h3>
+
+<div class="card-item-hora1">
+    <div class = "card-first3">{% load static %}
+    <div class= 'card-first-1'>
+
+        <div class="data-hr">
+            <div class="data">
+                <h2>{{ agenda.dia_semana_abreviado }}</h2>
+                <h3>{{ agenda.data.day }}</h3>
+            </div>
+            <hr>
         </div>
-        <hr>
-    </div>
+            <div class="user">
+                <p class = "name">{{ agenda.profissional.nome_medico}}<p>
+                <p class = 'especialidade'>{{ agenda.profissional.especialidade}}</p>
+            </div>
+        </div>
     <div class="horario-solicitar">
         <p class="horario-atendimento">Horários de atendimento</p>
         <div class="horario">
@@ -15,7 +23,10 @@
         </div>
     </div>
 
-    <a href="{% url "paciente:listar-horarios-atendimento" agenda_id=agenda.id %}"><button class="button-detalhar">Detalhar</button></a>
-    
 </div>
+<a  href="{% url "paciente:listar-horarios-atendimento" agenda_id=agenda.id %}"><button class="button-detalhar2">Detalhar</button></a>
+        
+    </div>
+
+
 

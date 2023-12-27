@@ -1,6 +1,13 @@
 {% extends "base/base_home.html" %}
 {% load static %}
 {% block main %}
+
+{% if messages %}
+                <script>
+                    window.alert("{% for message in messages %}{{ message }}\n{% endfor %}");
+                </script>
+{% endif %}
+</div>
 <div class="container">
     <div class="card-list">
         <div class="title">
@@ -10,9 +17,7 @@
             
                 
                 <div class="data-alternada">
-                    <img src="{% static "assets/img/icons/left.svg" %}">
-                    <p>Outubro</p>
-                    <img src="{% static "assets/img/icons/right.svg" %}">
+                    <p>Dezembro</p>
                 </div>
                 
                     
@@ -23,5 +28,6 @@
                 {% endfor %}
 
         </div>
+
     </div>
 {% endblock main %}

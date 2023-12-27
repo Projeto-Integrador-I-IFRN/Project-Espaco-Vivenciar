@@ -1,25 +1,50 @@
 :root {
     --background-white: #F7F7F7;
-    --green-base: #006650d3;
+    --green-base: #006650;
 }
 
 .custom-pagination {
+    display: flex;
     text-align: center;
-    margin-top: 20px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+   
 }
 
-.custom-pagination a, .custom-pagination button {
-    font-size: 13px;
-    margin: 0 5px;
+.skip
+{
+    font-size: 20px;
+}
+.page
+{
+    font-size: 16px;
+}
+
+.custom-pagination button
+{
+    border: 1px solid #ccc;
+    border-radius: 30%;
+    height: 35px;
+    width: 35px;
+}
+
+.numeros
+{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.custom-pagination a {
     text-decoration: none;
-    border: 1px solid #ccc; 
-    padding: 5px 10px; 
-    background-color: var(--green-base);
-    color: white;
+    font-weight: 600;
+    border-radius: 30%;
+    color: var(--green-base);
 }
 
 .custom-pagination .active {
     font-weight: bold;
-    background-color: #062d24d3; 
+    background-color:  #0066507d; 
     color: #fff; 
 }

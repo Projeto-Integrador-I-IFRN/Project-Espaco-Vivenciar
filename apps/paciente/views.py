@@ -20,6 +20,15 @@ class Home(LoginRequiredMixin, ListView):
     template_name = 'paciente/home.html'
     context_object_name = 'profissionais'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        paciente = self.request.user
+        context["paciente"] = paciente
+    
+        return context
+
+
 class SelecionarAgendaView(FormView):
     template_name = 'paciente/modal_selecionar_agenda.html'
     form_class = SelecionarAgendaForm
@@ -87,6 +96,7 @@ class ListarHorarios(LoginRequiredMixin, ListView):
     model = Horario
     template_name = 'paciente/listar-horarios-atendimento.html'
     context_object_name = 'horarios'
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -104,7 +114,7 @@ class ListarPacientes(LoginRequiredMixin, ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
-    paginate_by = 4
+    paginate_by = 3
 
     def get_queryset(self):
         query = self.request.GET.get('search')
@@ -172,6 +182,7 @@ class EditarPaciente(LoginRequiredMixin, UpdateView):
         # Save both user and paciente instances
         form.save()
         return super().form_valid(form)
+    
 
     def get_success_url(self):
         return reverse_lazy('paciente:listar-pacientes')

@@ -6,7 +6,7 @@
     <section class = "conteudo-cadastro" >
         <div class = "text">
             <h1>Sempre cuidando da sua saúde e bem-estar</h1>
-            <p>Agora você pode agendar suas consultas totalmente online de forma prática e rápida!</p>
+            <p>Agora você pode agendar suas consultas totalmente <br>online de forma prática e rápida!</p>
             <a href="{% url "perfil:Cadastro" %}"><button type="button" class="register-button">Cadastre-se</button></a>
         </div>
         <div class = "image-doctors">
@@ -14,9 +14,7 @@
         </div>
     </section>
 
-    <section>
-      {% include "partials/carousel.html" %}
-    </section>
+
       
 </main>
 {% endblock content%}

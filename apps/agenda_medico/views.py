@@ -152,6 +152,7 @@ class ListarHorarios(ListView):
     model = Horario
     template_name = 'agenda_medico/listar_horarios.html'
     context_object_name = 'horarios'
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

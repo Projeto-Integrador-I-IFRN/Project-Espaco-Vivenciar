@@ -77,6 +77,13 @@ header
 
 header .sair-link{
     color: rgb(231, 1, 1);
+    background-color: transparent;
+    font-size: 14px;
+    margin-left: 5px;
+}
+header .sair-link:hover{
+    background-color: #cccccc28;
+    border-radius: 10px;
 }
 
     

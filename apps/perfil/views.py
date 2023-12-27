@@ -122,6 +122,7 @@ class ListarAgendamentos(LoginRequiredMixin, ListView):
     template_name = 'perfil/listar_agendamentos.html'
     model = Agendamento
     context_object_name = 'agendamentos'
+    paginate_by = 3
 
     def get_queryset(self):
         # Recupera o paciente logado

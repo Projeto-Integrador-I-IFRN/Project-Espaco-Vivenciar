@@ -2,6 +2,6 @@
 <header>
     <div class="nav">
         <a href = "{% url "core:Index" %}"> <img  class = "home-logo" src= "{% static 'assets/img/icons/Logo.svg' %}" alt=""> </a>
-        <button type="button" class="login-button"><a href="{% url "perfil:Login" %}">Entrar</a></button>
+        <a href="{% url "perfil:Login" %}"><button type="button" class="login-button">Entrar</a></button>
     </div>
 </header>
