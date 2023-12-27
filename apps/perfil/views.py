@@ -1,17 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic.base import RedirectView
-from django.contrib.auth import login
 from django.urls import reverse_lazy
-from django.views.generic import ListView, View, CreateView, UpdateView, DetailView
-from .forms import SolicitarConsulta
+from django.views.generic import CreateView, UpdateView, DetailView
 from django.views.generic import CreateView, TemplateView
-from .forms import UserProfileMultiForm, PerfilUserForm
+from .forms import UserProfileMultiForm
 from apps.paciente.forms import PacienteForm
 from apps.paciente.models import Paciente
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
-from apps.agendamento.models import Agendamento
 from django.shortcuts import get_object_or_404
 
 
@@ -19,6 +16,7 @@ class ListarAgendamentos(LoginRequiredMixin, ListView):
     template_name = 'perfil/listar_agendamentos.html'
     model = Agendamento
     context_object_name = 'agendamentos'
+    paginate_by = 5
 
     def get_queryset(self):
         # Recupera o paciente logado
@@ -46,21 +44,8 @@ class RegisterPacienteView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['paciente_form'] = PacienteForm() 
+        context['paciente_form'] = PacienteForm()
         return context
-
-    def form_valid(self, form):
-        user = form['perfiluser'].save()
-        user.username = form['perfiluser'].cleaned_data.get('email')
-        user.save()
-        paciente = form['pacienteuser'].save(commit=False)
-        paciente.user = user
-        paciente.save()
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        paciente_form = PacienteForm(self.request.POST)
-        return self.render_to_response(self.get_context_data(form=form, paciente_form=paciente_form))
 
 class CustomUserRedirectView(LoginRequiredMixin, RedirectView):
 
