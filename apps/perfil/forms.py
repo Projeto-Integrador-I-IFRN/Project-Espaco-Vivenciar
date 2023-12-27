@@ -18,14 +18,14 @@ class PerfilUserForm(UserCreationForm):
     )
 
     password1 = forms.CharField(
-        label="Password",
+        label="Senha",
         strip=False,
         widget=forms.PasswordInput(attrs={'class': 'form'}),
         help_text="Your password cannot be similar to the rest of your personal information.",
     )
 
     password2 = forms.CharField(
-        label="Confirm your password",
+        label="Confirmar senha",
         widget=forms.PasswordInput(attrs={'class': 'form'}),
         strip=False,
         help_text="Enter the same password entered previously for verification.",
