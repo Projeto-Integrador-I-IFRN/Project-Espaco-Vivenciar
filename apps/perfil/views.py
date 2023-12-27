@@ -3,40 +3,29 @@ from django.urls import reverse
 from django.views.generic.base import RedirectView
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
 from .forms import UserProfileMultiForm
 from apps.paciente.forms import PacienteForm
 from apps.paciente.models import Paciente
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+from apps.agendamento.models import Agendamento
 from django.shortcuts import get_object_or_404
 
+class CreateUserAndPacienteMixin:
+    def form_valid(self, form):
+        user = form['perfiluser'].save(commit=False)
+        user.username = form['perfiluser'].cleaned_data.get('email')
+        user.save()
+        paciente = form['pacienteuser'].save(commit=False)
+        paciente.user = self.get_user(user)
+        paciente.save()
+        return super().form_valid(form)
 
-class ListarAgendamentos(LoginRequiredMixin, ListView):
-    template_name = 'perfil/listar_agendamentos.html'
-    model = Agendamento
-    context_object_name = 'agendamentos'
-    paginate_by = 5
-
-    def get_queryset(self):
-        # Recupera o paciente logado
-        paciente = get_object_or_404(Paciente, id=1)
-
-        # Filtra os agendamentos para o paciente logado
-        queryset = Agendamento.objects.filter(paciente=paciente)
-
-        # Adicione qualquer lógica adicional de filtragem aqui, se necessário
-
-        return queryset
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        # Adicione qualquer informação adicional ao contexto, se necessário
-
-        return context
-
-class RegisterPacienteView(CreateView):
+    def get_user(self, user):
+        return user
+    
+class RegisterPacienteView(CreateUserAndPacienteMixin, CreateView):
     model = Paciente
     form_class = UserProfileMultiForm
     template_name = 'perfil/cadastro.html'
@@ -132,3 +121,25 @@ def Agendamentos(request):
 
 from django.shortcuts import render
 
+class ListarAgendamentos(LoginRequiredMixin, ListView):
+    template_name = 'perfil/listar_agendamentos.html'
+    model = Agendamento
+    context_object_name = 'agendamentos'
+
+    def get_queryset(self):
+        # Recupera o paciente logado
+        paciente = get_object_or_404(Paciente, id=1)
+
+        # Filtra os agendamentos para o paciente logado
+        queryset = Agendamento.objects.filter(paciente=paciente)
+
+        # Adicione qualquer lógica adicional de filtragem aqui, se necessário
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Adicione qualquer informação adicional ao contexto, se necessário
+
+        return context
