@@ -4,29 +4,35 @@
             <div class= 'card-first-1'>
                 <div class="data-hr">
                     <div class="data2">
-                        <h2> {{ dias_da_semana }}</h2>
+                        <h2> {{ agendamento.agenda.dia_da_semana }}</h2>
                         <h3>{{ agendamento.horario_selecionado.agenda_medica.data.day }}</h3>
                     </div>
-                    <p>{{agendamento.horario_selecionado.agenda_medica.servico.nome_servico}}</p>
+                   
                     <hr id ='hr'>
                     
                     <div class="foto-nome">
-                        <div class="circle-avatar" id="patient-avatar">{{ item.paciente.nome_paciente.0 }}</div>
-                            <div class="user">
-                                <p class="name-paciente" >{{ item.paciente.nome_paciente }}</p>
-                                <p>{{ agendamento.paciente.cpf_paciente }}</p>
-                            </div>
+                        <img src="{{ agendamento.agenda.profissional.imagem.url }}" alt="Imagem" id="imagem-profissional">
+                        <div class="user">
+                            <p class = "name">{{ agendamento.agenda.profissional.nome_medico}}<p>
+                            <p class = 'especialidade'>{{ agendamento.agenda.profissional.especialidade}}</p>
                         </div>
+                        </div>
+                    
                     </div>
-                 
+                    
+                   
+                </div>
+                <div>
+                    <p>{{agendamento.horario_selecionado.agenda_medica.servico.nome_servico}}</p>
                 </div>
                 <div class="horario-solicitar">
-                    <p class="horario-atendimento">Horário de atendimento</p>
+                    <p class="horario-atendimento">Horário agendado</p>
                     <div class="horario">
                         <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
-                        <p class = 'hora'>{{ agendamento.horario_selecionado.inicio }}h  - {{ item.horario_selecionado.fim}}h</p>
+                        <p class = 'hora'>{{ agendamento.horario_selecionado.inicio }}h  - {{ agendamento.horario_selecionado.fim}}h</p>
                     </div>
                 </div>
+                <a href="https://api.whatsapp.com/send?phone={{agendamento.agenda.profissional.contato_profissional}}"><img src="{% static "assets/img/icons/whatsappbutton.svg" %}" alt=""></a>
     </div>
 </div>
 

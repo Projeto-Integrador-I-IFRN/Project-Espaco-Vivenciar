@@ -88,7 +88,6 @@ class CriarAgendamento(CreateView):
         return super().form_valid(form)
         
 
-
     def get_success_url(self):
         horario_pk = self.kwargs.get('horario_pk')
         horario = Horario.objects.get(id=horario_pk)
@@ -111,16 +110,15 @@ class AceitarRecusarSolicitacaoView(View):
                 )
                 solicitacao.aceitar_solicitacao()
                 solicitacao.delete()
-                return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
-            else:
-                # Trate o caso em que não há horário ou agenda associada à solicitação
-                messages.error(request, 'Não há horário ou agenda associados à solicitação.')
-                return redirect('agendamento:listar-agendamentos')  # ou outra URL padrão
+                return redirect(f'https://api.whatsapp.com/send?phone={solicitacao.paciente.contato_paciente}&text=Ol%C3%A1,%20seu%20agendamento%20no%20Espa%C3%A7o%20Vivenciar%20foi%20confirmado!', target='_blank')
+
 
         elif action == 'recusar':
             solicitacao.recusar_solicitacao()
             solicitacao.delete()
-            return redirect('agendamento:listar-agendamentos', agenda_pk=solicitacao.horario_selecionado.agenda_medica.pk)
+
+            return redirect(f'https://api.whatsapp.com/send?phone={solicitacao.paciente.contato_paciente}&text=Ol%C3%A1,%20infelizmente%20por%20motivos%20maiores%20venho%20informar%20n%C3%A3o%20ser%C3%A1%20poss%C3%ADvel%20realizar%20seu%20agendamento', target='_blank')
+      
 
 
 class ListarAgendamentosSolicitacoes(ListView):

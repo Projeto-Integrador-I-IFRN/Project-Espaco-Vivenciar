@@ -12,6 +12,6 @@ urlpatterns = [
     path("perfil/", views.Perfil, name="Perfil"),
      path('listar-agendamentos/', views.ListarAgendamentos.as_view(), name='listar-agendamentos'),
     path('perfil/detalhes/', views.DetalhesPaciente.as_view(), name='detalhes-paciente'),
-    path('perfil/editar/<int:paciente_id>', views.EditarPaciente.as_view(), name='editar-paciente'),
+    path('perfil/editar', views.EditarPaciente.as_view(), name='editar-paciente'),
    
 ]

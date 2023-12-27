@@ -7,7 +7,7 @@
         <div class="menu">
             <img class="home-icon" src="{% static 'assets/img/icons/admin.svg' %}">
             <div class="dropdown-menu">
-                <a href="{% url 'perfil:editar-paciente' paciente_id=1 %}">Meu Perfil</a>
+                <a href="{% url 'perfil:editar-paciente' %}">Meu Perfil</a>
                 <a href="{% url 'perfil:listar-agendamentos' %}">Meus Agendamentos</a>
 
                 <form class="sair-link" method='POST' action="{% url 'perfil:Logout' %}">

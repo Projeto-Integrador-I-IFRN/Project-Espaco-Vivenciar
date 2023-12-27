@@ -43,7 +43,6 @@ class CustomUserRedirectView(LoginRequiredMixin, RedirectView):
             if self.request.user.is_staff:
                 return reverse("agenda_medico:Home")
             else:
-                print('aaaaa')
                 return reverse("paciente:Home")
         else:
             print('test')
@@ -73,11 +72,10 @@ class EditarPaciente(LoginRequiredMixin, UpdateView):
     model = Paciente
     template_name = 'perfil/perfil.html'
     form_class = PacienteForm
-    pk_url_kwarg = 'paciente_id'
 
     def get_object(self, queryset=None):
         # Certifique-se de que o usuário autenticado seja o dono do perfil
-        paciente = Paciente.objects.get(id=1)
+        paciente = get_object_or_404(Paciente, user=self.request.user)
         return paciente
 
     def get_form_kwargs(self):
@@ -95,7 +93,8 @@ class DetalhesPaciente(DetailView):
 
     def get_object(self, queryset=None):
         # Certifique-se de que o usuário autenticado seja o dono do perfil
-        paciente = Paciente.objects.get(id=1)  # Modifique isso conforme necessário para obter o paciente certo
+        paciente = Paciente.objects.filter(user__id=self.request.user.id)
+        print(paciente)
         return paciente
 
 def Agendamentos(request):
@@ -128,7 +127,7 @@ class ListarAgendamentos(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # Recupera o paciente logado
-        paciente = get_object_or_404(Paciente, id=1)
+        paciente = Paciente.objects.filter(user__id=self.request.user.id).first()
 
         # Filtra os agendamentos para o paciente logado
         queryset = Agendamento.objects.filter(paciente=paciente)
@@ -140,6 +139,14 @@ class ListarAgendamentos(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        # Adicione qualquer informação adicional ao contexto, se necessário
+        # Adiciona o atributo 'dia_semana_abreviado' e 'agenda' a cada objeto de Agendamento no contexto
+        for agendamento in context['agendamentos']:
+            agendamento.agenda = agendamento.agenda_medica
+            agendamento.agenda.dia_da_semana = listar_dias_semana(agendamento)
 
         return context
+
+def listar_dias_semana(agendamento):
+    dias_da_semana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom']
+    dia_semana_numero = agendamento.agenda_medica.data.weekday()
+    return dias_da_semana[dia_semana_numero]

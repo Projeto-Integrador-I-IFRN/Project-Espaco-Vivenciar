@@ -169,6 +169,14 @@ p {
 
 }
 
+.card-first2 {
+    display: flex;
+    gap: 150px;
+    align-items: center;
+    margin-left: 30px;
+
+}
+
 .card-first-1 {
     display: flex;
     gap: 50px;
@@ -268,6 +276,7 @@ p {
     display: flex;
     gap: 40px;
     margin-left: 10px;
+    align-items: center;
 }
 
 .data2 h3 {
