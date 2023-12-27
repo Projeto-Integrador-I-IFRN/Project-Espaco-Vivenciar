@@ -10,7 +10,7 @@ urlpatterns = [
     path("logout/", LogoutView.as_view(), name="Logout"),
     path("home/", views.HomeView.as_view(), name="Home"),
     path("perfil/", views.Perfil, name="Perfil"),
-    path("agendamentos/", views.Agendamentos, name="Agendamentos"),
+     path('listar-agendamentos/', views.ListarAgendamentos.as_view(), name='listar-agendamentos'),
     path('perfil/detalhes/', views.DetalhesPaciente.as_view(), name='detalhes-paciente'),
     path('perfil/editar/<int:paciente_id>', views.EditarPaciente.as_view(), name='editar-paciente'),
    

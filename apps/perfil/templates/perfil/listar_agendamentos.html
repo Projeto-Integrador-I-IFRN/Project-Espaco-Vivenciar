@@ -1,0 +1,20 @@
+{% extends "base/base_home.html" %}
+{% load static %}
+
+{% block main %}
+    <div class="container">
+        
+        <div class="card-list">
+            
+            <div class="title">
+                <h1>Meus agendamentos</h1>
+            </div>
+
+            {% for agendamento in agendamentos %}
+                    {% include "perfil/card_agendamento2.html"   %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock main %}

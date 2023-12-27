@@ -12,6 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import re
 
 
+
 class Home(ListView):
     model = Profissional
     template_name = 'paciente/home.html'
@@ -52,7 +53,8 @@ class SelecionarAgendaView(FormView):
         profissional = Profissional.objects.get(pk=profissional_pk)
         kwarg['profissional'] = profissional
         return kwarg
-    
+
+
 class ListarAgenda(ListView):
     model = AgendaMedica
     template_name = 'paciente/listar-agendas.html'
@@ -95,11 +97,12 @@ class ListarHorarios(ListView):
     def get_queryset(self):
         agenda_id = self.kwargs.get('agenda_id')
         return Horario.objects.filter(agenda_medica__id=agenda_id)
+    
 class ListarPacientes(ListView):
     model = Paciente
     template_name = 'paciente/pacientes.html'
     context_object_name = 'pacientes'
-    paginate_by = 10
+    paginate_by = 2
 
     def get_queryset(self):
         query = self.request.GET.get('search')

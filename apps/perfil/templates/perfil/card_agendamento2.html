@@ -1,0 +1,33 @@
+{% load static %}
+<div class="card-item-hora">
+      <div class = "card-first">
+            <div class= 'card-first-1'>
+                <div class="data-hr">
+                    <div class="data2">
+                        <h2> {{ dias_da_semana }}</h2>
+                        <h3>{{ agendamento.horario_selecionado.agenda_medica.data.day }}</h3>
+                    </div>
+                    <p>{{agendamento.horario_selecionado.agenda_medica.servico.nome_servico}}</p>
+                    <hr id ='hr'>
+                    
+                    <div class="foto-nome">
+                        <div class="circle-avatar" id="patient-avatar">{{ item.paciente.nome_paciente.0 }}</div>
+                            <div class="user">
+                                <p class="name-paciente" >{{ item.paciente.nome_paciente }}</p>
+                                <p>{{ agendamento.paciente.cpf_paciente }}</p>
+                            </div>
+                        </div>
+                    </div>
+                 
+                </div>
+                <div class="horario-solicitar">
+                    <p class="horario-atendimento">Horário de atendimento</p>
+                    <div class="horario">
+                        <img src="{% static "assets/img/icons/hora.svg" %}" alt="">
+                        <p class = 'hora'>{{ agendamento.horario_selecionado.inicio }}h  - {{ item.horario_selecionado.fim}}h</p>
+                    </div>
+                </div>
+    </div>
+</div>
+
+<script src="{% static 'paciente/js/foto-perfil.js' %}"></script>

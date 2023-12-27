@@ -11,7 +11,32 @@ from apps.paciente.forms import PacienteForm
 from apps.paciente.models import Paciente
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+from apps.agendamento.models import Agendamento
+from django.shortcuts import get_object_or_404
 
+
+class ListarAgendamentos(LoginRequiredMixin, ListView):
+    template_name = 'perfil/listar_agendamentos.html'
+    model = Agendamento
+    context_object_name = 'agendamentos'
+
+    def get_queryset(self):
+        # Recupera o paciente logado
+        paciente = get_object_or_404(Paciente, id=1)
+
+        # Filtra os agendamentos para o paciente logado
+        queryset = Agendamento.objects.filter(paciente=paciente)
+
+        # Adicione qualquer lógica adicional de filtragem aqui, se necessário
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Adicione qualquer informação adicional ao contexto, se necessário
+
+        return context
 
 class RegisterPacienteView(CreateView):
     model = Paciente
