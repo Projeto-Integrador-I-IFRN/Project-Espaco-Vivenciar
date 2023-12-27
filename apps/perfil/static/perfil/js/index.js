@@ -39,20 +39,20 @@ const dragStop = () => {
 }
 
 const infiniteScroll = () => {
-        // Se o carrossel atingiu o final, role para o início
-        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.offsetWidth) {
-            carousel.scrollLeft = 0;
-        }
-    
-        // Se o carrossel está no início, role para o final
-        else if (carousel.scrollLeft === 0) {
-            carousel.scrollLeft = carousel.scrollWidth - carousel.offsetWidth;
-        }
-    
-        // Limpe o timeout existente e inicie o autoplay se o mouse não estiver sobre o carrossel
-        clearTimeout(timeoutId);
-        if (!wrapper.matches(":hover")) autoPlay();
+    // Se o usuário estiver arrastando, não faça nada
+    if (isDragging) return;
+
+    // Restante da sua lógica existente para rotação infinita
+    if (carousel.scrollLeft >= carousel.scrollWidth - carousel.offsetWidth) {
+        carousel.scrollLeft = 0;
+    } else if (carousel.scrollLeft === 0) {
+        carousel.scrollLeft = carousel.scrollWidth - carousel.offsetWidth;
     }
+
+    clearTimeout(timeoutId);
+    if (!wrapper.matches(":hover")) autoPlay();
+}
+
     
 
 const autoPlay = () => {

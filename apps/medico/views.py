@@ -11,6 +11,7 @@ class ListarProfissionais(ListView):
     model = Profissional
     template_name = 'medico/listar_profissionais.html'
     context_object_name = 'profissionais'
+    paginate_by = 3
 
     def get_queryset(self):
         query = self.request.GET.get('search')
