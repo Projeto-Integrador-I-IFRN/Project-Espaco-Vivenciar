@@ -8,8 +8,6 @@ from apps.agenda_medico.models import AgendaMedica, Horario
 from apps.paciente.models import Paciente
 from django.contrib import messages
 
-
-
 class CriarSolicitacao(View):
     
     def post(self, request, horario_pk, *args, **kwargs):

@@ -19,6 +19,7 @@ class Paciente(models.Model):
         max_length = 11,
         unique = True,
         null = True,
+        verbose_name='Cpf',
         validators=[
             validate_integer,
             MinLengthValidator(limit_value = 11, message ='O CPF deve ter exatamente 11 dígitos.'),
@@ -30,7 +31,7 @@ class Paciente(models.Model):
         genero_mapping = dict(self.GENERO_CHOICES)
         return genero_mapping.get(self.genero, self.genero)
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'

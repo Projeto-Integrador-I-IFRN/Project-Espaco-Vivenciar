@@ -63,14 +63,34 @@ body {
 
 }
 
-.form input {
-  border-radius: 10px;
-  border: solid 0.8px #CFCFCF;
-  margin-top: 10px;
-  width: 380px;
-  height: 60px;
+.edit-field {
+  min-width: 14rem;
+  font-size: 14px;
+  color: var(--dark-grey);
+  border: 1px solid #ccc;
   padding: 10px;
+  border-radius: 10px;
+
 }
+
+form input {
+  min-width: 14rem;
+  font-size: 14px;
+  color: var(--dark-grey);
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+.edit-field:focus {
+  outline-color: var(--green-base);
+}
+
+form input {
+  outline-color: var(--green-base);
+}
+
 .segunda-parte {
   width: 400px;
 
@@ -90,14 +110,12 @@ body {
 .content-label select
 {
 
-  border-radius: 10px;
-  border: solid 0.8px #CFCFCF;
-  margin-top: 10px;
-  width: 160px;
-  height: 60px;
-  color: black;
-  padding: 10px;
-  
+    min-width: 14rem;
+    font-size: 14px;
+    color: var(--dark-grey);
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .btn-continue {

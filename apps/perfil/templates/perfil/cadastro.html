@@ -25,36 +25,37 @@
             <form method="POST" action="{% url 'perfil:Cadastro' %}">
                 {% csrf_token %}
                 <div class="form">
-                    <label for="{{ form.email.id_for_label }}">Email</label>
+                    {{ form.perfiluser.email.label_tag }}
                     {{ form.perfiluser.email }}
                 </div>
                 <div class="form">
-                    <label for="{{ form.password1.id_for_label }}">Password</label>
+                    {{ form.perfiluser.password1.label_tag }}
                     {{ form.perfiluser.password1 }}
                 </div>
                 <div class="form">
-                    <label for="{{ form.password2.id_for_label }}">Confirm your password</label>
+                    {{ form.perfiluser.password2.label_tag }}
                     {{ form.perfiluser.password2 }}
+                    {{ form.errors }}
                 </div>
                 <div class="form">
-                    <label for="{{ paciente_form.nome_paciente.id_for_label }}">Nome completo</label>
+                    {{ form.pacienteuser.nome_paciente.label_tag }}
                     {{ form.pacienteuser.nome_paciente }}
                 </div>
                 <div class="form">
-                    <label for="{{ paciente_form.cpf_paciente.id_for_label }}">CPF</label>
+                    {{ form.pacienteuser.cpf_paciente.label_tag }}
                     {{ form.pacienteuser.cpf_paciente }}
                 </div>
                 <div class="form">
-                    <label for="{{ paciente_form.data_nascimento.id_for_label }}">Data de Nascimento</label>
+                    {{ form.pacienteuser.data_nascimento.label_tag }}
                     {{ form.pacienteuser.data_nascimento }}
                 </div>
                 <div class="content-label">
                     <div class="form">
-                        <label for="{{ paciente_form.genero.id_for_label }}">Gênero</label>
+                        {{ form.pacienteuser.genero.label_tag }}
                         {{ form.pacienteuser.genero }}
                     </div>
                     <div class="form">
-                        <label for="{{ paciente_form.contato_paciente.id_for_label }}">Contato</label>
+                        {{ form.pacienteuser.contato_paciente.label_tag }}
                         {{ form.pacienteuser.contato_paciente }}
                     </div>
                 </div>
@@ -63,7 +64,6 @@
                     <p>Já tem uma conta? <u><span class="btn-color"><a href="{% url "perfil:Login" %}"> Entrar</a></span></u></p>
                 </div>
             </form>
-    
         </div>
         <div class="img">
             <img src="{% static 'assets/img/img-cadastro.svg' %}" alt="">

@@ -12,41 +12,51 @@
         </div>
         <div class="info-user">
             <div class="sections">
-            <div class="section">
-                <div class="campos">
-                    <label for="nome">Nome</label>
-                    {{ form.nome_paciente }}
+                <div class="section">
+                    <div class="campos">
+                        <label for="nome">Nome</label>
+                        {{ form.pacienteuser.nome_paciente }}
+                    </div>
+                    <div class="campos">
+                        <label for="data">Data de Nascimento</label>
+                        {{ form.pacienteuser.data_nascimento }}
+                    </div>
                 </div>
-                <div class="campos">
-                    <label for="data">Data de Nascimento</label>
-                    {{ form.data_nascimento }}
-                </div>
-            </div>
+                
                 <div class="section">
                     <div class="campos">
                         <label for="gênero">Gênero</label>
-                        {{ form.genero }}
-                        </select>
+                        {{ form.pacienteuser.genero }}
                     </div>
                 
                     <div class="campos">
                         <label for="e-mail">E-mail</label>
-                        {{ form.email }}
+                        {{ form.perfiluser.email }}
                     </div>
                 </div>
-
+                
+                <div class="campos">
+                    {{ form.perfiluser.password1.label_tag }}
+                    {{ form.perfiluser.password1 }}
+                </div>
+                <div class="campos">
+                    {{ form.perfiluser.password2.label_tag }}
+                    {{ form.perfiluser.password2 }}
+                    {{ form.errors }}
+                </div>
+                
                 <div class="section">
                     <div class="campos">
                         <label for="cpf">CPF</label>
-                        {{ form.cpf_paciente }}
-                        {{ form.cpf_paciente.errors }}
+                        {{ form.pacienteuser.cpf_paciente }}
+                        {{ form.pacienteuser.cpf_paciente.errors }}
                     </div>
-
+                
                     <div class="campos">
-                        <label for = "contato">Contato</label>
-                        {{ form.contato_paciente }}
+                        <label for="contato">Contato</label>
+                        {{ form.pacienteuser.contato_paciente }}
+                    </div>
                 </div>
-            </div>
         </div>
         
     </section>

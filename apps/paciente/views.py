@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, DetailView, ListView, FormView
+from .forms import UserProfileMultiForm, PerfilUserForm
 from apps.paciente.models import Paciente
 from apps.medico.models import Profissional
 from django.db.models import Q
@@ -7,7 +8,9 @@ from .forms import PacienteForm
 from apps.agenda_medico.forms import SelecionarAgendaForm
 from apps.agenda_medico.models import AgendaMedica, Horario
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 import re
+
 
 class Home(ListView):
     model = Profissional
@@ -125,10 +128,27 @@ def formatar_cpf(cpf):
     
     return cpf_formatado
 
-class CriarPaciente(CreateView):
+class CriarPaciente(LoginRequiredMixin, CreateView):
     template_name = 'paciente/criar-paciente.html'
-    form_class = PacienteForm
+    form_class = UserProfileMultiForm
     success_url = reverse_lazy('paciente:listar-pacientes')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['paciente_form'] = PacienteForm()
+        return context
+
+    def form_valid(self, form):
+        # Atribuir o usuário atual ao paciente antes de salvar
+        paciente = form['pacienteuser'].save(commit=False)
+        paciente.user = self.request.user  # Assumindo que self.request.user contém o usuário atual
+        paciente.save()
+
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        paciente_form = PacienteForm(self.request.POST)
+        return self.render_to_response(self.get_context_data(form=form, paciente_form=paciente_form))
 
 class ExcluirPaciente(DeleteView):
     model = Paciente
