@@ -31,7 +31,7 @@ class Paciente(models.Model):
         genero_mapping = dict(self.GENERO_CHOICES)
         return genero_mapping.get(self.genero, self.genero)
 
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     
     def __str__(self):
         return f'Nome: {self.nome_paciente} CPF: {self.cpf_paciente}'
@@ -41,5 +41,3 @@ class Paciente(models.Model):
         if len(cpf_paciente) != 11:
             raise forms.ValidationError('O CPF deve ter exatamente 11 caracteres.')
         return cpf_paciente
-    
-    

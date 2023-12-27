@@ -10,7 +10,7 @@ from apps.agenda_medico.models import AgendaMedica, Horario
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 import re
-
+from apps.perfil.views import CreateUserAndPacienteMixin
 
 class Home(ListView):
     model = Profissional
@@ -128,7 +128,7 @@ def formatar_cpf(cpf):
     
     return cpf_formatado
 
-class CriarPaciente(LoginRequiredMixin, CreateView):
+class CriarPaciente(LoginRequiredMixin, CreateUserAndPacienteMixin, CreateView):
     template_name = 'paciente/criar-paciente.html'
     form_class = UserProfileMultiForm
     success_url = reverse_lazy('paciente:listar-pacientes')
@@ -138,17 +138,8 @@ class CriarPaciente(LoginRequiredMixin, CreateView):
         context['paciente_form'] = PacienteForm()
         return context
 
-    def form_valid(self, form):
-        # Atribuir o usuário atual ao paciente antes de salvar
-        paciente = form['pacienteuser'].save(commit=False)
-        paciente.user = self.request.user  # Assumindo que self.request.user contém o usuário atual
-        paciente.save()
-
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        paciente_form = PacienteForm(self.request.POST)
-        return self.render_to_response(self.get_context_data(form=form, paciente_form=paciente_form))
+    def get_user(self, user):
+        return self.request.user
 
 class ExcluirPaciente(DeleteView):
     model = Paciente

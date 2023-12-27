@@ -1,19 +1,29 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic.base import RedirectView
-from django.contrib.auth import login
 from django.urls import reverse_lazy
-from django.views.generic import ListView, View, CreateView, UpdateView, DetailView
-from .forms import SolicitarConsulta
+from django.views.generic import CreateView, UpdateView, DetailView
 from django.views.generic import CreateView, TemplateView
-from .forms import UserProfileMultiForm, PerfilUserForm
+from .forms import UserProfileMultiForm
 from apps.paciente.forms import PacienteForm
 from apps.paciente.models import Paciente
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 
+class CreateUserAndPacienteMixin:
+    def form_valid(self, form):
+        user = form['perfiluser'].save(commit=False)
+        user.username = form['perfiluser'].cleaned_data.get('email')
+        user.save()
+        paciente = form['pacienteuser'].save(commit=False)
+        paciente.user = self.get_user(user)
+        paciente.save()
+        return super().form_valid(form)
 
-class RegisterPacienteView(CreateView):
+    def get_user(self, user):
+        return user
+    
+class RegisterPacienteView(CreateUserAndPacienteMixin, CreateView):
     model = Paciente
     form_class = UserProfileMultiForm
     template_name = 'perfil/cadastro.html'
@@ -21,21 +31,8 @@ class RegisterPacienteView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['paciente_form'] = PacienteForm() 
+        context['paciente_form'] = PacienteForm()
         return context
-
-    def form_valid(self, form):
-        user = form['perfiluser'].save()
-        user.username = form['perfiluser'].cleaned_data.get('email')
-        user.save()
-        paciente = form['pacienteuser'].save(commit=False)
-        paciente.user = user
-        paciente.save()
-        return super().form_valid(form)
-
-    def form_invalid(self, form):
-        paciente_form = PacienteForm(self.request.POST)
-        return self.render_to_response(self.get_context_data(form=form, paciente_form=paciente_form))
 
 class CustomUserRedirectView(LoginRequiredMixin, RedirectView):
 
